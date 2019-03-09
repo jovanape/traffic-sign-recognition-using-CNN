@@ -1,6 +1,5 @@
 import keras
-import os
-import sys
+import os, sys,json
 import warnings
 import skimage.data
 import skimage.transform
@@ -56,7 +55,22 @@ def test_one():
     
     model = load_model('./model.h5')
     prediction = model.predict_classes(image)
-    print("Predicted class: ", prediction[0])
+    
+    try:
+        with open("sign_names.json", "r") as f:
+            signs = json.load(f)
+    except IOError:
+        print("Opening file sign_names.json failed!")
+        sys.exit()
+        
+    # U json fajlu trazi naziv znaka predvidjene klase
+    # TODO: dodati nazive za sve znakove u json fajlu
+    for sign in signs:
+        if(sign["class"] == prediction[0]):
+            print("Predicted class: {0} (class {1})".format(sign["sign_name"], prediction[0]))
+    
+    
+    #print("Predicted class: ", prediction[0])
     
 
 def main():

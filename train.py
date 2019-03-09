@@ -57,7 +57,7 @@ classes = np.eye(NUM_CLASSES, dtype='uint8')[classes]
 print("classes shape: ", classes.shape, "\nimages shape: ", images.shape)
 
 
-
+# TODO: Napraviti bolji model i/ili ga optimizovati drugacije!!!!!!!
 def cnn_model():
     
     model = Sequential()

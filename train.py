@@ -30,18 +30,20 @@ warnings.filterwarnings("ignore")
 
 images, classes = load_data(train_data_dir)
 
-NUM_CLASSES = len(set(classes))
+NUM_OF_CLASSES = len(set(classes))
 
-print("Number of classes: {0}\nNumber of images for training: {1}".format(NUM_CLASSES, len(images)))
+print("Number of classes: {0}\nNumber of images for training: {1}".format(NUM_OF_CLASSES, len(images)))
 
 
+# Da vidimo koje sve klase postoje u trening skupu podataka.
+# Zakomentarisati ako nas ne zanima.
 display_images_and_classes(images, classes)
 
 #for image in images[:5]:
     #print("shape: {0}, min: {1}, max: {2}".format(image.shape, image.min(), image.max()))
     
     
-# Postavljamo da sve slike budu istih dimenzija: 64x64
+# Postavljamo da sve slike budu istih dimenzija: IMG_SIZE x IMG_SIZE tj. 64x64
 images64 = [skimage.transform.resize(image, (IMG_SIZE, IMG_SIZE), mode='constant')
                 for image in images]
 #display_images_and_classes(images64, classes)
@@ -51,13 +53,14 @@ classes = np.array(classes)
 #print(classes[3])
 
 # Za klasu i postavljamo 1 na i-to mesto, a na ostala 0
-classes = np.eye(NUM_CLASSES, dtype='uint8')[classes]
+classes = np.eye(NUM_OF_CLASSES, dtype='uint8')[classes]
 #print(classes[3])
 
 print("classes shape: ", classes.shape, "\nimages shape: ", images.shape)
 
 
 # TODO: Napraviti bolji model i/ili ga optimizovati drugacije!!!!!!!
+#       Mozda i izbaciti neke slike iz trening skupa, tako da bude priblizno isti broj slika za svaku klasu
 def cnn_model():
     
     model = Sequential()
@@ -84,7 +87,7 @@ def cnn_model():
     model.add(Flatten())
     model.add(Dense(512, activation='relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(NUM_CLASSES, activation='softmax'))
+    model.add(Dense(NUM_OF_CLASSES, activation='softmax'))
     """
     
     # Transformacija 3D slike u 1D vektor 
@@ -92,7 +95,7 @@ def cnn_model():
     model.add(Dense(64)) # viseslojni perceptron
     model.add(Activation('relu'))
     model.add(Dropout(0.5)) # deaktiviramo polovinu neurona kako ne bi doslo do preprilagodjavanja
-    model.add(Dense(NUM_CLASSES))  # output layer ima onoliko neurona koliko ima klasa
+    model.add(Dense(NUM_OF_CLASSES))  # output layer ima onoliko neurona koliko ima klasa
     model.add(Activation('softmax'))
 
     model.summary()

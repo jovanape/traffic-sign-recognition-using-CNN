@@ -9,14 +9,19 @@ import numpy as np
 import tensorflow as tf
 from keras.models import load_model
 from keras import backend as K
+import sklearn.metrics
 
 from utility import *
 
 K.set_image_data_format('channels_last')
 
 def test_all():
+    # Funkcija kojem se testiraju sve slike iz test skupa podataka.
+    # Sluzi nam da vidimo kolika je preciznost napravljenog modela.
     
+    # Ucitavamo slike i njihove klase iz skupa podataka za testiranje
     test_images, test_classes = load_data(test_data_dir)
+    # Prikazujemo koje se sve klase znakova nalze u test skupu, i po jednu sliku za svaku od klasa
     display_images_and_classes(test_images, test_classes)
 
     test_images = [skimage.transform.resize(test_image, (IMG_SIZE, IMG_SIZE), mode='constant')
@@ -33,8 +38,18 @@ def test_all():
     
     # preciznost racunamo kao broj_tacno_klasifikovanih / ukupan_broj_klasa
     acc = np.sum(y_pred == test_classes) / np.size(y_pred)
-    print("Test accuracy = {}".format(acc))
+    print("\nTest accuracy = {}".format(acc))
     
+    test_rep = sklearn.metrics.classification_report(test_classes, y_pred)
+    print("\nClassification report:\n{}".format(test_rep))
+    
+    conf_matrix = sklearn.metrics.confusion_matrix(test_classes, y_pred)
+    print("Confusion matrix:")
+    print(conf_matrix)
+    # Da vidimo sve kolone u matrici (posto onako prikaze samo prve i poslednje 3):
+    #for row in conf_matrix:
+        #print(row)
+        
     #print("Real classes: ", test_classes)
     #print("Real size: ", np.size(test_classes))
     #print("Predicted classes: ", y_pred)
@@ -42,6 +57,7 @@ def test_all():
     
     
 def test_one():
+    # Funkcija kojom se predvidja klasa jedne slike (cija se putanja ucitava sa standardnog ulaza)
     
     image_path = input("Enter image path:\n")
     abs_image_path = os.path.abspath(image_path)
@@ -71,6 +87,7 @@ def test_one():
     
     
     #print("Predicted class: ", prediction[0])
+    
     
 
 def main():

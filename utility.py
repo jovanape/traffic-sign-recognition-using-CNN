@@ -10,7 +10,10 @@ IMG_SIZE = 64  # 64x64 images
 train_data_dir = "./dataset/train"
 test_data_dir = "./dataset/test"
 
+
 def load_data(data_dir):
+    # Funkcija kojom se ucitavaju slike iz prosledjenog direktorijuma.
+    # Vraca niz slika i niz u kom se nalaze nazivi klasa koje odgovaraju ucitanim slikama.
     
     classes = []
     images = []
@@ -27,8 +30,8 @@ def load_data(data_dir):
 
 
 def display_images_and_classes(images, labels):
-    """ Prikazuje prvu sliku iz svake od klasa.
-        Tako mozemo da vidimo koje sve znakove model moze da nauci """
+    # Prikazuje prvu sliku iz svake od klasa.
+    # Tako mozemo da vidimo koje sve znakove model moze da nauci
         
     unique_labels = set(labels)
     plt.figure("Existing classes", figsize=(15, 15))
@@ -44,5 +47,5 @@ def display_images_and_classes(images, labels):
         plt.title("Class {0} ({1})".format(label, labels.count(label)))
         i += 1
         plt.imshow(image)
-    plt.suptitle('Types of traffic signs in dataset')
+    plt.suptitle('Classes of traffic signs in dataset (and number of signs for each class)')
     plt.show()

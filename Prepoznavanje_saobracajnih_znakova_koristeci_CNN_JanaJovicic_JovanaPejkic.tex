@@ -70,6 +70,8 @@
 
 }
 
+\newpage
+
 \tableofcontents
 
 \newpage
@@ -79,38 +81,105 @@
 
 
 
-\section{CNN}
+\section{Neuronske mreže}
 \label{sec:cnn}
 
+U masinskom ucenju, neuronske mreze (eng. neural networks) predstavljaju jednu od najprimenjenijih metoda. Neuronske mreže predstavljaju skup statističkih modela učenja inspirisana biološkim neuronima, za rešavanje klasifikacijskih i regresijskih problema. Njihove primene su mnogobrojne, a neke od njih su kategorijzacija teksta, medicinska dijagnostika, prepoznavanje objekata na slikama, autonomna voznja, igranje igara poput igara na tabli (tavla i go) ili video igara, masinsko prevodenje prirodnih jezika, modelovanje semantike reci prirodnog jezika i slicno. Problemi zahvaljujuci kojima su se neuronske mreze proslavile su velika kolicina podataka i ucenje na osnovu sirove reprezentacije podataka. Male kolicine podataka u slucaju neuronskih mreza lako vode preprilagodavanju, a ucenje nad do sada diskutovanim vektorskim reprezentacijama podataka ne koristi u dovoljnoj meri kljucnu prednost neuronskih mreza – da same konstruisu nove atribute nad sirovom reprezentacijom podataka. \footnote{Iako domenski eksperti nekad mogu pretpostaviti koji su atributi najinformativniji za predvidanje ciljne promenljive, njihovi izbori nekada mogu biti i pogresni, a neretko losiji od onoga sto bi algoritam ucenja mogao da detektuje u sirovoj informaciji ako bi bio primenljiv na nju.}
 
 
-\subsection{Podnaslov 1}
+\subsection{Arhitektura}
+
+Osnovnu jedinicu gradje neuronske mreze predstavljaju neuroni, koji su medjusobno povezani vezama sa tezinama koje se podesavaju tokom učenja mreže. Povezani neuroni prosledjuju signale jedni drugima, a organizovani su u slojeve. Najjednostavniji oblik neuronske mreze je perceptron, koji sadrzi samo jedan ulazni i jedan izlazni sloj. Medjutim, kako on sluzi samo za ucenje linearnih modela, a u praksi se javlja potreba da i slozeniji modeli mogu da se nauce, osim perceptrona, koriste se viseslojne neuronske mreze. Viseslojna neuronska mreza osim ulaznog i izlaznog sloja, dodatno ima jedan ili vise skrivenih slojeva. Broj skrivenih slojeva je proizvoljan, dok sama struktura skrivenog sloja utiče na performanse mreže. Kako se neuronske mreze uglavnom koriste za klasifikaciju uzorka u razlicite kategorije, ulazni sloj se sastoji od onoliko neurona kolika je dimenzionalnost ulaznog prostora, a broj neurona na izlazu jednak je broju klasa. Samo učenje neuronske mreže je zapravo podešavanje težina sve dok se ne dobije zadovoljavajuća aproksimacija između ulaznih i izlaznih veličina.
+
+% TODO: Namestiti da slika bude unutar poglavlja 2.2 Prepoznavanje!
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1]{neural_network_layers.jpeg}
+\end{center}
+\caption{Višeslojna neuronska mreža sa jednim skrivenim slojem}
+\label{fig:neural_network_layers}
+\end{figure}
 
 
 
-\subsection{Podnaslov 2}
+\subsection{Prepoznavanje}
 
-Tekst tekst tekst tekst tekst.
-
-%\begin{figure}[h!]
-%\begin{center}
-%\includegraphics[scale=0.47]{naslov_slike.png}
-%\end{center}
-%\caption{Naslov slike}
-%\label{fig:naslov_slike}
-%\end{figure}
+Jednostavni zadaci prepoznavanja mogu se dosta dobro rešiti skupovima podataka malih veličina, na primer desetine hiljada slika. Međutim, objekti u realističnim postavkama pokazuju značajnu varijabilnost, stoga, da bi bilo moguce naučiti prepoznati ih, potrebno je koristiti mnogo veće skupove za treniranje. Da bismo naučili o hiljadama objekata iz miliona slika, potreban nam je model sa velikim kapacitetom učenja. Konvolutivne neuronske mreže (CNN), koje ce biti detaljno obradjene u ostatku rada, čine jednu takvu klasu modela. Njihov kapacitet se moze kontrolisati variranjem njihove dubine i širine, a oni takođe daju jake i uglavnom ispravne pretpostavke o prirodi slika (naime, stacionarnost statistike i lokalitet zavisnosti piksela). Tako, u poređenju sa standardnim (feedforward) neuronskim mrežama sa slojevima sličnih veličina, CNN imaju mnogo manje veza i parametara, tako da ih je lakše trenirati, dok je njihov teoretski-najbolji učinak verovatno samo nešto lošiji.
 
 
-\section{Podnaslov 3}	
+
+\section{Konvolutivne neuronske mreže}	
 \label{sec:podnaslov3}
 
-Tekst tekst tekst tekst tekst %\cite{ime_knjige}.
+%\cite{ime_knjige}.
+
+Konvolutivne neuronske mreze predstavljaju podklasu neuronskih mreza koja ima najmanje jedan konvolutivni sloj (a moze ih imati i vise). Ova vrsta neuronskih mreza je inspirisana vizuelnim korteksom. Svaki put kada nešto vidimo, aktivira se niz slojeva neurona, i svaki sloj otkriva skup karakteristika kao što su linije, ivice. Visi nivoi slojeva otkritivaju složenije karakteristike kako bi prepoznali ono što smo videli. Konvolutivne mreze rade po istom principu i prakticno su uvek duboke neuronske mreze, upravo zbog toga sto je potrebno od sitnijih detalja, poput uspravnih, kosih i horizontalnih linija, koji obicno bivaju detektovani u nizim slojevima mreze, iskonstruisati slozenije oblike poput delova lica. Konvolutivne neuronske mreze se koriste u obradi signala (slike, zvuka), ali i teksta. U odnosu na ostale vrste neuronskih mreza, isticu se u prikupljanju lokalnih informacija (na primer o susednim pikselima na slici ili surrounding recima u tekstu) i smanjenju slozenosti modela (faster training, needs fewer samples, reduces the chance of overfitting). Konvulativne neuronske mreze se zasnivaju na sposobnosti mreza da iz sirovog signala konstruisu atribute. Nazivaju se konvolutivnim zato sto uce filtere, cijom konvolutivnom primenom detektuju odredena svojstva signala.
+
+Unutrasnja struktura konvolutivne mreže se sastoji od nekoliko naizmeničnih konvolutivnih slojeva (eng. convolution layer) i slojeva agregacije (eng. pooling layer), pri cemu je dozvoljeno pojavljivanje iste vrste sloja vise puta. U dosad opisanoj strukturi neurona (neuronskih mreza) izlaz iz svakog od njih je bio skalarna veličina. Izlazi konvolutivnog sloja su dvodimenzionalni i nazivaju se mapama karakteristika (engl. feature maps). Izlazi konvolutivnog sloja se transformisu nelinearnom aktivacionom funkcijom. Na izlaze poslednjeg od tih slojeva se obicno nadovezuje potpuno povezana mreza, koja uci nad atributima koje prethodni slojevi konstruisu (nekoliko potpuno povezanih slojeva koji su jednodimenzionalni).
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.62]{cnn_layers.jpg}
+\end{center}
+\caption{Arhitektura konvolutivne neuronske mreže}
+\label{fig:cnn_layers}
+\end{figure}
 
 
-\section{Podnaslov 4}
-\label{sec:podnaslov4}
+\subsection{Konvolucija slika preko CNN}
 
-Tekst tekst tekst tekst tekst %\ref{sec:ime_necega}.
+%\ref{sec:ime_necega}.
+
+Konvolutivne mreze primenjuju mnogo filtera nad jednom (jedinom) slikom, gde svaki prikuplja različite informacije. Na pocetnom sloju, mozete ih zamisliti kako prolazi filter za horizontalnu liniju, filter za vertikalnu liniju, i filter za dijagonalnu liniju da bi kreirali mapu ivica slike.
+
+Konvulativne mreze uzimaju ove filtere, isecke prostora karakteristika slika, i mapiraju ih jednog po jednog; tj. oni kreiraju mapu gde beleže svako mesto gde se ta karakteristika javlja. Učeći razlicite delove prostora karakteristika, konvolutivne mreze dopustaju robusni inzenjering karakteristika. Konvulativne mreze uče slike iz delova koje zovemo mape karakteristika.
+
+Konvolutivne mreze obavljaju neku vrstu pretrage. Zamislite malo uvelicavajuce staklo koje klizi s leva na desno preko vece slike, i nastavlja s leve strane kada dodje do kraja jednog prelaza (kao kod pisace masine). Taj pokretni (klizni) prozor moze da prepozna samo jednu stvar, recimo kratku vertikalnu liniju. Tri tamna piksela naslagana jedan na drugi?! Pomera taj filter za prepoznavanje (koji prepoznaje) vertikalnu liniju preko stvarnih piksela slike, trazeci podudaranja.
+
+Svaki put kada se pronadje poklapanje (dodje do poklapanja), ono se mapira u (na) prostor sa karakteristikama koji je specifican za taj vizuelni element. U tom prostoru se cuva (belezi) lokacija svakog poklapanja sa vertikalnom linijom. Konvolutivna mreza pokrece mnogo, mnogo pretraga nad jednom slikom - horizontalne linije, dijagonalne linije, nad onoliko elemenata koliko se trazi (onoliko koliko ima vizuelnih elemenata koji trebaju da budu pretrazeni).
+
+Nakon konvolutivnog sloja, ulaz se salje kroz nelinearnu transformaciju kao sto je tanh ili precišćena linearna jedinica?!, koja ce prevesti ulaz u opseg izmedju -1 i 1 (which will squash input values into a range between -1 and 1).
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1]{edges.png}
+\end{center}
+\caption{Detektovanje ivica}
+\label{fig:edges}
+\end{figure}
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{filter_movement01.jpg}
+\end{center}
+\caption{Kretanje filtera}
+\label{fig:filter_movement01}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.9]{learning.jpg}
+\end{center}
+\caption{Učenje mreže}
+\label{fig:learning}
+\end{figure}
+
+\subsection{Konvolutivni sloj}
+
+Konvolutivni sloj je glavni deo konvolutivne neuronske mreže. On radi najvise izracunavanja u mrezi. To je prvi sloj koji ekstraktuje karakteristike iz ulazne slike. Konvolucija je matematička operacija koja uzima dva ulaza kao sto su matrica slike i filter (ili jezgro). Određena ulazna reprezentacija podatka (originalna slika) konvolvira se s konvolucijskom jezgrom (filterom) s određenim parametrima. Procesom učenja ovi parametri (težine koje je potrebno nauciti kako bi mreža davala dobre rezultate) se podešavaju. Filteri su najcešce manjih prostornih dimenzija od ulaza, ali uvek su jednake dubine kao i ulaz. Konvolucijska jezgra (filteri) filtriraju sliku, tj. mapu karakteristika kako bi izlučila neku korisnu informaciju kao što je recimo određeni oblik, boja ili ivica. U prvih nekoliko slojeva izlučuju se osnovni oblici (npr. ivice). Tokom prvog prolaza svaki filter se pomera po širini i visini i računa se skalarni proizvod ulaza i vrednosti filtera. Izlaz jednog filtera će biti dvodimenzioni niz. Ako imamo više filtera, izlaz iz konvolucionog sloja će biti rezultati svakog filtera poredjanih po dubini. Obično se koristi više konvolutivnih slojeva koji svojom kombinacijom mogu izučiti apstraktnije nivoe karakteristika karakteristične za pojedini objekt (npr. ljudsko lice). U zavisnosti od tipa filtera (jezgra) moguće je detektovati razne karakteristike (ivice, tačke). Vrednosti parametara jezgra se podešavaju procesom učenja tj. konvolucijske neuronske mreže na taj način „nauče“ prepoznavati određene karakteristike. Operacijom konvolucije dobija se transformirana slika I*K. Dobijena transformacija je lokalna tj. pikseli izlaza zavise o lokalnom susedstvu piksela ulaza.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.9]{convolution.png}
+\end{center}
+\caption{Konvolutivni sloj, pomeranje filtera}
+\label{fig:convolution}
+\end{figure}
 
 
 \section{Podnaslov 5}
@@ -172,7 +241,26 @@ table[key] = value
 \subsection{Podnaslov 1}
 %\label{sec:???}
 
+\textbf{Dodatna objasnjenja} %TODO: Ubaciti u fusnote!
 
+
+By visualizing the output from different convolution layers in this manner, the most crucial thing that you will notice is that the layers that are deeper in the network visualize more training data specific features, while the earlier layers tend to visualize general patterns like edges, texture, background etc.
+
+This knowledge is very important when you use Transfer Learning whereby you train some part of a pre-trained network (pre-trained on a different dataset, like ImageNet in this case) on a completely different dataset. The general idea is to freeze the weights of earlier layers, because they will anyways learn the general features, and to only train the weights of deeper layers because these are the layers which are actually recognizing your objects.
+
+Convolved Feature, Activation Map or Feature Map is the output volume formed by sliding the filter over the image and computing the dot product.
+Perceptrons come first in 1950s, and it uses a brittle activation function to do classification, so if w*x is greater than some value it predicts positive, otherwise negative.
+
+Neurons uses a softer activation function by introducing a sigmoid function, a tanh function or other activation functions to pass on values to other neurons in the network.
+
+So perceptrons do not use in a network setting, they do classification on their own, hence they can’t classify XOR, however neurons can because they all contribute forward to the final output, using more complicated structure(i.e. multiple layers in network), they are able to classify XOR and other complicated problems.
+
+A CNN, in specific, has one or more layers of convolution units. A convolution unit receives its input from multiple units from the previous layer which together create a proximity. Therefore, the input units (that form a small neighborhood) share their weights.
+
+The convolution units (as well as pooling units) are especially beneficial as:
+
+They reduce the number of units in the network (since they are many-to-one mappings). This means, there are fewer parameters to learn which reduces the chance of overfitting as the model would be less complex than a fully connected network.
+They consider the context/shared information in the small neighborhoods. This future is very important in many applications such as image, video, text, and speech processing/mining as the neighboring inputs (eg pixels, frames, words, etc) usually carry related information.
 
 
 \end{document}

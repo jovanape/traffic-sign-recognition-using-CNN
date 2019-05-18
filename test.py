@@ -46,9 +46,6 @@ def test_all():
     conf_matrix = sklearn.metrics.confusion_matrix(test_classes, y_pred)
     print("Confusion matrix:")
     print(conf_matrix)
-    # Da vidimo sve kolone u matrici (posto onako prikaze samo prve i poslednje 3):
-    #for row in conf_matrix:
-        #print(row)
         
     #print("Real classes: ", test_classes)
     #print("Real size: ", np.size(test_classes))

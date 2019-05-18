@@ -50,62 +50,43 @@ images64 = [skimage.transform.resize(image, (IMG_SIZE, IMG_SIZE), mode='constant
 
 images = np.array(images64)
 classes = np.array(classes)
-#print(classes[3])
+#print(classes[26])
 
 # Za klasu i postavljamo 1 na i-to mesto, a na ostala 0
 classes = np.eye(NUM_OF_CLASSES, dtype='uint8')[classes]
-#print(classes[3])
+#print(classes[26])
 
-print("classes shape: ", classes.shape, "\nimages shape: ", images.shape)
+#print("classes shape: ", classes.shape, "\nimages shape: ", images.shape)
 
 
-# TODO: Napraviti bolji model i/ili ga optimizovati drugacije!!!!!!!
-#       Mozda i izbaciti neke slike iz trening skupa, tako da bude priblizno isti broj slika za svaku klasu
+#  TODO: isprobati jos neke modele, i/ili isprobati neke druge optimizacione tehnike umesto SGD, povecati/smanjiti broj epoha, ...
 def cnn_model():
     
     model = Sequential()
 
-    # Konvolucija i sazimanje 1
     model.add(Conv2D(filters = 32, kernel_size = (3, 3), padding='same', input_shape=(IMG_SIZE, IMG_SIZE, 3), data_format="channels_last", activation='relu'))
-    #model.add(Activation('relu'))
+    model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
-    #model.add(Dropout(0.2))
+    model.add(Dropout(0.2))
 
-    # Konvolucija i sazimanje 2
     model.add(Conv2D(filters = 32, kernel_size = (3, 3), padding='same', activation='relu'))
-    #model.add(Activation('relu'))
+    model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.2))
     
-    # Konvolucija i sazimanje 3
-    model.add(Conv2D(filters = 64, kernel_size = (3, 3), padding='same', activation='relu'))
-    #model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-    #model.add(Dropout(0.2))
-
-    # probati i ovo umesto onog dole
-    """
     model.add(Flatten())
     model.add(Dense(512, activation='relu'))
     model.add(Dropout(0.5))
     model.add(Dense(NUM_OF_CLASSES, activation='softmax'))
-    """
     
-    # Transformacija 3D slike u 1D vektor 
-    model.add(Flatten())
-    model.add(Dense(64)) # viseslojni perceptron
-    model.add(Activation('relu'))
-    model.add(Dropout(0.5)) # deaktiviramo polovinu neurona kako ne bi doslo do preprilagodjavanja
-    model.add(Dense(NUM_OF_CLASSES))  # output layer ima onoliko neurona koliko ima klasa
-    model.add(Activation('softmax'))
-
     model.summary()
     
     return model
 
 
 
-batch_size = 64
-epochs = 20
+batch_size = 32
+epochs = 30
 lr = 0.01   #learning rate
 
 model = cnn_model()

@@ -171,7 +171,12 @@ Nakon konvolutivnog sloja, ulaz se salje kroz nelinearnu transformaciju kao sto 
 
 \subsection{Konvolutivni sloj}
 
-Konvolutivni sloj je glavni deo konvolutivne neuronske mreže. On radi najvise izracunavanja u mrezi. To je prvi sloj koji ekstraktuje karakteristike iz ulazne slike. Konvolucija je matematička operacija koja uzima dva ulaza kao sto su matrica slike i filter (ili jezgro). Određena ulazna reprezentacija podatka (originalna slika) konvolvira se s konvolucijskom jezgrom (filterom) s određenim parametrima. Procesom učenja ovi parametri (težine koje je potrebno nauciti kako bi mreža davala dobre rezultate) se podešavaju. Filteri su najcešce manjih prostornih dimenzija od ulaza, ali uvek su jednake dubine kao i ulaz. Konvolucijska jezgra (filteri) filtriraju sliku, tj. mapu karakteristika kako bi izlučila neku korisnu informaciju kao što je recimo određeni oblik, boja ili ivica. U prvih nekoliko slojeva izlučuju se osnovni oblici (npr. ivice). Tokom prvog prolaza svaki filter se pomera po širini i visini i računa se skalarni proizvod ulaza i vrednosti filtera. Izlaz jednog filtera će biti dvodimenzioni niz. Ako imamo više filtera, izlaz iz konvolucionog sloja će biti rezultati svakog filtera poredjanih po dubini. Obično se koristi više konvolutivnih slojeva koji svojom kombinacijom mogu izučiti apstraktnije nivoe karakteristika karakteristične za pojedini objekt (npr. ljudsko lice). U zavisnosti od tipa filtera (jezgra) moguće je detektovati razne karakteristike (ivice, tačke). Vrednosti parametara jezgra se podešavaju procesom učenja tj. konvolucijske neuronske mreže na taj način „nauče“ prepoznavati određene karakteristike. Operacijom konvolucije dobija se transformirana slika I*K. Dobijena transformacija je lokalna tj. pikseli izlaza zavise o lokalnom susedstvu piksela ulaza.
+Konvolutivni sloj je glavni deo konvolutivne neuronske mreze. On radi najvise izracunavanja u mrezi, a ima ulogu konstrukcije novih atributa. To je prvi sloj koji ekstraktuje karakteristike iz ulazne slike. Konvolucija je matematicka operacija koja uzima dva ulaza - dve matrice f i g dimenzija m x n i p x q. Definisana je na sledeci nacin:
+(f * g)ij = Xp minus 1 k=0 Xq minus 1 l=0 fi minus k,i minus lgk,l
+
+Matrica f je obicno ulaz, poput slike, dok je matrica g filter (ili jezgro) – pomocna matrica koja izdvaja neku vrstu informacije iz ulaza. Određena ulazna reprezentacija podatka (originalna slika) konvolvira se s konvolucijskom jezgrom (filterom) s određenim parametrima. Procesom učenja ovi parametri (težine koje je potrebno nauciti kako bi mreža davala dobre rezultate) se podešavaju. Filteri su najcešce manjih prostornih dimenzija od ulaza, ali uvek su jednake dubine kao i ulaz. Konvolucijska jezgra (filteri) filtriraju sliku, tj. mapu karakteristika kako bi izlučila neku korisnu informaciju kao što je recimo određeni oblik, boja ili ivica. U prvih nekoliko slojeva izlučuju se osnovni oblici (npr. ivice). Jednostavan primer je filter za detekciju uspravnih ivica, horizontalnih ivica, dijagonalnih (kosih) ivica. Postojanje nekih objekata na slici se moze utvrditi na osnovu specificnog rasporeda ovih (uspravnih, kosih i horizontalnih) linija (ivica), koje detektuje prethodni konvolutivni sloj. Dalje, posmatra se kombinacija svih ovih ivica i tako prepoznaju i drugi oblici. Svaki konvolutivni sloj raspolaze nizom parametrizovanih filtera koji vrse ove poslove. Upravo, parametri filtera predstavljaju parametre konvolutivne mreze i bivaju nauceni u procesu obucavanja mreze.
+
+Tokom prvog prolaza svaki filter se pomera po širini i visini i računa se skalarni proizvod ulaza i vrednosti filtera. Izlaz jednog filtera će biti dvodimenzioni niz. Ako imamo više filtera, izlaz iz konvolucionog sloja će biti rezultati svakog filtera poredjanih po dubini. Obično se koristi više konvolutivnih slojeva koji svojom kombinacijom mogu izučiti apstraktnije nivoe karakteristika karakteristične za pojedini objekt (npr. ljudsko lice). U zavisnosti od tipa filtera (jezgra) moguće je detektovati razne karakteristike (ivice, tačke). Vrednosti parametara jezgra se podešavaju procesom učenja tj. konvolucijske neuronske mreže na taj način „nauče“ prepoznavati određene karakteristike. Operacijom konvolucije dobija se transformirana slika I*K. Dobijena transformacija je lokalna tj. pikseli izlaza zavise o lokalnom susedstvu piksela ulaza.
 
 \begin{figure}[h!]
 \begin{center}
@@ -181,13 +186,51 @@ Konvolutivni sloj je glavni deo konvolutivne neuronske mreže. On radi najvise i
 \label{fig:convolution}
 \end{figure}
 
+\subsection{Prosirivanje}
 
-\section{Podnaslov 5}
+Formula konvolucije koja je data iznad nije definisana za sve indekse i=0, m minus 1 i j=0, n minus 1.
+ Na primer, ako je i, j = 0 i k, l > 0, vrednost fi minus k,i minus l nije definisana. Ukoliko bi se u obzir uzele samo definisane vrednosti, dimenzija konvolucije bi bila manja od dimenzije matrice f.
+ 
+Medjutim, to nije uvek pozeljno, i moze se izbeci tako sto se vrsi prosirivanje (eng. padding) matrice f, na primer nulama ili vrednostima koje su vec na obodu, tako da velicina rezultujuce matrice bude jednaka velicini matrice f pre prosirivanja. Ovo je prikazano na slici ?????. Takode, prilikom racunanja konvolucije, filter se duz slike ne mora pomerati za jedan piksel, vec za neki veci korak (eng. stride).
+
+\section{Sloj agregacije}
 \label{sec:podnaslov5}
 
 %\footnote{tekst koji se prikazuje kao fusnota}
 %\textit{iskosen tekst}
 %\ref{sec:primer_koda}
+
+Uloga sloja za agregaciju je smanjenje broja parametara kada su slike prevelike, kao i smanjenje broja racunskih operacija u visim slojevima smanjuje. Agregacija smanjuje dimenzionalnost svake mape, ali zadržava važne informacije. Sve to rezultuje smanjenjem racunske zahtevnosti pri optimizaciji i pomaze u kontroli overfitinga. Zato zelimo da slojevi za agregaciju prate konvolucione slojeve kako bismo postepeno smanjili prostornu veličinu (širinu i visinu) prikaza podataka.
+
+Cesto nas konačni zadatak postavlja neko globalno pitanje o slici, npr., Da li sadrži mačku? Tako da čvorovi našeg zadnjeg sloja moraju biti osetljivi na celi ulaz. Postepenom agregacijom informacija, stvarajuci grublje i grublje mape karakteristika, postize se taj cilj da se na kraju nauci globalna reprezentacija, zadrzavajuci sve prednosti konvolucijskih slojeva na srednjim slojevima obrade.
+
+Sloj agregacije ukrupnjuje informacije, tako sto racuna neku jednostavnu funkciju agregacije susednih jedinica prethodnog sloja, poput maksimuma (eng. Max pooling) [koji vraca maksimalnu vrednost dela slike pokrivene filterom] ili proseka (eng. Average pooling) [koji vraca prosecnu vrednost dela slike pokrivene filterom]. Ukoliko agregira, na primer, 3 x 3 piskela, onda je broj izlaza ovog sloja 9 puta manji od broja izlaza prethodnog. Kada se racuna maksimum, dolazi do zanemarivanje informacije o tome gde je precizno neko svojstvo (poput uspravne linije) pronadeno, ali se ne gubi informacija da je pronadeno. Ovakva vrsta zanemarivanja informacije cesto ne steti cilju koji treba postici. Na primer, ako su na slici pronadeni kljun i krila, informacija o tacnoj pozicjiji najverovatnije nije bitna za odlucivanje da li se na slici nalazi ptica. Ipak, ukoliko je potrebno napraviti mrezu koja igra igru u kojoj su pozicije objekata na ekranu bitne, nije pozeljno koristiti agregaciju.
+
+ Average pooling was often used historically but has recently fallen out of favor compared to the max pooling operation, which has been shown to work better in practice.
+ 
+ Pooling layer downsamples the volume spatially, independently in each depth slice of the input volume.
+ 
+Prva slika (pool): In this example, the input volume of size [224x224x64] is pooled with filter size 2, stride 2 into output volume of size [112x112x64]. Notice that the volume depth is preserved.
+ 
+Druga slika (maxpool): The most common downsampling operation is max, giving rise to max pooling, here shown with a stride of 2. That is, each max is taken over 4 numbers (little 2x2 square).
+
+ 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{maxpool.jpeg}
+\end{center}
+\caption{Maxpool}
+\label{fig:maxpool}
+\end{figure}
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{pool.jpeg}
+\end{center}
+\caption{Pool}
+\label{fig:pool}
+\end{figure}
 
 
 \begin{table}[h!]

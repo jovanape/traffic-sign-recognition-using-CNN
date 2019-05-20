@@ -5,7 +5,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-IMG_SIZE = 64  # 64x64 images
+IMG_SIZE = 32  # 32x32 images
 
 train_data_dir = "./dataset/train1"
 test_data_dir = "./dataset/test1"

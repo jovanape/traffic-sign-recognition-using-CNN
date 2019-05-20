@@ -11,7 +11,9 @@
 \contentsline {subsubsection}{\numberline {3.4.1}Prosirivanje}{9}{subsubsection.3.4.1}
 \contentsline {subsection}{\numberline {3.5}Agregacija}{10}{subsection.3.5}
 \contentsline {section}{\numberline {4}Implementacija i eksperimentalni rezultati}{11}{section.4}
-\contentsline {section}{\numberline {5}Zaklju\IeC {\v c}ak}{12}{section.5}
-\contentsline {section}{Literatura}{13}{section.5}
-\contentsline {section}{\numberline {A}Dodatak}{13}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Podnaslov 1}{13}{subsection.A.1}
+\contentsline {subsection}{\numberline {4.1}Model 1}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Model 2: LeNet-5}{15}{subsection.4.2}
+\contentsline {section}{\numberline {5}Zaklju\IeC {\v c}ak}{17}{section.5}
+\contentsline {section}{Literatura}{18}{section.5}
+\contentsline {section}{\numberline {A}Dodatak}{19}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Podnaslov 1}{19}{subsection.A.1}

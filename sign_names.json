@@ -1,12 +1,12 @@
 [
     {"class" : 0, "sign_name" : "Speed limit 5 mph"},
     {"class" : 1, "sign_name" : "No left turn"},
-    {"class" : 2, "sign_name" : ""},
+    {"class" : 2, "sign_name" : "Overtaking prohibited"},
     {"class" : 3, "sign_name" : "Speed limit 40 mph"},
     {"class" : 4, "sign_name" : "No trumpet"},
-    {"class" : 5, "sign_name" : ""},
-    {"class" : 6, "sign_name" : ""},
+    {"class" : 5, "sign_name" : "Right turn ahead"},
+    {"class" : 6, "sign_name" : "Keep right"},
     {"class" : 7, "sign_name" : "Pedestrian crossing"},
-    {"class" : 8, "sign_name" : ""},
+    {"class" : 8, "sign_name" : "No stopping"},
     {"class" : 9, "sign_name" : "No entry"}
 ]

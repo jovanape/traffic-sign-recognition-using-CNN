@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{CTSD}
+a.
+\newblock {Chinese Traffic Sign Database}.
+\newblock on-line at:
+  \url{http://www.nlpr.ia.ac.cn/pal/trafficdata/recognition.html}.
+
+\bibitem{leNet}
+Leon~Bottou Yann~LeCun, Patric~Haffner.
+\newblock {Object recognition with Gradient-Based learning}.
+\newblock 1998.
+
+\end{thebibliography}

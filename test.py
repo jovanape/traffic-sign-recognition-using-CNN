@@ -11,6 +11,11 @@ from keras.models import load_model
 from keras import backend as K
 import sklearn.metrics
 
+
+import seaborn as sn
+import pandas as pd
+
+
 from utility import *
 
 K.set_image_data_format('channels_last')
@@ -42,16 +47,26 @@ def test_all():
     
     test_rep = sklearn.metrics.classification_report(test_classes, y_pred)
     print("\nClassification report:\n{}".format(test_rep))
-    
+
+
     conf_matrix = sklearn.metrics.confusion_matrix(test_classes, y_pred)
     print("Confusion matrix:")
     print(conf_matrix)
-        
+
+    return conf_matrix
+
     #print("Real classes: ", test_classes)
     #print("Real size: ", np.size(test_classes))
     #print("Predicted classes: ", y_pred)
     #print("Predicted size: ", np.size(y_pred))
     
+
+# Matrica konfuzije
+df_cm = pd.DataFrame(test_all(), range(10), range(10))
+#plt.figure(figsize = (10,7))
+sn.set(font_scale=1.4)
+sn.heatmap(df_cm, annot=True,annot_kws={"size": 16})
+
     
 def test_one():
     # Funkcija kojom se predvidja klasa jedne slike (cija se putanja ucitava sa standardnog ulaza)

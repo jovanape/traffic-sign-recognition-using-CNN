@@ -2,7 +2,7 @@
 \documentclass[a4paper]{article}
 
 % Dodato da se ne bi prikazivali podnaslovi u sadrzaju, a da ipak ostanu numerisani u okviru teksta
-\setcounter{tocdepth}{1}    % levels under \subsection are not listed in the TOC
+%\setcounter{tocdepth}{1}    % levels under \subsection are not listed in the TOC
 
 
 \usepackage{color}
@@ -58,7 +58,7 @@
 
 \begin{document}
 
-\title{Prepoznavanje saobraćajnih znakova koristeći CNN\\ \small{Seminarski rad u okviru kursa\\Računarska inteligencija\\ Matematički fakultet}}
+\title{Prepoznavanje saobraćajnih znakova pomoću konvolutivnih neuronskih mreža\\ \small{Seminarski rad u okviru kursa\\Računarska inteligencija\\ Matematički fakultet}}
 
 \author{Jana Jovičić 215/2015, Jovana Pejkić 435/2016 \\ jana.jovicic755@gmail.com, jov4ana@gmail.com}
 
@@ -85,7 +85,7 @@ Prepoznavanje i klasifikacija slika je polje u oblasti mašinskog učenja koje s
 
 Postoje mnogi algoritmi koji se koriste za klasifikaciju slika (npr. SVM), a jedan od najboljih je CNN - konvolutivne neuronske mreže. CNN se može zamisliti kao automatski ‚‚ekstraktor’’ karakteristika slike. On efikasno koristi informacije o susednim pikselima da bi efektivno konvolucijom smanjio sliku, a zatim da bi predvideo kategoriju kojoj slika pripada, koristi sloj za predviđanje. Iako su konvolutivne neuronske mreže projektovane tako da prednost postižu u radu sa 2D strukturama, kao što su slike ili ulazi poput govornog signala (eng. speech signal), najnovije studije pokazuju da postižu značajne rezultate i sa 3D strukturama.
 
-Svrha implementacije konvolutivne neuronske mreže o kojoj ovaj rad govori jeste da korektno identifikuje saobraćajne znakove iz baze podataka sa kineskim saobraćajnim znacima. U radu je opisana implementacija ove mreže i diskutovano je o ostvarenim rezultatima.
+Svrha ovog rada je da prikaže osnovne osobine konvolutivnih neuronskih mreža i da pokaže na koji način se one mogu implementirati tako da korektno identifikuju saobraćajne znakove iz baze podataka sa kineskim saobraćajnim znacima. U radu je opisano nekoliko modela mreža i upoređeni su njihovi ostvareni rezultati.
 
 \newpage
 
@@ -115,7 +115,7 @@ Kako se neuronske mreže uglavnom koriste za klasifikaciju uzorka u različite k
 
 
 \subsection{Razlog uvodjenja konvolutivnih neuronskih mreža}
-Jednostavni zadaci prepoznavanja mogu se dosta dobro rešiti skupovima podataka malih veličina, npr. desetine hiljada slika. Međutim, objekti u realističnim postavkama pokazuju značajnu varijabilnost, stoga, da bi bilo moguće naučiti prepoznati ih, potrebno je koristiti mnogo veće skupove za treniranje. Da bismo naučili o hiljadama objekata iz miliona slika, potreban nam je model sa velikim kapacitetom učenja. Konvolutivne neuronske mreže (eng. convolutional neural network, CNN), koje će biti detaljno obrađene u ostatku rada, čine jednu takvu klasu modela. Njihov kapacitet se može kontrolisati variranjem njihove dubine i širine, a oni takođe daju jake i uglavnom ispravne pretpostavke o prirodi slika. Tako, u poređenju sa standardnim (feedforward) neuronskim mrežama sa slojevima sličnih veličina, CNN imaju mnogo manje veza i parametara, tako da ih je lakše trenirati, dok je njihov teoretski najbolji učinak samo nešto lošiji.
+Jednostavni zadaci prepoznavanja mogu se dosta dobro rešiti skupovima podataka malih veličina, npr. desetine hiljada slika. Međutim, objekti u realističnim postavkama pokazuju značajnu varijabilnost, stoga, da bi bilo moguće naučiti prepoznati ih, potrebno je koristiti mnogo veće skupove za treniranje. Da bismo naučili o hiljadama objekata iz miliona slika, potreban nam je model sa velikim kapacitetom učenja. Konvolutivne neuronske mreže (eng. convolutional neural network, CNN), koje će biti detaljno obrađene u ostatku rada, čine jednu takvu klasu modela. One daju jake i uglavnom ispravne pretpostavke o prirodi slika, a njihov kapacitet se moze kontrolisati variranjem njihove dubine i sirine. Tako, u poređenju sa standardnim (feedforward) neuronskim mrežama sa slojevima sličnih veličina, CNN imaju mnogo manje veza i parametara, tako da ih je lakše trenirati, dok je njihov teoretski najbolji učinak samo nešto lošiji.
 
 
 \section{Konvolutivne neuronske mreže}	
@@ -208,7 +208,7 @@ Svaki put kada dodje do poklapanja (filtera sa ulazom), ono se mapira u prostor 
 
 \subsection{Unutrasnja struktura CNN}
 \label{struktura_cnn}
-Unutrašnja struktura konvolutivne mreže se sastoji od nekoliko naizmeničnih konvolutivnih slojeva (eng. convolution layer) i slojeva agregacije (eng. pooling layer), pri čemu je dozvoljeno pojavljivanje iste vrste sloja više puta (prikazano na slici \ref{fig:cnn_layers}). U dosad opisanoj strukturi neurona (neuronskih mreža) izlaz iz svakog od njih je bio skalarna veličina. Izlazi konvolutivnog sloja su dvodimenzionalni i nazivaju se mapama karakteristika (eng. feature maps). Oni se transformišu nelinearnom aktivacionom funkcijom, na primer tanh, koja prevodi ulazne vrednosti u opseg između -1 i 1. Potpuno povezani sloj (eng. fully connected layer) predstavlja poslednji sloj unutar konvolucione neuronske mreže, u kome je svaki neuron jednog sloja povezan sa svim neuronima prethodnog sloja (gde svaka konekcija ima svoju težinu). Neuroni u potpuno povezanom sloju detekruju karakteristike koje su izlaz iz konvolucionog sloja.
+Unutrašnja struktura konvolutivne mreže se sastoji od nekoliko naizmeničnih konvolutivnih slojeva (eng. convolution layer) i slojeva agregacije (eng. pooling layer), pri čemu je dozvoljeno pojavljivanje iste vrste sloja više puta (prikazano na slici \ref{fig:cnn_layers}). Izlazi konvolutivnog sloja su dvodimenzionalni i nazivaju se mapama karakteristika (eng. feature maps). Oni se transformisu nelinearnom aktivacionom funkcijom. U konvolutivnim mrežama kao aktivacione funkcije najčešće koriste ReLU (na izlazu iz konvolutivnog sloja) i Softmax (na izlazu iz poslednjeg, potpuno povezanog, sloja mreže). O njima će biti više reči u narednim poglavljima.
 
 
 \begin{figure}[h!]
@@ -235,7 +235,7 @@ Kako su moguće različite kombinacije različitih slojeva, prirodno je da posto
 \end{itemize}
 
 
-\subsection{Konvolucija}
+\subsection{Konvolutivni sloj}
 \label{konvolucija}
 
 Konvolutivni sloj je glavni deo konvolutivne neuronske mreze koji radi najvise izracunavanja u mrezi. Njegova uloga je konstrukcija novih atributa. To je prvi sloj koji ekstraktuje karakteristike iz ulazne slike. Konvolucija je matematicka operacija koja uzima dva ulaza - dve matrice f i g, dimenzija m x n i p x q, a definisana je na sledeci nacin:
@@ -294,7 +294,7 @@ U konvolutivnim slojevima kao aktivaciona funkcija se najčešće koristi ReLu (
 \newpage
 
 
-\subsection{Agregacija}
+\subsection{Sloj agregacije}
 
 %\footnote{tekst koji se prikazuje kao fusnota}
 %\textit{iskosen tekst}
@@ -331,6 +331,15 @@ Druga slika (maxpool): The most common downsampling operation is max, giving ris
 \caption{Pool}
 \label{fig:pool}
 \end{figure}
+
+
+\subsection{Potpuno povezani sloj}
+
+Nakon što su u konvolutivnom i agregativnom sloju sakupljene informacije o slici, sledeće što je potrebno uraditi jeste zaključiti kojoj klasi pripada ta slika. Za to se koristi jedan ili više potpuno povezanih slojeva (eng. \textit{fully connected layer} ili \textit{dense layer}). 
+
+U potpuno povezanom sloju, svaki neuron je povezan sa svakim neuronom iz prethodnog sloja, kao što je to slučaj kod običnih neuronskih mreža. Taj sloj kao ulaz očekuje vektor, što znači da je prvo potrebno ispraviti (eng. \textit{flatten}) mapu karakteristika, dobijenu nakon konvolucije i agregacije, u vektor. U svim slojevima, osim u poslednjem, može da se koristi ReLU aktivaciona funkcija.
+
+Poslednji potpuno povezani sloj treba da ima onoliko neurona koliko ima i klasa, kako bi mogao da odredi koju klasu da pridruži slici. U ovom sloju je najbolje koristiti softmax aktivacionu funkciju. Softmax funkcija određuje verovatnoću pripadnosti slike svakoj od klasa. Nakon njene primene, dobija se vektor vrednosti koje odgovaraju verovatnoćama i koje u zbiru daju vrednost 1. Zahvaljujući njoj, slika se klasifikuje u onu klasu kojoj odgovara najveća verovatnoća pripadnosti. Softmax funkcija je definisana kao: $$ S(z_i) = \frac{e^z_i}{\sum_{j=1}^{K}e^z_j},  i = 1,...,K,  z = (z_1,...,z_K) $$ gde je z ulazni vektor od K realnih brojeva. 
 
 
 

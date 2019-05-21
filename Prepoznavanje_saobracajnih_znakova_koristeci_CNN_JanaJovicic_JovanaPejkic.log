@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.2.19)  21 MAY 2019 23:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.2.19)  22 MAY 2019 00:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -710,132 +710,150 @@ Package pdftex.def Info: padding.png used on input line 273.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9] [10 <./convolution.png> <./padding.png>]
-Overfull \hbox (3.32095pt too wide) in paragraph at lines 296--297
+[9] <relu2.png, id=135, 345.29pt x 285.065pt>
+File: relu2.png Graphic file (type png)
+ <use relu2.png>
+Package pdftex.def Info: relu2.png used on input line 287.
+(pdftex.def)             Requested size: 131.21155pt x 108.32582pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<relu1.jpg, id=136, 1195.46625pt x 489.83pt>
+File: relu1.jpg Graphic file (type jpg)
+ <use relu1.jpg>
+Package pdftex.def Info: relu1.jpg used on input line 296.
+(pdftex.def)             Requested size: 239.089pt x 97.96426pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10 <./convolution.png> <./padding.png>] [11 <./relu2.png> <./relu1.jpg>]
+Overfull \hbox (3.32095pt too wide) in paragraph at lines 320--321
 []\OT1/cmr/m/n/9 Prva slika (pool): In this exam-ple, the in-put vo-lume of siz
 e [224x224x64]
  []
 
-<maxpool.jpeg, id=140, 592.46344pt x 277.035pt>
+<maxpool.jpeg, id=151, 592.46344pt x 277.035pt>
 File: maxpool.jpeg Graphic file (type jpg)
  <use maxpool.jpeg>
-Package pdftex.def Info: maxpool.jpeg used on input line 303.
+Package pdftex.def Info: maxpool.jpeg used on input line 327.
 (pdftex.def)             Requested size: 236.98117pt x 110.81203pt.
 
-<pool.jpeg, id=141, 386.94562pt x 305.64188pt>
+<pool.jpeg, id=152, 386.94562pt x 305.64188pt>
 File: pool.jpeg Graphic file (type jpg)
  <use pool.jpeg>
-Package pdftex.def Info: pool.jpeg used on input line 312.
+Package pdftex.def Info: pool.jpeg used on input line 336.
 (pdftex.def)             Requested size: 154.7755pt x 122.25458pt.
- [11 <./maxpool.jpeg> <./pool.jpeg>] <trening_skup.png, id=151, 1269.74374pt x 
+ [12 <./maxpool.jpeg> <./pool.jpeg>] <trening_skup.png, id=164, 1269.74374pt x 
 743.77875pt>
 File: trening_skup.png Graphic file (type png)
 
 <use trening_skup.png>
-Package pdftex.def Info: trening_skup.png used on input line 329.
+Package pdftex.def Info: trening_skup.png used on input line 353.
 (pdftex.def)             Requested size: 317.43515pt x 185.94423pt.
- <test_skup.png, id=152, 1121.18875pt x 745.78625pt>
+ <test_skup.png, id=165, 1121.18875pt x 745.78625pt>
 File: test_skup.png Graphic file (type png)
 
 <use test_skup.png>
-Package pdftex.def Info: test_skup.png used on input line 337.
+Package pdftex.def Info: test_skup.png used on input line 361.
 (pdftex.def)             Requested size: 280.2965pt x 186.4461pt.
- [12 <./trening_skup.png> <./test_skup.png>]
+ [13 <./trening_skup.png> <./test_skup.png>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 353.
- [13]
-Overfull \hbox (3.99431pt too wide) in paragraph at lines 402--403
+nput line 377.
+ [14]
+Overfull \hbox (3.99431pt too wide) in paragraph at lines 426--427
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ] 
  []
 
-<model1_arhitektura.png, id=213, 599.23875pt x 515.9275pt>
+<model1_arhitektura.png, id=230, 599.23875pt x 515.9275pt>
 File: model1_arhitektura.png Graphic file (type png)
 
 <use model1_arhitektura.png>
-Package pdftex.def Info: model1_arhitektura.png used on input line 408.
+Package pdftex.def Info: model1_arhitektura.png used on input line 432.
 (pdftex.def)             Requested size: 269.65494pt x 232.16522pt.
 
-<model1_trening_acc.png, id=216, 1178.4025pt x 107.40125pt>
+<model1_trening_acc.png, id=233, 1178.4025pt x 107.40125pt>
 File: model1_trening_acc.png Graphic file (type png)
 
 <use model1_trening_acc.png>
-Package pdftex.def Info: model1_trening_acc.png used on input line 418.
+Package pdftex.def Info: model1_trening_acc.png used on input line 442.
 (pdftex.def)             Requested size: 412.44705pt x 37.59099pt.
 
-Overfull \hbox (67.44705pt too wide) in paragraph at lines 418--419
+Overfull \hbox (67.44705pt too wide) in paragraph at lines 442--443
  [] 
  []
 
-<model1_test_acc.png, id=217, 495.8525pt x 538.01pt>
+<model1_test_acc.png, id=234, 495.8525pt x 538.01pt>
 File: model1_test_acc.png Graphic file (type png)
  <use model1_test_acc.png>
-Package pdftex.def Info: model1_test_acc.png used on input line 426.
+Package pdftex.def Info: model1_test_acc.png used on input line 450.
 (pdftex.def)             Requested size: 223.13156pt x 242.10226pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14 <./model1_arhitektura.png> <./model1_trening_acc.png>] [15 <./model1_test_a
+[15 <./model1_arhitektura.png> <./model1_trening_acc.png>] [16 <./model1_test_a
 cc.png>]
-Overfull \hbox (3.99431pt too wide) in paragraph at lines 482--483
+Overfull \hbox (3.99431pt too wide) in paragraph at lines 506--507
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ] 
  []
 
-<leNet_arhitektura.png, id=257, 633.36626pt x 496.85625pt>
+<leNet_arhitektura.png, id=268, 633.36626pt x 496.85625pt>
 File: leNet_arhitektura.png Graphic file (type png)
 
 <use leNet_arhitektura.png>
-Package pdftex.def Info: leNet_arhitektura.png used on input line 488.
+Package pdftex.def Info: leNet_arhitektura.png used on input line 512.
 (pdftex.def)             Requested size: 285.01218pt x 223.58324pt.
 
-<leNet_trening_acc.png, id=260, 1143.27126pt x 113.42375pt>
+<leNet_trening_acc.png, id=271, 1143.27126pt x 113.42375pt>
 File: leNet_trening_acc.png Graphic file (type png)
 
 <use leNet_trening_acc.png>
-Package pdftex.def Info: leNet_trening_acc.png used on input line 499.
+Package pdftex.def Info: leNet_trening_acc.png used on input line 523.
 (pdftex.def)             Requested size: 400.15094pt x 39.6989pt.
 
-Overfull \hbox (55.15094pt too wide) in paragraph at lines 499--500
+Overfull \hbox (55.15094pt too wide) in paragraph at lines 523--524
  [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<leNet_test_acc.png, id=261, 504.88625pt x 537.00626pt>
+<leNet_test_acc.png, id=272, 504.88625pt x 537.00626pt>
 File: leNet_test_acc.png Graphic file (type png)
 
 <use leNet_test_acc.png>
-Package pdftex.def Info: leNet_test_acc.png used on input line 507.
+Package pdftex.def Info: leNet_test_acc.png used on input line 531.
 (pdftex.def)             Requested size: 227.1967pt x 241.65057pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16 <./leNet_arhitektura.png>] [17 <./leNet_trening_acc.png> <./leNet_test_acc.
+[17 <./leNet_arhitektura.png>] [18 <./leNet_trening_acc.png> <./leNet_test_acc.
 png>]
 (./Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.bb
-l) [18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 557.
- [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 557.
+l) [19]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 581.
+ [20]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 581.
 
 (./Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.au
 x)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 557.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 557.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 581.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 581.
 Package rerunfilecheck Info: File `Prepoznavanje_saobracajnih_znakova_koristeci
 _CNN_JanaJovicic_JovanaPejkic.out' has not changed.
 (rerunfilecheck)             Checksum: 0C9B678E675FC031111616824E1F2A13;904.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 557.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 581.
  ) 
 Here is how much of TeX's memory you used:
- 11323 strings out of 493029
- 155531 string characters out of 6136234
- 277092 words of memory out of 5000000
- 14599 multiletter control sequences out of 15000+600000
+ 11339 strings out of 493029
+ 155737 string characters out of 6136234
+ 281092 words of memory out of 5000000
+ 14609 multiletter control sequences out of 15000+600000
  9963 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  29i,11n,40p,1556b,2003s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -856,10 +874,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmtt9.pfb>
 Output written on Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_
-JovanaPejkic.pdf (19 pages, 2068820 bytes).
+JovanaPejkic.pdf (20 pages, 2185517 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 342 compressed objects within 4 object streams
- 155 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 416 PDF objects out of 1000 (max. 8388607)
+ 351 compressed objects within 4 object streams
+ 159 named destinations out of 1000 (max. 500000)
+ 152 words of extra memory for PDF output out of 10000 (max. 10000000)
 

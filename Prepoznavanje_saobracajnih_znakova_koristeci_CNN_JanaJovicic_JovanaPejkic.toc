@@ -5,7 +5,7 @@
 \contentsline {subsection}{\numberline {2.2}Razlog uvodjenja CNN}{5}{subsection.2.2}% 
 \contentsline {section}{\numberline {3}Konvolutivne neuronske mre\IeC {\v z}e}{5}{section.3}% 
 \contentsline {subsection}{\numberline {3.1}Parametri}{6}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}Konvolucija slika preko CNN}{6}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.2}Konvolucija slika preko CNN}{7}{subsection.3.2}% 
 \contentsline {subsection}{\numberline {3.3}Unutrasnja struktura CNN}{8}{subsection.3.3}% 
 \contentsline {subsection}{\numberline {3.4}Konvolucija}{8}{subsection.3.4}% 
 \contentsline {subsubsection}{\numberline {3.4.1}Prosirivanje}{9}{subsubsection.3.4.1}% 

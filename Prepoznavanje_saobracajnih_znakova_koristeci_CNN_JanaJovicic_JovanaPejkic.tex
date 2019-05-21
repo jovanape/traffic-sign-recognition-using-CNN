@@ -123,20 +123,26 @@ Jednostavni zadaci prepoznavanja mogu se dosta dobro resiti skupovima podataka m
 
 %\cite{ime_knjige}.
 
-Konvolutivne neuronske mreze (eng. Convolutional neural network, CNN) predstavljaju podklasu neuronskih mreza koja ima najmanje jedan konvolutivni sloj (a moze ih imati i vise). Ova vrsta neuronskih mreza je inspirisana vizuelnim korteksom. Svaki put kada nešto vidimo, aktivira se niz slojeva neurona, i svaki sloj otkriva skup karakteristika kao što su linije, ivice itd. Visi nivoi slojeva otkritivaju složenije karakteristike kako bi prepoznali ono što smo videli. Konvolutivne mreze rade po istom principu i prakticno su uvek duboke neuronske mreze, upravo zbog toga sto je potrebno od sitnijih detalja, poput uspravnih, kosih i horizontalnih linija, koji obicno bivaju detektovani u nizim slojevima mreze, konstruisati slozenije oblike poput delova lica. Konvolutivne neuronske mreze se koriste u obradi signala (slike, zvuka), ali i teksta. U odnosu na ostale vrste neuronskih mreza, isticu se u prikupljanju lokalnih informacija (na primer o susednim pikselima na slici ili ,,okruzujucim" (eng. surrounding) recima u tekstu) i smanjenju slozenosti modela (brze treniranje, potrebno je manje izoraka, manja sansa da dodje do preprilagodjavanja (eng. overfitting)). Konvulativne neuronske mreze se zasnivaju na sposobnosti mreza da iz sirovog signala konstruisu atribute. Nazivaju se konvolutivnim zato sto uce \textbf{filtere} (pojam objasnjen u tabeli \ref{tabela_parametri}), cijom konvolutivnom primenom detektuju odredjena svojstva signala. U narednoj tabeli su opisani neki od bitnijih parametara koje treba podesiti pri ucenju mreze.
+Konvolutivne neuronske mreze (eng. Convolutional neural network, CNN) predstavljaju podklasu neuronskih mreza koja ima najmanje jedan konvolutivni sloj (a moze ih imati i vise). Ova vrsta neuronskih mreza je inspirisana vizuelnim korteksom. Svaki put kada nešto vidimo, aktivira se niz slojeva neurona, i svaki sloj otkriva skup karakteristika kao što su linije, ivice itd. Visi nivoi slojeva otkritivaju složenije karakteristike kako bi prepoznali ono što smo videli. Konvolutivne mreze rade po istom principu i prakticno su uvek duboke neuronske mreze, upravo zbog toga sto je potrebno od sitnijih detalja, poput uspravnih, kosih i horizontalnih linija, koji obicno bivaju detektovani u nizim slojevima mreze, konstruisati slozenije oblike poput delova lica. Konvolutivne neuronske mreze se koriste u obradi signala (slike, zvuka), ali i teksta. U odnosu na ostale vrste neuronskih mreza, isticu se u prikupljanju lokalnih informacija (na primer o susednim pikselima na slici ili ,,okruzujucim" (eng. surrounding) recima u tekstu) i smanjenju slozenosti modela (brze treniranje, potrebno je manje izoraka, manja sansa da dodje do preprilagodjavanja (eng. overfitting)). Konvulativne neuronske mreze se zasnivaju na sposobnosti mreza da iz sirovog signala konstruisu atribute. Nazivaju se konvolutivnim zato sto uce \textbf{filtere} (pojam objasnjen u tabeli \ref{tabela_parametri}), cijom konvolutivnom primenom detektuju odredjena svojstva signala.
 
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
-tekst tekst tekst tekst tekst tekst \newline
+Postoji nekoliko arhitektura u polju konvolutivnih neuronskih mreža, koje se razlikuju po tipu, broju i rasporedu slojeva. Dve najpoznatije su:
+
+\begin{itemize}
+
+\item LeNet-5 - ovu arhitekturu je napravio Yann LeCunn krajem 20. veka, a koristila se za citanje zip kodova, cifara itd. LeNet-5 arhitektura se sastoji iz dva skupa konvolutivnih slojeva (eng. convolutional layers) i slojeva agregacije (eng. average pooling layers), koji su praćeni poravnavajućim konvolutivnim slojem (eng. flattening convolutional layer), a onda dva potpuno-povezana sloja (eng. two fully-connected layers) i konačno softmax klasifikator (eng. softmax classifier).
+
+\item AlexNet je jedna od prvih dubokih neuronskih mreža. Sastoji se iz pet konvolutivnih slojeva praćena sa tri potpuno povezana sloja.
+Ovu mrežu je napravio Alex Krizhevsky, koji je koristio prečišćenu linearnu jedinicu (eng. Rectified Linear Unit, ReLu)\footnote{ReLu funkcija se definiše kao: f(x) = max(0,x). Prednost ReLu nad sigmnoidnom funkcijom je što treniranje obavlja mnogo brže.} za ne-linearni deo umesto Tanh ili Sigmoid funkcije, koje su bile standardne za tradicionalne neuronske mreže.
+
+%\item VGG16 predstavlja unapređenje arhitekture AlexNet. U njoj su veliki filteri (jezgra) zamenjeni sa više malih 3x3 filtera jedan za drugim\footnote{Više manjih filtera se pokazuje boljim nego jedan veliki filter (jezgro), zato što više ne-linearnih slojeva povećavaju dubinu mreže što im omogućava da uče kompleksnije karakteristike (i to po manjoj ceni).}.
+
+%\item GoogLeNet ima čak 22 sloja. Brža je i manja od Alexnet i mnogo preciznija. Ideja ove mreže jeste da se napravi model koji će moći da se koristi i na pametnom telefonu (eng. smart-phone).
+
+
+\end{itemize}
+
+
+% U narednoj tabeli su opisani neki od bitnijih parametara koje treba podesiti pri ucenju mreze.
 
 \subsection{Parametri}
 

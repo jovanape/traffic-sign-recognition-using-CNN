@@ -1,0 +1,268 @@
+\documentclass{beamer}
+\mode<presentation> {
+\usetheme{Antibes}
+\definecolor{zelena}{rgb}{.9,.74,.00}
+\usecolortheme[named=zelena]{structure}
+}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{hyperref} 
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[english,serbian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+
+
+\def\d{{\fontencoding{T1}\selectfont\dj}}
+\def\D{{\fontencoding{T1}\selectfont\DJ}}
+
+\title[Prepoznavanje saobraćajnih znakova pomoću CNN]{Prepoznavanje saobraćajnih znakova pomoću CNN}
+
+\author{Jana Jovičić, Jovana Pejkić}
+\institute[Matematički fakultet]
+{
+\small{Prezentacija seminarskog rada \\u okviru kursa\\ Računarska inteligencija \\ Matematički fakultet\\}
+\medskip
+\textit{jana.jovicic755@gmail.com, jov4ana@gmail.com}
+}
+\date{}
+
+\begin{document}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%------------------------------------------------
+
+
+\begin{frame}
+\frametitle{Sadržaj}
+\tableofcontents
+\end{frame}
+
+%------------------------------------------------
+
+
+
+\section{Cilj rada}
+\begin{frame} 
+\frametitle{Cilj rada}
+
+\begin{itemize}
+\item Za bazu podataka kineskih saobracajnih znakova izvršiti što precizniju klasifikaciju
+\item Implementirati CNN u programskom jeziku Python uz korišćenje Keras biblioteke
+\item Isprobati nekoliko različitih arhitektura mreže
+\item Uporediti dobijene rezultate i izvesti zakljlučke
+\end{itemize}
+
+
+%\begin{figure}
+%\includegraphics[width=270pt, height=126pt]{ime_slike.jpg}
+%\caption{Naslov slike}
+%\end{figure}
+
+\end{frame}
+
+%------------------------------------------------
+
+\section{Informacije o korišćenom skupu podataka}
+\begin{frame}
+\frametitle{Informacije o korišćenom skupu podataka}
+
+\begin{itemize}
+\item Baza sadrži \textbf{6164 slika} saobraćajnih znakova
+\begin{itemize}
+\item podeljenih u \textbf{58 klasa}
+\item pri čemu \textbf{trening skup} sadrži \textbf{4170 slika}
+\item a \textbf{test skup 1994 slika}
+\end{itemize}
+\item Zbog nejednakog broja slika (negde 5, negde 400) po klasama, korišćen je deo baze
+\item Izdvojeno je \textbf{10 klasa} koje su imale priblizno jednak broj slika
+\item Dobijen je \textbf{trening skup} od \textbf{1693 slika} i \textbf{test skup} od \textbf{764 slika}
+
+
+% TODO TODO TODO TODO TODO
+% Na slici 10 je prikazan po jedan znak iz svake klase trening skupa, zajedno sa brojem elemenata te klase.
+% Podaci o test skupu, mogu se videti na slici.
+% Ubaciti slike pa srediti ovo zakomentarisano!
+
+\end{itemize}
+
+\end{frame}
+
+\section{Modeli}
+
+\subsection{Model 1}
+\begin{frame}
+\frametitle{Model 1}
+
+\begin{itemize}
+
+\item Jedan od prvih modela koji je imao uspeha nad test podacima
+\item Sastoji se iz:
+\begin{itemize}
+\item 4 konvolutivna sloja
+\item 2 agregirajuca sloja
+\item 2 potpuno povezana sloja
+\end{itemize}
+
+\item U svim konvolutivnim slojevima:
+\begin{itemize}
+\item velicina jezgra je 3x3
+\item broj ltera na izlazu iz konvolucije je 32
+\end{itemize}
+
+% TODO TODO TODO TODO TODO Proveriti da li u svakom sloju?
+% TODO TODO TODO TODO TODO Sta u svakom?
+
+\item U svakom sloju se koristi \textbf{ReLU} aktivaciona funkcija
+\item Agregacija se vrsi biranjem \textbf{maksimalne vrednosti} dela mape karakteristika koji je prekriven lterom
+
+\end{itemize}
+
+
+\end{frame}
+
+
+\subsection{Model 1 nastavak}
+\begin{frame}
+\frametitle{Model 1 nastavak}
+
+\begin{itemize}
+
+\item Funkcijom \textbf{Dropoup()} je iskljucivan odreden broj nasumicno odabranih neurona (da bi se sprecilo preprilagodjavanje)
+\item Nakon agregacija je iskljuceno 20\% neurona, pre FC sloja 50\%
+
+\item Poslednji potpuno povezani (FC) sloj
+\begin{itemize}
+\item ima onoliko neurona koliko ima klasa
+\item koristi softmax aktivacionu funkciju
+\end{itemize}
+
+\item Ucenje modela je sprovedeno u 30 epoha
+\item Batch size je postavljen na 32
+\begin{itemize}
+\item sto znaci da u svakoj iteraciji uzima 32 primerka iz trening skupa koja ce biti propagirana kroz mrezu
+\end{itemize}
+
+\item Optimizacija modela je izvrsena pomocu \textbf{gradijentnog spusta}
+
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Model 2}
+\begin{frame}
+\frametitle{Model 2}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+
+\subsection{Model 2 nastavak}
+\begin{frame}
+\frametitle{Model 2 nastavak}
+
+\begin{itemize}
+\item
+\item
+\item
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Model 3}
+\begin{frame}
+\frametitle{Model 3}
+
+\end{frame}
+
+%------------------------------------------------
+
+
+\section{Uporedjivanje modela}
+\begin{frame}
+\frametitle{Uporedjivanje modela}
+
+
+\begin{block}{Primer koda}
+
+\begin{semiverbatim}
+-- neki kod
+-- ...
+-- ...
+-- ...
+\end{semiverbatim}
+\end{block}
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Statistike}
+\begin{frame}
+\frametitle{Statistike}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Grafik}
+\begin{frame}
+\frametitle{Grafik}
+
+\end{frame}
+
+%--------------------------------------------------
+
+\section{Zaključak}
+
+\begin{frame}
+\frametitle{Zaključak}
+
+\begin{itemize}
+\item
+\item
+\item
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\section{Literatura}
+
+\begin{frame}
+\frametitle{Literatura}
+\footnotesize{
+\begin{thebibliography}{99}
+
+\bibitem[]{p1} Ime Prezime pisca (godina)
+\newblock \small{\textbf{Ime knjige} Mesto, tekst, godina.}
+
+\bibitem[]{p1} Ime Prezime pisca (od-do)
+\newblock \small{\textbf{Naziv dela}, on-line at: http://adresa.org/.}
+
+\end{thebibliography}
+}
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
+\Huge{\centerline{Hvala na pažnji!}}
+\end{frame}
+
+
+\end{document} 

@@ -119,8 +119,30 @@ model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimi
 def lr_schedule(epoch):
     return lr * (0.1 ** int(epoch / 10))
 
-model.fit(images, classes,
+history = model.fit(images, classes,
           batch_size=batch_size,
           epochs=epochs,
           validation_split=0.2,
           callbacks=[LearningRateScheduler(lr_schedule), ModelCheckpoint('model.h5', save_best_only=True)])
+
+# izlistavanje svih podataka
+print(history.history.keys())
+
+# preciznost (accuracy)
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+
+# podaci o promasaju (loss)
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+

@@ -1,5 +1,11 @@
 \begin{thebibliography}{1}
 
+\bibitem{Adam}
+a.
+\newblock {Adam optimizer}.
+\newblock on-line at:
+  \url{https://towardsdatascience.com/adam-latest-trends-in-deep-learning-optimization-6be9a291375c}.
+
 \bibitem{CTSD}
 a.
 \newblock {Chinese Traffic Sign Database}.

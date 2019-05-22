@@ -97,7 +97,7 @@ U ovom radu je predstavljeno rešavanje problema klasifikacije slika saobraćajn
 \label{sec:neuronske_mreze}
 
 %U masinskom učenju, neuronske mreže (eng. neural networks) važe za jednu od najprimenjenijih metoda.
-Neuronske mreže predstavljaju skup statističkih modela učenja inspirisana biološkim neuronima, za rešavanje klasifikacionih\footnote{Klasifikacioni problem - ako je izlazna promenljiva kategorickog tipa, npr. ,,zdrav" i ,,bolestan".} i regresijskih problema\footnote{Regresioni problem - ako je izlazna promenjiva neprekidnog tipa, npr. ,,plata" ili ,,tezina".}. Njihove primene su mnogobrojne, a neke od njih su: kategorijzacija teksta,
+Neuronske mreže predstavljaju skup statističkih modela učenja inspirisan biološkim neuronima, za rešavanje klasifikacionih\footnote{Klasifikacioni problem - ako je izlazna promenljiva kategorickog tipa, npr. ,,zdrav" i ,,bolestan".} i regresionih problema\footnote{Regresioni problem - ako je izlazna promenjiva neprekidnog tipa, npr. ,,plata" ili ,,tezina".}. Njihove primene su mnogobrojne, a neke od njih su: kategorijzacija teksta,
 %prepoznavanje rukom pisanih tekstova, medicinska dijagnostika, prepoznavanje objekata na slikama, robotika i automatsko upravljanje,
  raspoznavanje i sinteza govora, autonomna voznja, igranje video igara, mašinsko prevođenje prirodnih jezika i slično. Ključna prednost neuronskih mreža je da same mogu da konstruišu nove atribute nad sirovom reprezentacijom podataka\footnote{Iako se nekad mogu pretpostaviti koji su atributi najinformativniji za predviđanje ciljne promenljive, izbori tih atributa su neretko lošiji od onoga što bi algoritam učenja mogao da detektuje u sirovoj informaciji.} i odlično baratanje sa velikim količinama podataka.
 %Za male kolicine podataka neuronske mreže nisu pogodne jer lako vode preprilagodavanju, stoga obim podataka igra bitnu ulogu.
@@ -120,13 +120,13 @@ Kako se neuronske mreže uglavnom koriste za klasifikaciju uzorka u različite k
 
 \subsection{Razlog uvodjenja konvolutivnih neuronskih mreža}
 
-Jednostavni zadaci prepoznavanja mogu se dosta dobro rešiti skupovima podataka malih veličina, npr. desetine hiljada slika. Međutim, objekti u realističnim postavkama pokazuju značajnu raznovrsnost, stoga, da bi bilo moguće naučiti prepoznati ih, potrebno je koristiti mnogo veće skupove za treniranje. Da bi se naučilo o hiljadama objekata iz miliona slika, potreban je model sa velikim kapacitetom učenja. Konvolutivne neuronske mreže, koje su detaljno obrađene u ostatku rada, čine jednu takvu klasu modela. One daju jake i uglavnom ispravne pretpostavke o prirodi slika, a njihov kapacitet se moze kontrolisati variranjem njihove dubine i širine. Tako, u poređenju sa standardnim neuronskim mrežama (\textit{mrežama sa propagacijom unapred (eng.} feedforward neural network\textit{)}) sa slojevima sličnih veličina, CNN imaju mnogo manje veza i parametara, tako da ih je lakše trenirati, dok je njihov teoretski najbolji učinak samo nešto lošiji.
+Jednostavni zadaci prepoznavanja mogu se dosta dobro rešiti skupovima podataka malih veličina, npr. desetine hiljada slika. Međutim, objekti u realističnim postavkama pokazuju značajnu raznovrsnost, stoga, da bi bilo moguće naučiti prepoznati ih, potrebno je koristiti mnogo veće skupove za treniranje. Da bi se naučilo o hiljadama objekata iz miliona slika, potreban je model sa velikim kapacitetom učenja. Konvolutivne neuronske mreže, koje su detaljno obrađene u ostatku rada, čine jednu takvu klasu modela. One daju jake i uglavnom ispravne pretpostavke o prirodi slika, a njihov kapacitet se može kontrolisati variranjem njihove dubine i širine. Tako, u poređenju sa standardnim neuronskim mrežama (\textit{mrežama sa propagacijom unapred (eng.} feedforward neural network\textit{)}) sa slojevima sličnih veličina, CNN imaju mnogo manje veza i parametara, tako da ih je lakše trenirati, dok je njihov teoretski najbolji učinak samo nešto lošiji.
 
 
 \section{Konvolutivne neuronske mreže}	
 \label{sec:cnn}
 
-Konvolutivne neuronske mreže predstavljaju podklasu neuronskih mreža koja ima najmanje jedan konvolutivni sloj (a može ih imati i više). Ova vrsta neuronskih mreža je inspirisana vizuelnim korteksom. Svaki put kada osoba nešto vidi, aktivira se niz slojeva neurona, i svaki sloj otkriva skup karakteristika kao što su linije, ivice itd. Viši nivoi slojeva otkritivaju složenije karakteristike kako bi prepoznali ono što je osoba videla. Konvolutivne mreže rade po istom principu i praktično su uvek \textit{duboke neuronske mreže (eng.} deep neural network\textit{)}\footnote{Duboke neuronske mreže su neuronske mreže koje se sastoje od više skrivenih slojeva između ulaznih i izlaznih slojeva (koji na izlazu predviđaju ciljnu promenljivu), koje mogu modelovati i kompleksne nelinearne veze.}, upravo zbog toga što je potrebno od sitnijih detalja, poput uspravnih, kosih i horizontalnih linija, koji obično bivaju detektovani u nižim slojevima mreže, konstruisati složenije oblike poput delova lica. Konvolutivne neuronske mreže se koriste u obradi signala (slike, zvuka), ali i teksta. U odnosu na ostale vrste neuronskih mreža, ističu se u prikupljanju lokalnih informacija (npr. o susednim pikselima na slici ili \textit{,,okružujućim" (eng.} surrounding\textit{)} rečima u tekstu) i smanjenju složenosti modela (brže treniranje, potrebno je manje uzoraka, manja šansa da dodje do \textit{preprilagodjavanja (eng.} overfitting\textit{)}). Konvulativne neuronske mreže se zasnivaju na sposobnosti mreža da iz sirovog signala konstruišu atribute. Nazivaju se konvolutivnim zato što uče \textbf{filtere} (pojam objašnjen u tabeli \ref{tabela_parametri}), čijom konvolutivnom primenom detektuju određena svojstva signala.
+Konvolutivne neuronske mreže predstavljaju potklasu neuronskih mreža koja ima najmanje jedan konvolutivni sloj (a može ih imati i više). Ova vrsta neuronskih mreža je inspirisana vizuelnim korteksom. Svaki put kada osoba nešto vidi, aktivira se niz slojeva neurona, i svaki sloj otkriva skup karakteristika kao što su linije, ivice itd. Viši nivoi slojeva otkritivaju složenije karakteristike kako bi prepoznali ono što je osoba videla. Konvolutivne mreže rade po istom principu i praktično su uvek \textit{duboke neuronske mreže (eng.} deep neural network\textit{)}\footnote{Duboke neuronske mreže su neuronske mreže koje se sastoje od više skrivenih slojeva između ulaznih i izlaznih slojeva (koji na izlazu predviđaju ciljnu promenljivu), koje mogu modelovati i kompleksne nelinearne veze.}, upravo zbog toga što je potrebno od sitnijih detalja, poput uspravnih, kosih i horizontalnih linija, koji obično bivaju detektovani u nižim slojevima mreže, konstruisati složenije oblike poput delova lica. Konvolutivne neuronske mreže se koriste u obradi signala (slike, zvuka), ali i teksta. U odnosu na ostale vrste neuronskih mreža, ističu se u prikupljanju lokalnih informacija (npr. o susednim pikselima na slici ili \textit{,,okružujućim" (eng.} surrounding\textit{)} rečima u tekstu) i smanjenju složenosti modela (brže treniranje, potrebno je manje uzoraka, manja šansa da dodje do \textit{preprilagodjavanja (eng.} overfitting\textit{)}). Konvulativne neuronske mreže se zasnivaju na sposobnosti mreža da iz sirovog signala konstruišu atribute. Nazivaju se konvolutivnim zato što uče \textbf{filtere} (pojam objašnjen u tabeli \ref{tabela_parametri}), čijom konvolutivnom primenom detektuju određena svojstva signala.
 
 Postoji nekoliko različitih arhitektura u polju konvolutivnih neuronskih mreža. One se razlikuju po tipu, broju i rasporedu slojeva, i uglavnom predstavljaju bolju verziju neke od prethodnih mreža (o ovome više reči u poglavlju \ref{struktura_cnn}). Takođe, ono što treba istaći jeste podešavanje parametara mreže. Iako nije moguće izračunati u kom slučaju koji parametar treba imati koju vrednost, u narednom poglavlju (\ref{parametri_sec}) su opisani neki od bitnijih parametara koje svakako treba podesiti pri učenju mreže.
 
@@ -158,7 +158,7 @@ U ovoj sekciji je dat tabelarni prikaz parametara koji su najznačajniji za impl
 \hline 
 \textit{Broj kanala (eng.} Number of Channels\textit{)} &
 - u početku je jednak broju \textit{kanala boja (eng.} color channels\textit{)} ulaza, a u kasnijim stadijumima postaje jednak broju filtera koji su korišćeni za operaciju konvolucije \newline
-- što je veći broj kanala, veći je i broj korišćenih filtera, a time je naučeno više karakteristika, pa postoji šansa da dođe do prilagođavanja (i obrnuto)
+- što je veći broj kanala, veći je i broj korišćenih filtera, a time je naučeno više karakteristika, pa postoji šansa da dođe do preprilagođavanja (i obrnuto)
 \\
 \hline 
 Parametri sloja agregacije &
@@ -339,8 +339,20 @@ U potpuno povezanom sloju, svaki neuron je povezan sa svakim neuronom iz prethod
 
 Poslednji potpuno povezani sloj treba da ima onoliko neurona koliko ima i klasa, kako bi mogao da odredi koju klasu da pridruži slici. U ovom sloju je najbolje koristiti softmax aktivacionu funkciju. Softmax funkcija određuje verovatnoću pripadnosti slike svakoj od klasa. Nakon njene primene, dobija se vektor vrednosti koje odgovaraju verovatnoćama i koje u zbiru daju vrednost 1. Zahvaljujući njoj, slika se klasifikuje u onu klasu kojoj odgovara najveća verovatnoća pripadnosti. Softmax funkcija je definisana kao: $$ S(z_i) = \frac{e^z_i}{\sum_{j=1}^{K}e^z_j},  i = 1,...,K,  z = (z_1,...,z_K) $$ gde je z ulazni vektor od K realnih brojeva. 
 
-U sloju koji koristi softmax aktivacionu funkciju, obično se za funkciju određivanja greške klasifikacije uzima \textit{categorical crossentropy}. Ona se koristi ukoliko su podaci takvi da jedna instanca tih podataka može da pripada samo jednoj klasi. \textit{Categorical crossentropy} upoređuje raspodelu verovatnoća predviđenih klasa sa raspodelom koja odgovara pravim klasama. Ova funkcija je definisana kao:
-$$ H(y, \hat{y}) = -\sum_{i} y_i\cdot log(\hat{y})) $$ gde \textit{y} predstavlja vektor pravih raspodela, a $\hat{y}$ vektor predviđenih raspodela.
+U sloju koji koristi softmax aktivacionu funkciju, obično se za funkciju određivanja greške klasifikacije (tj. funkciju gubitka, eng. loss function) uzima \textit{categorical crossentropy}. Ona se koristi ukoliko su podaci takvi da jedna instanca tih podataka može da pripada samo jednoj klasi. \textit{Categorical crossentropy} upoređuje raspodelu verovatnoća predviđenih klasa sa raspodelom koja odgovara pravim klasama. Ova funkcija je definisana kao:
+$$ H(y, \hat{y}) = -\sum_{i} y_i\cdot log(\hat{y})) $$ gde \textit{y} predstavlja vektor pravih raspodela, a $\hat{y}$ vektor predviđenih raspodela. Dakle, funkcija gubitka služi da kvantifikuje kvalitet klasifikacije, tj. da oceni koliko je dobar skup težina koji služi za učenje mreže.
+
+\subsection{Optimizacija mreže}
+\label{optimizacija}
+
+Cilj optimizacije je da pronađe skup težina tako da se funkcija gubitka minimizuje. Konvolutivne neuronske mreže se često optimizuju pomoću stohastičkog gradijentnog spusta ili 
+Adam optimizatora.
+
+Kod gradijentnog spusta, težine se traže u pravcu koji je suprotan pravcu gradijenta funkcije gubitka, jer se na taj način može stići do lokalnog minimuma. A to nam odgovara jer nam je cilj da minimizujemo tu funkciju gubitka. Međutim, samo kretanje u tom pravcu ne garantuje da će taj minimum biti pronađen, jer je u zavisnosti od dužine koraka moguće preći preko minimuma. Zato je potrebno odrediti pogodnu dužinu koraka, tj. pronaći najbolji parametar učenja (eng. learning rate). 
+
+Kod optimizacije gradijentnim spustom, za ažuriranje makar samo jedne težine, potrebno je proći kroz sve podatke iz trening skupa. Zbog toga se češće koristi optimizacija stohastičkim gradijentnim spustom (SGD, eng. Stochastic Gradient Descent), kod koje je moguće koristiti samo podskup trening podataka. Zove se stohastički jer nasumično bira trening uzorke na osnovu kojih će ažurirati parametre. Tim nasumičnim izborom je omogućeno pronalaženje drugog, potencijalno boljeg, lokalnog minimuma.
+
+Optimizator Adam predstavlja unapređenu verziju SGD-a. SGD održava jednu vrednost parametra učenja za sva ažuriranja težina i ta vrednost se ne menja tokom treninga. Za razliku od njega, Adam može da održava različite parametre učenja za različite težine i da ih menja tokom procesa učenja \cite{Adam}.
 
 \section{Implementacija i eksperimentalni rezultati}
 \label{sec:implementacija_i_eksperimentalni_rezultati}
@@ -429,9 +441,9 @@ model.fit(images, classes,
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.45]{model1_arhitektura.png}
+\includegraphics[scale=0.40]{model1_arhitektura.png}
 \end{center}
-\caption{Slojevi modela neuronske mreže}
+\caption{Slojevi modela 1 neuronske mreže}
 \label{fig:model1_arh}
 \end{figure}
 
@@ -441,45 +453,18 @@ Na slici \ref{fig:model1_trening_acc} možemo videti da je preciznost modela na 
 \begin{center}
 \includegraphics[scale=0.35]{model1_trening_acc.png}
 \end{center}
-\caption{Preciznost na trening podecima}
+\caption{Preciznost modela 1 na trening podecima}
 \label{fig:model1_trening_acc}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.45]{model1_test_acc.png}
+\includegraphics[scale=0.40]{model1_test_acc.png}
 \end{center}
-\caption{Preciznost na test podecima}
+\caption{Preciznost modela 1 na test podecima}
 \label{fig:model1_test_acc}
 \end{figure}
 
-
-
-% TODO: Srediti ove statistike.
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{accuracy_1.png}
-\end{center}
-\caption{Preciznost}
-\label{fig:accuracy_1}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{loss_1.png}
-\end{center}
-\caption{Gubitak}
-\label{fig:loss_1}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.6]{confussion_matrix_1.png}
-\end{center}
-\caption{Matrica konfuzije}
-\label{fig:confussion_matrix_1}
-\end{figure}
 
 
 \newpage
@@ -490,6 +475,7 @@ Na slici \ref{fig:model1_trening_acc} možemo videti da je preciznost modela na 
 
 Još bolje rezultate smo dobile pomoću LeNet-5 mreže \cite{leNet}. LeNet-5 mrežu je 1990ih napravio Yann LeCunn. Mreža se sastoji iz 7 slojeva, pri čemu se ne računa ulazni sloj. Sve slike smo skalirale na večičinu 32x32 piksela, jer ova mreža kao ulaz očekuje slike tih dimenzija. Prvi konvolutivni sloj na izlazu daje 6 mapa karakteristika, koristi jezgro veličine 3x3 i kao aktivacionu funkciju koristi ReLU. Nakon njega sledi sloj agregacije u kom se sažimanje vrši biranjem prosečne vrednosti dela mape karakteristika koji je prekriven filterom. 
 Još jednom se ponavljaju ova dva sloja, s tim što sada konvolutivni sloj vraća 16 mapa karakteristika. Nakon ispravljanja mape karakteristika u vektor, taj vektor se prosleđuje potpuno povezanom sloju koji se sastoji iz 120 neurona i koristi ReLU aktivacionu funkciju. Nakon toga sledi potpuno povezani sloj od 84 neurona koji, takođe, koristi ReLU aktivacionu funkciju. I, na kraju, ostaje još jedan potpuno povezani sloj koji ima onoliko neurona koliko ima klasa i koji koristi softmax aktivacionu funkciju. U kodu \ref{code:leNet} je data implementacija LeNet-5 mreže, a na slici \ref{fig:leNet_arh} je prikazana njena detaljna arhitektura.
+
 
 \begin{lstlisting}[caption={LeNet-5},frame=single, label=code:leNet]
 def cnn_model():
@@ -538,7 +524,7 @@ model.fit(images, classes,
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.45]{leNet_arhitektura.png}
+\includegraphics[scale=0.35]{leNet_arhitektura.png}
 \end{center}
 \caption{Slojevi modela leNet-5 neuronske mreže}
 \label{fig:leNet_arh}
@@ -551,19 +537,43 @@ Na slici \ref{fig:leNet_trening_acc} možemo videti da je preciznost na trening 
 \begin{center}
 \includegraphics[scale=0.35]{leNet_trening_acc.png}
 \end{center}
-\caption{Preciznost na trening podecima}
+\caption{Preciznost leNet-5 modela na trening podecima}
 \label{fig:leNet_trening_acc}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.45]{leNet_test_acc.png}
+\includegraphics[scale=0.40]{leNet_test_acc.png}
 \end{center}
-\caption{Preciznost na test podecima}
+\caption{Preciznost leNet-5 modela na test podecima}
 \label{fig:leNet_test_acc}
 \end{figure}
 
+Na slici \ref{fig:accuracy_1} prikazan je rast preciznosti na trening i test podacima kroz epohe. Na slici \ref{fig:loss_1} se može videti kako je funkcija gubitka opadala sa povećanjem broja epoha treniranja. Na slici \ref{fig:confussion_matrix_1} je detaljnije prikazana matrica konfuzije.
 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{accuracy_1.png}
+\end{center}
+\caption{Preciznost leNet-5 modela}
+\label{fig:accuracy_1}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{loss_1.png}
+\end{center}
+\caption{Gubitak leNet-5 modela}
+\label{fig:loss_1}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.6]{confussion_matrix_1.png}
+\end{center}
+\caption{Matrica konfuzije leNet-5 modela}
+\label{fig:confussion_matrix_1}
+\end{figure}
 
 
 \newpage

@@ -305,19 +305,21 @@ U konvolutivnim slojevima kao aktivaciona funkcija se najčešće koristi ReLu (
 %\textit{iskosen tekst}
 %\ref{sec:primer_koda}
 
-Uloga sloja za agregaciju je smanjenje broja parametara kada su slike prevelike, kao i smanjenje broja racunskih operacija u visim slojevima smanjuje. Agregacija smanjuje dimenzionalnost svake mape, ali zadržava važne informacije. Sve to rezultuje smanjenjem racunske zahtevnosti pri optimizaciji i pomaze u kontroli overfitinga. Zato zelimo da slojevi za agregaciju prate konvolucione slojeve kako bismo postepeno smanjili prostornu veličinu (širinu i visinu) prikaza podataka.
+Uloga sloja za agregaciju je smanjenje broja parametara kada su slike prevelike, kao i smanjenje broja računskih operacija u višim slojevima mreže. Agregacija smanjuje dimenzionalnost svake mape, ali zadržava važne informacije. Sve to rezultuje smanjenjem računske zahtevnosti pri optimizaciji i pomaže u kontroli \textit{overfitinga}. Zato je poželjno da slojevi za agregaciju prate konvolutivne slojeve kako bi postepeno smanjili prostornu veličinu (širinu i visinu) prikaza podataka.
 
-Cesto nas konačni zadatak postavlja neko globalno pitanje o slici, npr., Da li sadrži mačku? Tako da čvorovi našeg zadnjeg sloja moraju biti osetljivi na celi ulaz. Postepenom agregacijom informacija, stvarajuci grublje i grublje mape karakteristika, postize se taj cilj da se na kraju nauci globalna reprezentacija, zadrzavajuci sve prednosti konvolucijskih slojeva na srednjim slojevima obrade.
+Često konačni zadatak postavlja neko globalno pitanje o slici, na primer, da li sadrži mačku? Stoga, čvorovi zadnjeg sloja moraju biti osetljivi na celi ulaz. Postepenom agregacijom informacija, stvarajući sve grublje i grublje mape karakteristika, postiže se taj cilj da se na kraju nauči globalna reprezentacija, zadržavajući sve prednosti konvolutivnih slojeva na srednjim slojevima obrade.
 
-Sloj agregacije ukrupnjuje informacije, tako sto racuna neku jednostavnu funkciju agregacije susednih jedinica prethodnog sloja, poput maksimuma (eng. Max pooling) [koji vraca maksimalnu vrednost dela slike pokrivene filterom] ili proseka (eng. Average pooling) [koji vraca prosecnu vrednost dela slike pokrivene filterom]. Ukoliko agregira, na primer, 3 x 3 piskela, onda je broj izlaza ovog sloja 9 puta manji od broja izlaza prethodnog. Kada se racuna maksimum, dolazi do zanemarivanje informacije o tome gde je precizno neko svojstvo (poput uspravne linije) pronadeno, ali se ne gubi informacija da je pronadeno. Ovakva vrsta zanemarivanja informacije cesto ne steti cilju koji treba postici. Na primer, ako su na slici pronadeni kljun i krila, informacija o tacnoj pozicjiji najverovatnije nije bitna za odlucivanje da li se na slici nalazi ptica. Ipak, ukoliko je potrebno napraviti mrezu koja igra igru u kojoj su pozicije objekata na ekranu bitne, nije pozeljno koristiti agregaciju.
+Sloj agregacije ukrupnjuje informacije, tako sto računa neku jednostavnu funkciju agregacije susednih jedinica prethodnog sloja, poput \textit{maksimuma (eng.} Max pooling\textit{)}, koji vraća maksimalnu vrednost dela slike pokrivene filterom, ili \textit{proseka (eng.} Average pooling\textit{)}, koji vraća prosečnu vrednost dela slike pokrivene filterom. Ukoliko agregira, na primer, 3 x 3 piskela, onda je broj izlaza ovog sloja 9 puta manji od broja izlaza prethodnog. Kada se računa maksimum, dolazi do zanemarivanja informacija o tome gde je precizno neko svojstvo (poput uspravne linije) pronađeno, ali se ne gubi informacija da je ono pronađeno. Ovakva vrsta zanemarivanja informacije često ne šteti cilju koji treba postići. Na primer, ako su na slici pronađeni kljun i krila, informacija o tačnoj poziciji najverovatnije nije bitna za odlučivanje da li se na slici nalazi ptica. Ipak, ukoliko je potrebno napraviti mrežu koja igra igru u kojoj su pozicije objekata na ekranu bitne, nije poželjno koristiti agregaciju.
 
- Average pooling was often used historically but has recently fallen out of favor compared to the max pooling operation, which has been shown to work better in practice.
- 
- Pooling layer downsamples the volume spatially, independently in each depth slice of the input volume.
- 
 Prva slika (pool): In this example, the input volume of size [224x224x64] is pooled with filter size 2, stride 2 into output volume of size [112x112x64]. Notice that the volume depth is preserved.
  
 Druga slika (maxpool): The most common downsampling operation is max, giving rise to max pooling, here shown with a stride of 2. That is, each max is taken over 4 numbers (little 2x2 square).
+
+% TODO TODO TODO Iskoristiti ovu ispod rečenicu kod implementacije, zašto smo baš koristile max a ne average tamo gde je to korišćeno.
+
+% Average pooling se više javlja  iz istorijskih razloga ali se toliko ne koristi, dok se max pooling, koji se u praksi pokazao kao mnogo bolji, uglavnom uvek koristi.
+ 
+% Pooling layer downsamples the volume spatially, independently in each depth slice of the input volume.
 
  
 \begin{figure}[h!]

@@ -12,6 +12,14 @@ a.
 \newblock on-line at:
   \url{http://www.nlpr.ia.ac.cn/pal/trafficdata/recognition.html}.
 
+\bibitem{understandConvNet}
+Saad Albawi.
+\newblock {Understanding of a Convolutional Neural Network}.
+\newblock {\em The International Conference on Engineering and Technology},
+  2017.
+\newblock on-line at:
+  \url{https://www.researchgate.net/publication/319253577_Understanding_of_a_Convolutional_Neural_Network}.
+
 \bibitem{leNet}
 Leon~Bottou Yann~LeCun, Patric~Haffner.
 \newblock {Object recognition with Gradient-Based learning}.

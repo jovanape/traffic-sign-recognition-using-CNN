@@ -4,45 +4,45 @@ The top-level auxiliary file: Prepoznavanje_saobracajnih_znakova_koristeci_CNN_J
 The style file: plain.bst
 Database file #1: seminarski.bib
 Warning--empty journal in leNet
-You've used 3 entries,
+You've used 4 entries,
             2118 wiz_defined-function locations,
-            511 strings with 4480 characters,
-and the built_in function-call counts, 627 in all, are:
-= -- 55
-> -- 21
+            518 strings with 4752 characters,
+and the built_in function-call counts, 840 in all, are:
+= -- 77
+> -- 28
 < -- 0
-+ -- 9
-- -- 6
-* -- 20
-:= -- 113
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 12
++ -- 12
+- -- 8
+* -- 28
+:= -- 154
+add.period$ -- 13
+call.type$ -- 4
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 24
-empty$ -- 62
-format.name$ -- 6
-if$ -- 129
+cite$ -- 5
+duplicate$ -- 34
+empty$ -- 79
+format.name$ -- 8
+if$ -- 172
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 1
-newline$ -- 18
-num.names$ -- 6
-pop$ -- 28
+int.to.str$ -- 4
+missing$ -- 2
+newline$ -- 24
+num.names$ -- 8
+pop$ -- 31
 preamble$ -- 1
-purify$ -- 9
+purify$ -- 12
 quote$ -- 0
-skip$ -- 19
+skip$ -- 26
 stack$ -- 0
-substring$ -- 15
-swap$ -- 2
+substring$ -- 20
+swap$ -- 3
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 16
 warning$ -- 1
-while$ -- 6
-width$ -- 4
-write$ -- 29
+while$ -- 8
+width$ -- 5
+write$ -- 41
 (There was 1 warning)

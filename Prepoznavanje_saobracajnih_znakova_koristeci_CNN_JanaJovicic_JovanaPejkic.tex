@@ -307,23 +307,7 @@ Uloga sloja za agregaciju je smanjenje broja parametara kada su slike prevelike,
 
 Često konačni zadatak postavlja neko globalno pitanje o slici, na primer, da li sadrži mačku? Stoga, čvorovi zadnjeg sloja moraju biti osetljivi na celi ulaz. Postepenom agregacijom informacija, stvarajući sve grublje i grublje mape karakteristika, postiže se taj cilj da se na kraju nauči globalna reprezentacija, zadržavajući sve prednosti konvolutivnih slojeva na srednjim slojevima obrade.
 
-Sloj agregacije ukrupnjuje informacije, tako sto računa neku jednostavnu funkciju agregacije susednih jedinica prethodnog sloja, poput \textit{maksimuma (eng.} Max pooling\textit{)}, koji vraća maksimalnu vrednost dela slike pokrivene filterom, ili \textit{proseka (eng.} Average pooling\textit{)}, koji vraća prosečnu vrednost dela slike pokrivene filterom. Funkcija koja vraća prosečnu vrednost se u praksi toliko ne koristi, već se javlja iz istorijskih razloga, dok se funkcija koja računa maksimalnu vrednost mnogo bolje pokazala u praksi, te se ona skoro uvek koristi. Ukoliko agregira, na primer, 3 x 3 piskela, onda je broj izlaza ovog sloja 9 puta manji od broja izlaza prethodnog. Kada se računa maksimum, dolazi do zanemarivanja informacija o tome gde je precizno neko svojstvo (poput uspravne linije) pronađeno, ali se ne gubi informacija da je ono pronađeno. Ovakva vrsta zanemarivanja informacije često ne šteti cilju koji treba postići. Na primer, ako su na slici pronađeni kljun i krila, informacija o tačnoj poziciji najverovatnije nije bitna za odlučivanje da li se na slici nalazi ptica. Ipak, ukoliko je potrebno napraviti mrežu koja igra igru u kojoj su pozicije objekata na ekranu bitne, nije poželjno koristiti agregaciju.
-
-Na slici \ref{fig:maxpool} je prikazan izlaz koji se dobija kada se na ulaznu matricu dimenzije 4x4 primeni Maxpool metod uz pomoć filtera dimenzije 2x2 i koraka 2. Naime, u ovom primeru se računa maksimalna vrednost nad svakim blokom od četiri broja.
-
-
-% TODO TODO TODO Iskoristiti ovu ispod rečenicu kod implementacije, zašto smo baš koristile max a ne average tamo gde je to korišćeno.
-
-% Average pooling se više javlja  iz istorijskih razloga ali se toliko ne koristi, dok se max pooling, koji se u praksi pokazao kao mnogo bolji, uglavnom uvek koristi.
-
- 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.4]{maxpool.jpeg}
-\end{center}
-\caption{Maxpool}
-\label{fig:maxpool}
-\end{figure}
+Sloj agregacije ukrupnjuje informacije, tako sto računa neku jednostavnu funkciju agregacije susednih jedinica prethodnog sloja, poput \textit{maksimuma (eng.} Max pooling\textit{)}, koji vraća maksimalnu vrednost dela slike pokrivene filterom, ili \textit{proseka (eng.} Average pooling\textit{)}, koji vraća prosečnu vrednost dela slike pokrivene filterom. Funkcija koja vraća prosečnu vrednost se u praksi toliko ne koristi, već se javlja iz istorijskih razloga, dok se funkcija koja računa maksimalnu vrednost mnogo bolje pokazala u praksi, te se ona skoro uvek koristi. Ukoliko agregira, na primer, 3 x 3 piskela, onda je broj izlaza ovog sloja 9 puta manji od broja izlaza prethodnog. Kada se računa maksimum, dolazi do zanemarivanja informacija o tome gde je precizno neko svojstvo (poput uspravne linije) pronađeno, ali se ne gubi informacija da je ono pronađeno. Ovakva vrsta zanemarivanja informacije često ne šteti cilju koji treba postići. Na primer, ako su na slici pronađeni kljun i krila, informacija o tačnoj poziciji najverovatnije nije bitna za odlučivanje da li se na slici nalazi ptica. Ipak, ukoliko je potrebno napraviti mrežu koja igra igru u kojoj su pozicije objekata na ekranu bitne, nije poželjno koristiti agregaciju. Slede dva ilustrovana primera, a onda poglavlje o sloju koji se nadovezuje na agregacioni (poglavlje \ref{potpuno_povezani_sloj}).
 
 Na slici \ref{fig:pool} je prikazana operacija agregacije primenjena na ulaz dimenzija 224x224x64, uz pomoć filtera veličine 2 i koraka veličine 2. Izlaz koji se dobija je dimenzija 112x112x64. Može se primetiti da je dubina matrice ostala očuvana. Naime, agregirajući sloj redukuje veličinu posebno, tj. nezavisno za svaki \textit{sloj dubine (eng.} depth slice\textit{)} ulazne veličine.
 
@@ -333,6 +317,16 @@ Na slici \ref{fig:pool} je prikazana operacija agregacije primenjena na ulaz dim
 \end{center}
 \caption{Pool}
 \label{fig:pool}
+\end{figure}
+
+Na slici \ref{fig:maxpool} je prikazan izlaz koji se dobija kada se na ulaznu matricu dimenzije 4x4 primeni Maxpool metod uz pomoć filtera dimenzije 2x2 i koraka 2. Naime, u ovom primeru se računa maksimalna vrednost nad svakim blokom od četiri broja.
+ 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{maxpool.jpeg}
+\end{center}
+\caption{Maxpool}
+\label{fig:maxpool}
 \end{figure}
 
 
@@ -558,30 +552,8 @@ Na slici \ref{fig:leNet_trening_acc} možemo videti da je preciznost na trening 
 \newpage
 
 \appendix
-\section{Dodatak}
-\subsection{Podnaslov 1}
-%\label{sec:???}
-
-\textbf{Dodatna objasnjenja} %TODO: Ubaciti u fusnote!
-
-
-By visualizing the output from different convolution layers in this manner, the most crucial thing that you will notice is that the layers that are deeper in the network visualize more training data specific features, while the earlier layers tend to visualize general patterns like edges, texture, background etc.
-
-This knowledge is very important when you use Transfer Learning whereby you train some part of a pre-trained network (pre-trained on a different dataset, like ImageNet in this case) on a completely different dataset. The general idea is to freeze the weights of earlier layers, because they will anyways learn the general features, and to only train the weights of deeper layers because these are the layers which are actually recognizing your objects.
-
-Convolved Feature, Activation Map or Feature Map is the output volume formed by sliding the filter over the image and computing the dot product.
-Perceptrons come first in 1950s, and it uses a brittle activation function to do classification, so if w*x is greater than some value it predicts positive, otherwise negative.
-
-Neurons uses a softer activation function by introducing a sigmoid function, a tanh function or other activation functions to pass on values to other neurons in the network.
-
-So perceptrons do not use in a network setting, they do classification on their own, hence they can’t classify XOR, however neurons can because they all contribute forward to the final output, using more complicated structure(i.e. multiple layers in network), they are able to classify XOR and other complicated problems.
-
-A CNN, in specific, has one or more layers of convolution units. A convolution unit receives its input from multiple units from the previous layer which together create a proximity. Therefore, the input units (that form a small neighborhood) share their weights.
-
-The convolution units (as well as pooling units) are especially beneficial as:
-
-They reduce the number of units in the network (since they are many-to-one mappings). This means, there are fewer parameters to learn which reduces the chance of overfitting as the model would be less complex than a fully connected network.
-They consider the context/shared information in the small neighborhoods. This future is very important in many applications such as image, video, text, and speech processing/mining as the neighboring inputs (eg pixels, frames, words, etc) usually carry related information.
+%\section{Dodatak}
+%\subsection{Dodatak 1}
 
 
 \end{document}

@@ -1,21 +1,19 @@
-\select@language {serbian}
-\contentsline {section}{\numberline {1}Uvod}{3}{section.1}
-\contentsline {section}{\numberline {2}Neuronske mre\IeC {\v z}e}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Arhitektura}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Razlog uvodjenja konvolutivnih neuronskih mre\IeC {\v z}a}{5}{subsection.2.2}
-\contentsline {section}{\numberline {3}Konvolutivne neuronske mre\IeC {\v z}e}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Parametri}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Konvolucija slika preko CNN}{6}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Unutrasnja struktura CNN}{8}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Konvolutivni sloj}{9}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Pro\IeC {\v s}irivanje}{10}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Aktivaciona funkcija}{11}{subsubsection.3.4.2}
-\contentsline {subsection}{\numberline {3.5}Sloj agregacije}{12}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Potpuno povezani sloj}{13}{subsection.3.6}
-\contentsline {section}{\numberline {4}Implementacija i eksperimentalni rezultati}{14}{section.4}
-\contentsline {subsection}{\numberline {4.1}Model 1}{14}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Model 2: LeNet-5}{17}{subsection.4.2}
-\contentsline {section}{\numberline {5}Zaklju\IeC {\v c}ak}{19}{section.5}
-\contentsline {section}{Literatura}{20}{section.5}
-\contentsline {section}{\numberline {A}Dodatak}{21}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Podnaslov 1}{21}{subsection.A.1}
+\babel@toc {serbian}{}
+\contentsline {section}{\numberline {1}Uvod}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Neuronske mre\IeC {\v z}e}{4}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Arhitektura}{4}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Razlog uvodjenja konvolutivnih neuronskih mre\IeC {\v z}a}{5}{subsection.2.2}% 
+\contentsline {section}{\numberline {3}Konvolutivne neuronske mre\IeC {\v z}e}{5}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Parametri}{5}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Konvolucija slika preko CNN}{6}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Unutra\IeC {\v s}nja struktura CNN}{8}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Konvolutivni sloj}{9}{subsection.3.4}% 
+\contentsline {subsubsection}{\numberline {3.4.1}Pro\IeC {\v s}irivanje}{10}{subsubsection.3.4.1}% 
+\contentsline {subsubsection}{\numberline {3.4.2}Aktivaciona funkcija}{11}{subsubsection.3.4.2}% 
+\contentsline {subsection}{\numberline {3.5}Sloj agregacije}{12}{subsection.3.5}% 
+\contentsline {subsection}{\numberline {3.6}Potpuno povezani sloj}{13}{subsection.3.6}% 
+\contentsline {section}{\numberline {4}Implementacija i eksperimentalni rezultati}{14}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Model 1}{14}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Model 2: LeNet-5}{18}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}Zaklju\IeC {\v c}ak}{20}{section.5}% 
+\contentsline {section}{Literatura}{21}{section.5}% 

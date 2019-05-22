@@ -12,8 +12,8 @@
 \contentsline {subsubsection}{\numberline {3.4.2}Aktivaciona funkcija}{11}{subsubsection.3.4.2}
 \contentsline {subsection}{\numberline {3.5}Sloj agregacije}{12}{subsection.3.5}
 \contentsline {subsection}{\numberline {3.6}Potpuno povezani sloj}{13}{subsection.3.6}
-\contentsline {section}{\numberline {4}Implementacija i eksperimentalni rezultati}{13}{section.4}
-\contentsline {subsection}{\numberline {4.1}Model 1}{15}{subsection.4.1}
+\contentsline {section}{\numberline {4}Implementacija i eksperimentalni rezultati}{14}{section.4}
+\contentsline {subsection}{\numberline {4.1}Model 1}{14}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Model 2: LeNet-5}{17}{subsection.4.2}
 \contentsline {section}{\numberline {5}Zaklju\IeC {\v c}ak}{19}{section.5}
 \contentsline {section}{Literatura}{20}{section.5}

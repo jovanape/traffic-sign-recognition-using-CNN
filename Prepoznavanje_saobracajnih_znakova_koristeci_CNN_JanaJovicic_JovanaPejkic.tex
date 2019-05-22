@@ -341,8 +341,8 @@ U potpuno povezanom sloju, svaki neuron je povezan sa svakim neuronom iz prethod
 
 Poslednji potpuno povezani sloj treba da ima onoliko neurona koliko ima i klasa, kako bi mogao da odredi koju klasu da pridruži slici. U ovom sloju je najbolje koristiti softmax aktivacionu funkciju. Softmax funkcija određuje verovatnoću pripadnosti slike svakoj od klasa. Nakon njene primene, dobija se vektor vrednosti koje odgovaraju verovatnoćama i koje u zbiru daju vrednost 1. Zahvaljujući njoj, slika se klasifikuje u onu klasu kojoj odgovara najveća verovatnoća pripadnosti. Softmax funkcija je definisana kao: $$ S(z_i) = \frac{e^z_i}{\sum_{j=1}^{K}e^z_j},  i = 1,...,K,  z = (z_1,...,z_K) $$ gde je z ulazni vektor od K realnih brojeva. 
 
-
-
+U sloju koji koristi softmax aktivacionu funkciju, obično se za funkciju određivanja greške klasifikacije uzima \textit{categorical crossentropy}. Ona se koristi ukoliko su podaci takvi da jedna instanca tih podataka može da pripada samo jednoj klasi. \textit{Categorical crossentropy} upoređuje raspodelu verovatnoća predviđenih klasa sa raspodelom koja odgovara pravim klasama. Ova funkcija je definisana kao:
+$$ H(y, \hat{y}) = -\sum_{i} y_i\cdot log(\hat{y})) $$ gde \textit{y} predstavlja vektor pravih raspodela, a $\hat{y}$ vektor predviđenih raspodela.
 
 \section{Implementacija i eksperimentalni rezultati}
 \label{sec:podnaslov8}
@@ -371,7 +371,7 @@ U narednim poglavljima će biti predstavljeni neki od modela konvolutivnih neuro
 \subsection{Model 1}
 \label{sec:model_1}
 
-Jedan od prvih modela koji je imao veći uspeh na test podacima prikazan je u kodu \ref{code:model1}. Sastoji se iz četiri konvolutivna, dva agregirajuća i dva potpuno povezana sloja. Detaljna arhitektura mreže se može videti na slici \ref{fig:model1_arh}. U svim konvolutivnim slojevima veličina jezgra je 3x3, a broj filtera na izlazu iz konvolucije je 32. Takođe, u svakom se koristi ReLU aktivaciona funkcija. U sloju agregacije, sažimanje se vrši biranjem maksimalne vrednosti dela mape karakteristika koji je prekriven filterom. Kako ne bi došlo do preprilagodjavanja modela trening podacima, povremeno je, pomoću funkcije Dropoup(), isključivan određen broj nasumično odabranih neurona. Nakon agregacija je isključeno 20\% neurona, a pre poslednjeg, potpuno povezanog, sloja 50\%. Poslednji potpuno povezani sloj ima onoliko neurona koliko ima klasa i koristi softmax aktivacionu funkciju.
+Jedan od prvih modela koji je imao veći uspeh na test podacima prikazan je u kodu \ref{code:model1}. Sastoji se iz četiri konvolutivna, dva agregativna i dva potpuno povezana sloja. Detaljna arhitektura mreže se može videti na slici \ref{fig:model1_arh}. U svim konvolutivnim slojevima veličina jezgra je 3x3, a broj filtera na izlazu iz konvolucije je 32. Takođe, u svakom se koristi ReLU aktivaciona funkcija. U sloju agregacije, sažimanje se vrši biranjem maksimalne vrednosti dela mape karakteristika koji je prekriven filterom. Kako ne bi došlo do preprilagodjavanja modela trening podacima, povremeno je, pomoću funkcije Dropout(), isključivan određen broj nasumično odabranih neurona. Nakon agregacija je isključeno 20\% neurona, a pre poslednjeg, potpuno povezanog, sloja 50\%. Poslednji potpuno povezani sloj ima onoliko neurona koliko ima klasa i koristi softmax aktivacionu funkciju.
 
 Učenje modela je sprovedeno u 30 epoha. Batch size je postavljen na 32, što znači da će u svakoj iteraciji biti uzeta 32 primerka iz trening skupa koja će biti propagirana kroz mrežu. Optimizacija modela je izvršena pomoću gradijentnog spusta. Takođe, pre početka treninga, sve slike su skalirane na istu veličinu, 64x64 piksela.
 

@@ -60,6 +60,81 @@ classes = np.eye(NUM_OF_CLASSES, dtype='uint8')[classes]
 
 #print("classes shape: ", classes.shape, "\nimages shape: ", images.shape)
 
+def alexNet():
+    
+    model = Sequential()
+
+# 1. kovolucioni sloj
+    model.add(Conv2D(filters=3, input_shape=(IMG_SIZE, IMG_SIZE, 3), kernel_size=(3,3), padding='valid', data_format="channels_last"))
+    model.add(Activation('relu'))
+# Pooling - agregacija
+    model.add(MaxPooling2D(pool_size=(2,2), strides=(1,1), padding='valid'))
+# Batch Normalisation - normalizacija (pre nego sto se prosledi narednom sloju)
+    model.add(BatchNormalization())
+
+# 2. kovolucioni sloj
+    model.add(Conv2D(filters=16, kernel_size=(3,3), strides=(1,1), padding='valid'))
+    model.add(Activation('relu'))
+# Pooling - agregacija
+    model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
+# Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+# 3. kovolucioni sloj
+    model.add(Conv2D(filters=16, kernel_size=(3,3), strides=(1,1), padding='valid'))
+    model.add(Activation('relu'))
+# Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+# 4. kovolucioni sloj
+    model.add(Conv2D(filters=3, kernel_size=(3,3), strides=(1,1), padding='valid'))
+    model.add(Activation('relu'))
+# Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+# 5. kovolucioni sloj
+    model.add(Conv2D(filters=3, kernel_size=(3,3), strides=(1,1), padding='valid'))
+    model.add(Activation('relu'))
+# Pooling - agregacija
+    model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2), padding='valid'))
+# Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+
+# Sloj za poravnanje
+    model.add(Flatten())
+# 1. Dense sloj
+    model.add(Dense(units = 120))
+    model.add(Activation('relu'))
+# Dodajemo Dropout da sprecimo overfitting
+    model.add(Dropout(0.4))
+# Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+# 2. Dense sloj
+    model.add(Dense(84))
+    model.add(Activation('relu'))
+# Dodajemo Dropout
+    model.add(Dropout(0.4))
+# Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+# 3. Dense sloj
+    model.add(Dense(64))
+    model.add(Activation('relu'))
+# Dodajemo Dropout
+    model.add(Dropout(0.4))
+# Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+# Izlazni sloj
+    model.add(Dense(NUM_OF_CLASSES))
+    model.add(Activation('softmax'))
+
+    model.summary()
+
+    return model
+
 
 def cnn_model():
     

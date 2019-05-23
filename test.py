@@ -12,8 +12,8 @@ from keras import backend as K
 import sklearn.metrics
 
 
-import seaborn as sn
-import pandas as pd
+#import seaborn as sn
+#import pandas as pd
 
 
 from utility import *
@@ -62,10 +62,10 @@ def test_all():
     
 
 # Matrica konfuzije
-df_cm = pd.DataFrame(test_all(), range(10), range(10))
-#plt.figure(figsize = (10,7))
-sn.set(font_scale=1.4)
-sn.heatmap(df_cm, annot=True,annot_kws={"size": 16})
+#df_cm = pd.DataFrame(test_all(), range(10), range(10))
+##plt.figure(figsize = (10,7))
+#sn.set(font_scale=1.4)
+#sn.heatmap(df_cm, annot=True,annot_kws={"size": 16})
 
     
 def test_one():

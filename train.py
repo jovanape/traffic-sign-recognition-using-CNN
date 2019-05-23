@@ -16,6 +16,7 @@ from keras.optimizers import SGD
 from keras import optimizers
 from keras.callbacks import LearningRateScheduler, ModelCheckpoint
 from keras import backend as K
+from timeit import default_timer as timer
 
 from utility import *
 
@@ -57,10 +58,9 @@ classes = np.eye(NUM_OF_CLASSES, dtype='uint8')[classes]
 #print(classes[26])
 
 
-print("classes shape: ", classes.shape, "\nimages shape: ", images.shape)
+#print("classes shape: ", classes.shape, "\nimages shape: ", images.shape)
 
 
-#  TODO: isprobati jos neke modele, i/ili isprobati neke druge optimizacione tehnike umesto SGD, povecati/smanjiti broj epoha, ...
 def cnn_model():
     
     model = Sequential()
@@ -106,9 +106,11 @@ batch_size = 32    # broj trening podataka u jednoj iteraciji
 epochs = 20
 lr = 0.01          # learning rate
 
+timer_start = timer()
+
 model = cnn_model()
 
-model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimizers.Adam(), metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.Adam(), metrics=['accuracy'])
 
 
 # optimizacija pomocu gradijentnog spusta
@@ -125,8 +127,13 @@ history = model.fit(images, classes,
           validation_split=0.2,
           callbacks=[LearningRateScheduler(lr_schedule), ModelCheckpoint('model.h5', save_best_only=True)])
 
+timer_end = timer()
+
+elapsed_time = timer_end - timer_start
+print("Elapsed time: {0} seconds".format(elapsed_time))
+
 # izlistavanje svih podataka
-print(history.history.keys())
+#print(history.history.keys())
 
 # preciznost (accuracy)
 plt.plot(history.history['acc'])

@@ -35,8 +35,6 @@ def test_all():
     test_classes = np.array(test_classes)
     test_images = np.array(test_images)
 
-    #print("Classes shape: ", test_classes.shape, "\nImages shape: ", test_images.shape)
-
     
     model = load_model('./model.h5')
     y_pred = model.predict_classes(test_images)
@@ -55,11 +53,6 @@ def test_all():
 
     return conf_matrix
 
-    #print("Real classes: ", test_classes)
-    #print("Real size: ", np.size(test_classes))
-    #print("Predicted classes: ", y_pred)
-    #print("Predicted size: ", np.size(y_pred))
-    
 
 # Matrica konfuzije
 #df_cm = pd.DataFrame(test_all(), range(10), range(10))
@@ -91,14 +84,12 @@ def test_one():
         print("Opening file sign_names.json failed!")
         sys.exit()
         
-    # U json fajlu trazi naziv znaka predvidjene klase
-    # TODO: dodati nazive za sve znakove u json fajlu
     for sign in signs:
         if(sign["class"] == prediction[0]):
             print("Predicted class: {0} (class {1})".format(sign["sign_name"], prediction[0]))
     
     
-    #print("Predicted class: ", prediction[0])
+    print("Predicted class: ", prediction[0])
     
     
 

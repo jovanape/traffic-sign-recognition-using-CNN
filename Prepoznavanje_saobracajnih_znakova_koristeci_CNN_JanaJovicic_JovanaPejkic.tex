@@ -82,9 +82,9 @@
 
 Prepoznavanje i klasifikacija slika je polje u oblasti mašinskog učenja koje se veoma brzo razvija. Na primer, klasifikatori slika se sve više koristite za: zamenu lozinke prepoznavanjem lica, prepoznavanje otisaka prstiju, analizu krvnih slika, identifikaciju geografskih karakteristika iz satelitskih snimaka, analizu aero i satelitskih snimaka, detekciju urbanih područja, detekciju puteva, autonomnu vožnju i otkrivanje prepreka itd.
 
-Klasifikacija je vrsta problema nadgledanog učenja\footnote{Nadgledano učenje (eng. supervised learning) je proces učenja funkcije koja preslikava ulaz u odgovarajući izlaz, zasnovan na datim ulzno-izlaznim parovima. Dve osnovne vrste problema nadgledanog učenja su regresija i klasifikacija. Regresija je problem predvidanja neprekidne, a klasifikacija kategoričke ciljne promenljive.} koja podrazumeva predviđanje kategoričke ciljne promenljive. Kategoričkim se smatraju promenljive koje uzimaju konačan broj vrednosti (među kojima nema uređenja). Na primer, prepoznavanje da li je dobijen e-mail \textit{smeće (eng.} spam\textit{)}, reklama ili obična poruka je problem klasifikacije.
+Klasifikacija je vrsta problema nadgledanog učenja\footnote{\textit{Nadgledano učenje (eng.} supervised learning\textit{)} je proces učenja funkcije koja preslikava ulaz u odgovarajući izlaz, zasnovan na datim ulzno-izlaznim parovima. Dve osnovne vrste problema nadgledanog učenja su regresija i klasifikacija. Regresija je problem predviđanja neprekidne, a klasifikacija kategoričke ciljne promenljive.} koja podrazumeva predviđanje kategoričke ciljne promenljive. Kategoričkim se smatraju promenljive koje uzimaju konačan broj vrednosti (među kojima nema uređenja). Na primer, prepoznavanje da li je dobijen e-mail \textit{smeće (eng.} spam\textit{)}, reklama ili obična poruka je problem klasifikacije.
 
-Postoje mnogi algoritmi koji se koriste za klasifikaciju slika (npr. SVM\footnote{\textit{Podržavajući vektori (eng.} Support vector machines SVM\textit{)} predstavljaju model nadgledanog učenja koji se koristi za klasifikacionu i regresionu analizu.}), a jedan od najboljih predstavljaju \textit{konvolutivne neuronske mreže (eng.} convolutional neural network, CNN\textit{)}. CNN se može zamisliti kao automatski ‚‚ekstraktor’’ karakteristika slike. On efikasno koristi informacije o susednim pikselima kako bi konvolucijom i agregacijom smanjio sliku, a zatim predvideo kategoriju kojoj slika pripada \cite{understandConvNet}. Iako su konvolutivne neuronske mreže projektovane tako da prednost postižu u radu sa 2D strukturama, kao što su slike ili ulazi poput \textit{govornog signala (eng.} speech signal\textit{)}, najnovije studije pokazuju da postižu značajne rezultate i sa 3D strukturama.
+Postoje mnogi algoritmi koji se koriste za klasifikaciju slika (npr. SVM\footnote{\textit{Podržavajući vektori (eng.} Support vector machines, SVM\textit{)} predstavljaju model nadgledanog učenja koji se koristi za klasifikacionu i regresionu analizu.}), a jedan od najboljih predstavljaju \textit{konvolutivne neuronske mreže (eng.} convolutional neural network, CNN\textit{)}. CNN se može zamisliti kao automatski ‚‚ekstraktor’’ karakteristika slike. On efikasno koristi informacije o susednim pikselima kako bi konvolucijom i agregacijom smanjio sliku, a zatim predvideo kategoriju kojoj slika pripada \cite{understandConvNet}. Iako su konvolutivne neuronske mreže projektovane tako da prednost postižu u radu sa 2D strukturama, kao što su slike ili ulazi poput \textit{govornog signala (eng.} speech signal\textit{)}, najnovije studije pokazuju da postižu značajne rezultate i sa 3D strukturama.
 
 U ovom radu je predstavljeno rešavanje problema klasifikacije slika saobraćajnih znakova pomoću neuronskih mreža (koje su opisane u poglavlju \ref{sec:neuronske_mreze}), i to konvolutivnih neuronskih mreža (koje su opisane u poglavlju \ref{sec:cnn}). Cilj ovog rada je da, kroz rešavanje ovog problema, prikaže osnovne osobine konvolutivnih neuronskih mreža kao i njihovu implementaciju. U radu je, u poglavlju \ref{sec:implementacija_i_eksperimentalni_rezultati}, najpre opisano nekoliko razlicitih modela mreža, a onda su upoređeni i analizirani ostvareni rezultati.
 
@@ -97,13 +97,14 @@ U ovom radu je predstavljeno rešavanje problema klasifikacije slika saobraćajn
 \label{sec:neuronske_mreze}
 
 %U masinskom učenju, neuronske mreže (eng. neural networks) važe za jednu od najprimenjenijih metoda.
-Neuronske mreže predstavljaju skup statističkih modela učenja inspirisan biološkim neuronima, za rešavanje klasifikacionih\footnote{Klasifikacioni problem - ako je izlazna promenljiva kategorickog tipa, npr. ,,zdrav" i ,,bolestan".} i regresionih problema\footnote{Regresioni problem - ako je izlazna promenjiva neprekidnog tipa, npr. ,,plata" ili ,,tezina".}. Njihove primene su mnogobrojne, a neke od njih su: kategorijzacija teksta,
+Neuronske mreže predstavljaju skup statističkih modela učenja inspirisan biološkim neuronima, za rešavanje klasifikacionih\footnote{Klasifikacioni problem - ako je izlazna promenljiva kategoričkog tipa, npr. ,,zdrav" i ,,bolestan".} i regresionih problema\footnote{Regresioni problem - ako je izlazna promenjiva neprekidnog tipa, npr. ,,plata" ili ,,težina".}. Njihove primene su mnogobrojne, a neke od njih su: kategorijzacija teksta,
 %prepoznavanje rukom pisanih tekstova, medicinska dijagnostika, prepoznavanje objekata na slikama, robotika i automatsko upravljanje,
- raspoznavanje i sinteza govora, autonomna voznja, igranje video igara, mašinsko prevođenje prirodnih jezika i slično. Ključna prednost neuronskih mreža je da same mogu da konstruišu nove atribute nad sirovom reprezentacijom podataka\footnote{Iako se nekad mogu pretpostaviti koji su atributi najinformativniji za predviđanje ciljne promenljive, izbori tih atributa su neretko lošiji od onoga što bi algoritam učenja mogao da detektuje u sirovoj informaciji.} i odlično baratanje sa velikim količinama podataka.
+ raspoznavanje i sinteza govora, autonomna voznja, igranje video igara, mašinsko prevođenje prirodnih jezika i slično. Ključna prednost neuronskih mreža je da same mogu da konstruišu nove atribute nad sirovom reprezentacijom podataka\footnote{Iako se nekad mogu pretpostaviti koji su atributi najinformativniji za predviđanje ciljne promenljive, izbori tih atributa su neretko lošiji od onoga što bi algoritam učenja mogao da detektuje u sirovoj informaciji.} i odlično baratanje sa velikim količinama podataka. Opis građe neuronske mreže dat je u poglavlju \ref{arhitektura_neuronske_mreze}.
 %Za male kolicine podataka neuronske mreže nisu pogodne jer lako vode preprilagodavanju, stoga obim podataka igra bitnu ulogu.
 
 
-\subsection{Arhitektura}
+\subsection{Unutrašnja struktura neuronskih mreža}
+\label{arhitektura_neuronske_mreze}
 
 Osnovnu jedinicu građe neuronske mreže predstavljaju neuroni, koji su međusobno povezani vezama sa težinama koje se podešavaju tokom učenja mreže. Povezani neuroni prosleđuju signale jedni drugima, a organizovani su u slojeve. Najjednostavniji oblik neuronske mreže je \textbf{perceptron}, koji sadrži samo jedan ulazni i jedan izlazni sloj. Međutim, kako on služi samo za učenje linearnih modela, a u praksi se javlja potreba da i složeniji modeli mogu da se nauče, osim perceptrona, koriste se višeslojne neuronske mreže. Višeslojna neuronska mreža osim ulaznog i izlaznog sloja, ima jedan ili više skrivenih slojeva (slika \ref{fig:neural_network_layers}).
 %Broj skrivenih slojeva je proizvoljan, dok sama struktura skrivenog sloja utiče na performanse mreže.
@@ -118,12 +119,12 @@ Kako se neuronske mreže uglavnom koriste za klasifikaciju uzorka u različite k
 \end{figure}
 
 
-\subsection{Razlog uvodjenja konvolutivnih neuronskih mreža}
+\subsection{Zadaci prepoznavanja i uvođenje CNN}
 
 Jednostavni zadaci prepoznavanja mogu se dosta dobro rešiti skupovima podataka malih veličina, npr. desetine hiljada slika. Međutim, objekti u realističnim postavkama pokazuju značajnu raznovrsnost, stoga, da bi bilo moguće naučiti prepoznati ih, potrebno je koristiti mnogo veće skupove za treniranje. Da bi se naučilo o hiljadama objekata iz miliona slika, potreban je model sa velikim kapacitetom učenja. Konvolutivne neuronske mreže, koje su detaljno obrađene u ostatku rada, čine jednu takvu klasu modela. One daju jake i uglavnom ispravne pretpostavke o prirodi slika, a njihov kapacitet se može kontrolisati variranjem njihove dubine i širine. Tako, u poređenju sa standardnim neuronskim mrežama (\textit{mrežama sa propagacijom unapred (eng.} feedforward neural network\textit{)}) sa slojevima sličnih veličina, CNN imaju mnogo manje veza i parametara, tako da ih je lakše trenirati, dok je njihov teoretski najbolji učinak samo nešto lošiji.
 
 
-\section{Konvolutivne neuronske mreže}	
+\section{Konvolutivne neuronske mreže (CNN)}	
 \label{sec:cnn}
 
 Konvolutivne neuronske mreže predstavljaju potklasu neuronskih mreža koja ima najmanje jedan konvolutivni sloj (a može ih imati i više). Ova vrsta neuronskih mreža je inspirisana vizuelnim korteksom. Svaki put kada osoba nešto vidi, aktivira se niz slojeva neurona, i svaki sloj otkriva skup karakteristika kao što su linije, ivice itd. Viši nivoi slojeva otkritivaju složenije karakteristike kako bi prepoznali ono što je osoba videla. Konvolutivne mreže rade po istom principu i praktično su uvek \textit{duboke neuronske mreže (eng.} deep neural network\textit{)}\footnote{Duboke neuronske mreže su neuronske mreže koje se sastoje od više skrivenih slojeva između ulaznih i izlaznih slojeva (koji na izlazu predviđaju ciljnu promenljivu), koje mogu modelovati i kompleksne nelinearne veze.}, upravo zbog toga što je potrebno od sitnijih detalja, poput uspravnih, kosih i horizontalnih linija, koji obično bivaju detektovani u nižim slojevima mreže, konstruisati složenije oblike poput delova lica. Konvolutivne neuronske mreže se koriste u obradi signala (slike, zvuka), ali i teksta. U odnosu na ostale vrste neuronskih mreža, ističu se u prikupljanju lokalnih informacija (npr. o susednim pikselima na slici ili \textit{,,okružujućim" (eng.} surrounding\textit{)} rečima u tekstu) i smanjenju složenosti modela (brže treniranje, potrebno je manje uzoraka, manja šansa da dodje do \textit{preprilagodjavanja (eng.} overfitting\textit{)}). Konvulativne neuronske mreže se zasnivaju na sposobnosti mreža da iz sirovog signala konstruišu atribute. Nazivaju se konvolutivnim zato što uče \textbf{filtere} (pojam objašnjen u tabeli \ref{tabela_parametri}), čijom konvolutivnom primenom detektuju određena svojstva signala.
@@ -134,7 +135,7 @@ Postoji nekoliko različitih arhitektura u polju konvolutivnih neuronskih mreža
 \subsection{Parametri}
 \label{parametri_sec}
 
-U ovoj sekciji je dat tabelarni prikaz parametara koji su najznačajniji za implementaciju konvolutivne mreže. U tabeli \ref{tabela_parametri} je dat samo kratak opis svakog od njih radi boljeg razumevanja teksta koji sledi. Ipak, u nastavku je svaki detaljnije opisan.
+U ovoj sekciji je dat tabelarni prikaz parametara koji su najznačajniji za implementaciju konvolutivne mreže. U tabeli \ref{tabela_parametri} je dat kratak opis svakog od njih radi boljeg razumevanja teksta koji sledi. Ipak, u nastavku je svaki detaljnije opisan.
 
 \begin{table}[h!]
 \begin{center}
@@ -142,18 +143,18 @@ U ovoj sekciji je dat tabelarni prikaz parametara koji su najznačajniji za impl
 \begin{tabular}{|l|p{60mm}|}
 \hline
 \textit{Filter/jezgro (eng.} filter/kernel\textit{)} &
-- matrica sa težinama za konvoluciju ulaza \newline
+- matrica sa težinama za konvoluciju ulaza (poglavlje \ref{konvolucija_slika}) \newline
 - daje meru koliko deo ulaza liči na karakteristiku \newline
-- tezine u matricama filtera su izvedene za vreme treniranja podataka
+- težine u matricama filtera su izvedene za vreme treniranja podataka
 \\
 \hline
 \textit{Proširenje (eng.} Padding\textit{)} &
-- koristi se za dodavanje kolona i redova nula (ili drugih vrednosti) da bi se održala konstantna veličina matrice (mape) nakon konvolucije \newline
-- ovaj parametar može da unapredi performanse tako što zadržava informacije u okvirima (tim proširenjima koje dodaje)
+- koristi se za dodavanje kolona i redova nula (ili drugih vrednosti) da bi se održala konstantna veličina matrice (mape) nakon konvolucije (poglavlje \ref{prosirivanje}) \newline
+- ovaj parametar može da unapredi performanse tako što zadržava informacije u okvirima (odnosno proširenjima)
 \\
 \hline 
 \textit{Korak (eng.} Stride\textit{)} &
-- broj piksela koji se preskače dok se ulaz prelazi vodoravno i uspravno tokom konvolucije, nakon množenja svakog elementa iz ulazne matrice težina s onima u filtru
+- broj piksela koji se preskače dok se ulaz prelazi vodoravno i uspravno tokom konvolucije, nakon množenja svakog elementa iz ulazne matrice težina s onima u filteru (poglavlje \ref{prosirivanje})
 \\
 \hline 
 \textit{Broj kanala (eng.} Number of Channels\textit{)} &
@@ -174,7 +175,7 @@ Parametri sloja agregacije &
 
 
 \subsection{Konvolucija slika preko CNN}
-
+\label{konvolucija_slika}
 %\ref{sec:ime_necega}.
 
 Da bi izvršile klasifikaciju slika, konvolutivne neuronske mreže (preciznije, konvolutivni sloj, detaljnije u poglavlju \ref{konvolucija}) obavljaju neku vrstu pretrage. Ovo se može zamisliti kao mali pokretni (ili klizni) prozor (prikazano na slici \ref{fig:filter_movement01}) koji klizi s leva na desno preko veće slike, i nastavlja s leve strane kada dođe do kraja jednog prelaza (kao kod pisaće mašine). Taj pokretni prozor - koji ustvari predstavlja filter, može da prepozna samo jednu stvar, recimo kratku vertikalnu liniju (tri tamna piksela naslagana jedan na drugi). Slično, neki drugi filter može da služi za prepoznavanje horizontalnih linija, i on se takođe pomera preko piksela slike, tražeći podudaranja. Rezultat koji se postiže filterima koji prepoznaju vertikalne i horizontalne linijije prikazan je na slici \ref{fig:edges}.
@@ -211,7 +212,7 @@ Svaki put kada dođe do poklapanja (filtera sa ulazom), ono se mapira u prostor 
 
 \subsection{Unutrašnja struktura CNN}
 \label{struktura_cnn}
-Unutrašnja struktura konvolutivne mreže se sastoji od nekoliko naizmeničnih \textit{\textbf{konvolutivnih slojeva} (eng.} convolution layer\textit{)} i \textit{\textbf{slojeva agregacije} (eng.} pooling layer\textit{)}, pri čemu je dozvoljeno pojavljivanje iste vrste sloja više puta (prikazano na slici \ref{fig:cnn_layers}). Nakon uzastopnog smenjivanja ova dva sloja sledi \textit{\textbf{potpuno povezani sloj} (eng.} fully connected layer\textit{)}, koji se takođe može ponavljati više puta. Izlazi konvolutivnog sloja su dvodimenzionalni i nazivaju se mapama karakteristika. Oni se transformisu nelinearnom \textbf{aktivacionom funkcijom}. U konvolutivnim mrežama kao aktivacione funkcije najčešće se koriste \textit{\textbf{prečišćena linearna jedinica} (eng.} Rectified Linear Unit, ReLu\textit{)}\footnote{ReLu funkcija se definiše kao: f(x) = max(0,x). Prednost ReLu nad sigmnoidnom funkcijom (koja se takođe može koristiti kao aktivaciona funkcija) je što treniranje obavlja mnogo brže.} (na izlazu iz konvolutivnog sloja) i \textit{\textbf{softmaks klasifikator} (eng.} softmax classifier\textit{)} (na izlazu iz poslednjeg, potpuno povezanog, sloja mreže). U nastavku rada je svaki od tri sloja obrađen pojedinačno u poglavljima \ref{konvolucija}, \ref{sloj_agregacije}, \ref{potpuno_povezani_sloj}, dok se o aktivacionim funkcijama detaljnije govori u poglavlju \ref{aktivaciona_funkcija}.
+Unutrašnja struktura konvolutivne mreže se sastoji od nekoliko naizmeničnih \textit{\textbf{konvolutivnih slojeva} (eng.} convolution layer\textit{)} i \textit{\textbf{slojeva agregacije} (eng.} pooling layer, dense layer\textit{)}, pri čemu je dozvoljeno pojavljivanje iste vrste sloja više puta (prikazano na slici \ref{fig:cnn_layers}). Nakon uzastopnog smenjivanja ova dva sloja sledi \textit{\textbf{potpuno povezani sloj} (eng.} fully connected layer\textit{)}, koji se takođe može ponavljati više puta. Izlazi konvolutivnog sloja su dvodimenzionalni i nazivaju se mapama karakteristika. Oni se transformisu nelinearnom \textbf{aktivacionom funkcijom}. U konvolutivnim mrežama kao aktivacione funkcije najčešće se koriste \textit{\textbf{prečišćena linearna jedinica} (eng.} Rectified Linear Unit, ReLu\textit{)}\footnote{ReLu funkcija se definiše kao: f(x) = max(0,x). Prednost ReLu funkcije nad sigmoidnom funkcijom (koja se takođe može koristiti kao aktivaciona funkcija) je što treniranje obavlja mnogo brže.} (na izlazu iz konvolutivnog sloja) i \textit{\textbf{softmax klasifikator} (eng.} softmax classifier\textit{)} (na izlazu iz poslednjeg, potpuno povezanog, sloja mreže). U nastavku rada je svaki od tri sloja obrađen pojedinačno u poglavljima \ref{konvolucija}, \ref{sloj_agregacije}, \ref{potpuno_povezani_sloj}, dok se o aktivacionim funkcijama detaljnije govori u poglavlju \ref{aktivaciona_funkcija}.
 
 
 \begin{figure}[h!]
@@ -226,11 +227,11 @@ Kako su moguće različite kombinacije različitih slojeva, prirodno je da posto
 
 \begin{itemize}
 
-\item \textbf{LeNet-5} - Ovu arhitekturu je napravio Yann LeCunn krajem 20. veka, a koristila se za čitanje zip kodova, cifara itd. LeNet-5 arhitektura se sastoji iz dva skupa konvolutivnih slojeva i slojeva agregacije, koji su praćeni \textit{poravnavajućim konvolutivnim slojem (eng.} flattening convolutional layer\textit{)}, za kojim slede dva potpuno-povezana sloja, a zatim softmaks klasifikator.
+\item \textbf{LeNet-5} - Ovu arhitekturu je napravio Yann LeCunn krajem 20. veka, a koristila se za čitanje zip kodova, cifara itd. LeNet-5 arhitektura se sastoji iz dva skupa konvolutivnih slojeva i slojeva agregacije, koji su praćeni \textit{poravnavajućim konvolutivnim slojem (eng.} flattening convolutional layer\textit{)}, za kojim slede dva potpuno-povezana sloja, a zatim softmax klasifikator.
 
-\item \textbf{AlexNet} - Ovo je jedna od prvih dubokih neuronskih mreža. Sastoji se iz pet konvolutivnih slojeva praćena sa tri potpuno povezana sloja. Ovu mrežu je napravio Alex Krizhevsky, koji je koristio prečišćenu linearnu jedinicu - ReLu za ne-linearni deo umesto Tanh ili Sigmoid funkcije, koje su bile standardne za tradicionalne neuronske mreže.
+\item \textbf{AlexNet} - Ovo je jedna od prvih dubokih neuronskih mreža. Sastoji se iz pet konvolutivnih slojeva praćena sa tri potpuno povezana sloja. Ovu mrežu je napravio Alex Krizhevsky, koji je koristio prečišćenu linearnu jedinicu - ReLu za ne-linearni deo umesto tanh ili sigmoid funkcije, koje su bile standardne za tradicionalne neuronske mreže.
 
-\item \textbf{VGG16} - Ova arhitektura predstavlja unapređenje arhitekture AlexNet. U njoj su veliki filteri (jezgra) zamenjeni sa više malih 3x3 filtera, jedan za drugim\footnote{Više manjih filtera se pokazuje boljim nego jedan veliki filter (jezgro), zato što više ne-linearnih slojeva povećavaju dubinu mreže što im omogućava da uče kompleksnije karakteristike (i to po manjoj ceni).}.
+\item \textbf{VGG16} - Ova arhitektura predstavlja unapređenje arhitekture AlexNet. U njoj su veliki filteri zamenjeni sa više malih 3x3 filtera, jedan za drugim\footnote{Više manjih filtera se pokazuje boljim nego jedan veliki filter, zato što više ne-linearnih slojeva povećavaju dubinu mreže što im omogućava da uče kompleksnije karakteristike.}.
 
 % Objašnjenje: koliko ima filtera, toliko ima izlaznih mapa karakteristika - a to je dubina mreže, što ih je više - to je mreža dublja i može da uči kompleksnije karakteristike.
 
@@ -242,20 +243,19 @@ Kako su moguće različite kombinacije različitih slojeva, prirodno je da posto
 \subsection{Konvolutivni sloj}
 \label{konvolucija}
 
-Konvolutivni sloj je glavni deo konvolutivne neuronske mreže koji radi najviše izračunavanja u mreži. Njegova uloga je konstrukcija novih atributa. To je prvi sloj koji ekstraktuje karakteristike iz ulazne slike. Konvolucija je matematička operacija koja uzima dva ulaza - dve matrice f i g, dimenzija m x n i p x q, a definisana je na sledeći način:
-$$(f * g)_{ij} = \sum_{k=0}^{p-1} \sum_{l=0}^{q-1} f_{i-k, i-l}g_{k, l}$$
-Matrica f predstavlja ulaz, poput slike, a matrica g filter. Određena ulazna reprezentacija podatka (originalna slika) konvolvira se sa filterom sa određenim parametrima (ti parametri predstavljaju i parametre konvolutivne neuronske mreže). Procesom učenja ovi parametri (težine koje je potrebno naučiti kako bi mreža davala dobre rezultate) se podešavaju i bivaju naučeni. Filteri su najcešce manjih prostornih dimenzija od ulaza, ali uvek su jednake dubine kao i ulaz. Kao što je vec rečeno, konvolucijska jezgra (filteri) filtriraju sliku, tj. mapu karakteristika kako bi dobili neku korisnu informaciju kao što je recimo određeni oblik, boja ili ivica.
+Konvolutivni sloj je glavni deo konvolutivne neuronske mreže koji radi najviše izračunavanja u mreži. Njegova uloga je konstrukcija novih atributa. To je prvi sloj koji ekstraktuje karakteristike iz ulazne slike. Konvolucija je matematička operacija koja uzima dva ulaza - dve matrice f i g, dimenzija m$\times$n i p$\times$q, a definisana je na sledeći način:
+$$(f * g)_{ij} = \sum_{k=0}^{p-1} \sum_{l=0}^{q-1} f_{i-k, i-l}*g_{k, l}$$
+Matrica f predstavlja ulaz, poput slike, a matrica g filter. Određena ulazna reprezentacija podatka (originalna slika) konvolvira se sa filterom sa određenim parametrima (ti parametri predstavljaju i parametre konvolutivne neuronske mreže). Procesom učenja ovi parametri (težine koje je potrebno naučiti kako bi mreža davala dobre rezultate) se podešavaju i bivaju naučeni. Filteri su najcešce manjih prostornih dimenzija od ulaza, ali uvek su jednake dubine kao i ulaz. Kao što je vec rečeno, konvolucijska jezgra (odnosno filteri) filtriraju sliku, tj. mapu karakteristika kako bi dobili neku korisnu informaciju kao što je recimo određeni oblik, boja ili ivica.
 
 Tokom prvog prolaza svaki filter se pomera po širini i visini ulaza i računa se skalarni proizvod ulaza i vrednosti filtera (prikazano u formuli iznad). Ako obe matrice imaju visoke vrednosti na istim pozicijama, onda će i vrednost skalarnog proizvoda biti velika. A, ako nemaju, onda će i vrednost skalarnog proizvoda biti mala. Na taj način, samo na osnovu te vrednosti, može se zaključiti da li sadržaj slike odgovara sadržaju koji filter traži.
 
 Izlaz jednog filtera je dvodimenzioni niz. Ako postoji više filtera, izlaz iz konvolutivnog sloja su rezultati svih filtera (mape karakteristika) poredjani po dubini. Broj mapa karakteristika na izlazu, odnosno broj primenjenih filtera, predstavlja \textbf{dubinu mreže}. Operacijom konvolucije dobija se transformirana slika dimenzije I*K, gde je I dimenzija ulazne matrice slike, a K dimenzija filtera koji je primenjen nad tom slikom. Takođe, dobijena transformacija je lokalna tj. pikseli izlaza zavise od lokalnih, susednih piksela ulaza. Ceo proces konvolucije, za koji je upotrebljen filter dimenzije 3x3 i ulazna matrica dimenzije 8x8, prikazan je na slici \ref{fig:convolution}. U podpoglavljima \ref{prosirivanje} i \ref{aktivaciona_funkcija} su opisani parametri koji bitno utiču na ishod rada mreže.
 
-% TODO: Naći operator x - ne radi \times ni \wedge!
 
 % TODO: Malo štrči naslov slike u odnosu na ostatak teksta! Ne može sa \newline ili sa \\ da se prebaci deo teksta u novi red!
 
 \begin{figure}[h!]
-\caption{Konvolucija primenom filtera dimenzije 3x3 na matricu dimenzije 8x8}
+\caption{Konvolucija matrice dimenzija 3$\times$3 filterom dimenzija 8$\times$8}
 \centering
 \includegraphics[scale=0.9]{convolution.png}
 \label{fig:convolution}
@@ -284,7 +284,7 @@ U konvolutivnim slojevima kao aktivaciona funkcija se najčešće koristi ReLu (
 \begin{center}
 \includegraphics[scale=0.38]{relu2.png}
 \end{center}
-\caption{Izgled ReLU funkcije}
+\caption{Grafik ReLU funkcije}
 \label{fig:relu_fja}
 \end{figure}
 
@@ -303,29 +303,29 @@ U konvolutivnim slojevima kao aktivaciona funkcija se najčešće koristi ReLu (
 \subsection{Sloj agregacije}
 \label{sloj_agregacije}
 
-Uloga sloja za agregaciju je smanjenje broja parametara kada su slike prevelike, kao i smanjenje broja operacija u višim slojevima mreže. Agregacija smanjuje dimenzionalnost svake mape, ali zadržava važne informacije. Sve to rezultuje smanjenjem računske zahtevnosti pri optimizaciji i pomaže u kontroli \textit{overfitinga}. Zato je poželjno da slojevi za agregaciju prate konvolutivne slojeve kako bi postepeno smanjili prostornu veličinu (širinu i visinu) prikaza podataka.
+Uloga sloja agregacije je smanjenje broja parametara kada su slike prevelike, kao i smanjenje broja operacija u višim slojevima mreže. Agregacija smanjuje dimenzionalnost svake mape, ali zadržava važne informacije. Sve to rezultuje smanjenjem računske zahtevnosti pri optimizaciji i pomaže u kontroli \textit{overfitinga}. Zato je poželjno da slojevi za agregaciju prate konvolutivne slojeve kako bi postepeno smanjili prostornu veličinu (širinu i visinu) prikaza podataka.
 
 Često konačni zadatak postavlja neko globalno pitanje o slici, na primer, da li sadrži mačku? Stoga, čvorovi zadnjeg sloja moraju biti osetljivi na celi ulaz. Postepenom agregacijom informacija, stvarajući sve grublje i grublje mape karakteristika, postiže se taj cilj da se na kraju nauči globalna reprezentacija, zadržavajući sve prednosti konvolutivnih slojeva na srednjim slojevima obrade.
 
-Sloj agregacije ukrupnjuje informacije, tako sto računa neku jednostavnu funkciju agregacije susednih jedinica prethodnog sloja, poput \textit{maksimuma (eng.} Max pooling\textit{)}, koji vraća maksimalnu vrednost dela slike pokrivene filterom, ili \textit{proseka (eng.} Average pooling\textit{)}, koji vraća prosečnu vrednost dela slike pokrivene filterom. Funkcija koja vraća prosečnu vrednost se u praksi toliko ne koristi, već se javlja iz istorijskih razloga, dok se funkcija koja računa maksimalnu vrednost mnogo bolje pokazala u praksi, te se ona skoro uvek koristi. Ukoliko agregira, na primer, 3 x 3 piskela, onda je broj izlaza ovog sloja 9 puta manji od broja izlaza prethodnog. Kada se računa maksimum, dolazi do zanemarivanja informacija o tome gde je precizno neko svojstvo (poput uspravne linije) pronađeno, ali se ne gubi informacija da je ono pronađeno. Ovakva vrsta zanemarivanja informacije često ne šteti cilju koji treba postići. Na primer, ako su na slici pronađeni kljun i krila, informacija o tačnoj poziciji najverovatnije nije bitna za odlučivanje da li se na slici nalazi ptica. Ipak, ukoliko je potrebno napraviti mrežu koja igra igru u kojoj su pozicije objekata na ekranu bitne, nije poželjno koristiti agregaciju. Slede dva ilustrovana primera, a onda poglavlje o sloju koji se nadovezuje na agregacioni (poglavlje \ref{potpuno_povezani_sloj}).
+Sloj agregacije ukrupnjuje informacije, tako sto računa neku jednostavnu funkciju agregacije susednih jedinica prethodnog sloja, poput \textit{maksimuma (eng.} Max pooling\textit{)}, koji vraća maksimalnu vrednost dela slike pokrivene filterom, ili \textit{proseka (eng.} Average pooling\textit{)}, koji vraća prosečnu vrednost dela slike pokrivene filterom. Funkcija koja vraća prosečnu vrednost se u praksi toliko ne koristi, već se javlja iz istorijskih razloga, dok se funkcija koja računa maksimalnu vrednost mnogo bolje pokazala u praksi, te se ona skoro uvek koristi. Ukoliko agregira, na primer, 3$\times$3 piskela, onda je broj izlaza ovog sloja 9 puta manji od broja izlaza prethodnog. Kada se računa maksimum, dolazi do zanemarivanja informacija o tome gde je precizno neko svojstvo (poput uspravne linije) pronađeno, ali se ne gubi informacija da je ono pronađeno. Ovakva vrsta zanemarivanja informacije često ne šteti cilju koji treba postići. Na primer, ako su na slici pronađeni kljun i krila, informacija o tačnoj poziciji najverovatnije nije bitna za odlučivanje da li se na slici nalazi ptica. Ipak, ukoliko je potrebno napraviti mrežu koja igra igru u kojoj su pozicije objekata na ekranu bitne, nije poželjno koristiti agregaciju. Slede dva ilustrovana primera, a onda poglavlje o sloju koji se nadovezuje na sloj agregacije (poglavlje \ref{potpuno_povezani_sloj}).
 
-Na slici \ref{fig:pool} je prikazana operacija agregacije primenjena na ulaz dimenzija 224x224x64, uz pomoć filtera veličine 2 i koraka veličine 2. Izlaz koji se dobija je dimenzija 112x112x64. Može se primetiti da je dubina matrice ostala očuvana. Naime, agregirajući sloj redukuje veličinu posebno, tj. nezavisno za svaki \textit{sloj dubine (eng.} depth slice\textit{)} ulazne veličine.
+Na slici \ref{fig:pool} je prikazana operacija agregacije primenjena na ulaz dimenzija 224$\times$224$\times$64, uz pomoć filtera veličine 2 i koraka veličine 2. Izlaz koji se dobija je dimenzija 112$\times$112$\times$64. Može se primetiti da je dubina matrice ostala očuvana. Naime, sloj agregacije redukuje veličinu posebno (tj. nezavisno) za svaki \textit{sloj dubine (eng.} depth slice\textit{)} ulazne veličine.
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.4]{pool.jpeg}
 \end{center}
-\caption{Pool}
+\caption{Proces \textit{agregacije (eng.} pooling\textit{)}}
 \label{fig:pool}
 \end{figure}
 
-Na slici \ref{fig:maxpool} je prikazan izlaz koji se dobija kada se na ulaznu matricu dimenzije 4x4 primeni Maxpool metod uz pomoć filtera dimenzije 2x2 i koraka 2. Naime, u ovom primeru se računa maksimalna vrednost nad svakim blokom od četiri broja.
+Na slici \ref{fig:maxpool} je prikazan izlaz koji se dobija kada se na ulaznu matricu dimenzije 4$\times$4 primeni \textit{Maxpool} metod uz pomoć filtera dimenzije 2$\times$2 i koraka 2. Naime, u ovom primeru se računa maksimalna vrednost nad svakim blokom od četiri broja.
  
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.4]{maxpool.jpeg}
 \end{center}
-\caption{Maxpool}
+\caption{Agregacija metodom \textit{Maxpool}}
 \label{fig:maxpool}
 \end{figure}
 
@@ -333,9 +333,9 @@ Na slici \ref{fig:maxpool} je prikazan izlaz koji se dobija kada se na ulaznu ma
 \subsection{Potpuno povezani sloj}
 \label{potpuno_povezani_sloj}
 
-Nakon što su u konvolutivnom i agregativnom sloju sakupljene informacije o slici, sledeće što je potrebno uraditi jeste zaključiti kojoj klasi pripada ta slika. Za to se koristi jedan ili više potpuno povezanih slojeva (eng. \textit{fully connected layer} ili \textit{dense layer}). 
+Nakon što su u konvolutivnom sloju i sloju agregacije sakupljene informacije o slici, sledeće što je potrebno uraditi jeste zaključiti kojoj klasi pripada ta slika. Za to se koristi jedan ili više potpuno povezanih slojeva. 
 
-U potpuno povezanom sloju, svaki neuron je povezan sa svakim neuronom iz prethodnog sloja, kao što je to slučaj kod običnih neuronskih mreža. Taj sloj kao ulaz očekuje vektor, što znači da je prvo potrebno ispraviti (eng. \textit{flatten}) mapu karakteristika, dobijenu nakon konvolucije i agregacije, u vektor. U svim slojevima, osim u poslednjem, može da se koristi ReLU aktivaciona funkcija.
+U potpuno povezanom sloju, svaki neuron je povezan sa svakim neuronom iz prethodnog sloja, kao što je to slučaj kod običnih neuronskih mreža. Taj sloj kao ulaz očekuje vektor, što znači da je prvo potrebno \textit{ispraviti (eng.} flatten\textit{)} mapu karakteristika, dobijenu nakon konvolucije i agregacije, u vektor. U svim slojevima, osim u poslednjem, može da se koristi ReLU aktivaciona funkcija.
 
 Poslednji potpuno povezani sloj treba da ima onoliko neurona koliko ima i klasa, kako bi mogao da odredi koju klasu da pridruži slici. U ovom sloju je najbolje koristiti softmax aktivacionu funkciju. Softmax funkcija određuje verovatnoću pripadnosti slike svakoj od klasa. Nakon njene primene, dobija se vektor vrednosti koje odgovaraju verovatnoćama i koje u zbiru daju vrednost 1. Zahvaljujući njoj, slika se klasifikuje u onu klasu kojoj odgovara najveća verovatnoća pripadnosti. Softmax funkcija je definisana kao: $$ S(z_i) = \frac{e^z_i}{\sum_{j=1}^{K}e^z_j},  i = 1,...,K,  z = (z_1,...,z_K) $$ gde je z ulazni vektor od K realnih brojeva. 
 
@@ -358,7 +358,7 @@ Optimizator Adam predstavlja unapređenu verziju SGD-a. SGD održava jednu vredn
 \label{sec:implementacija_i_eksperimentalni_rezultati}
 
 
-Neuronsku mrežu smo implementirale u programskom jeziku Python korišćenjem Keras biblioteke. Kao podatke za trening i testiranje, koristile smo slike iz baze podataka kineskih saobraćajnih znakova \cite{CTSD}. Baza sadrži 6164 slika saobraćajnih znakova podeljenih u 58 klasa, pri čemu trening skup sadrži 4170, a test skup 1994 slike. Međutim, nisu sve klase imale podjednak broj slika. Za neke je postojalo 5 slika na kojima bi mreza mogla da trenira, a za neke oko 400. Takođe, zbog prevelike količine podataka, izvršavanje programa je bilo mnogo sporo. Zbog svega toga, odlučile smo da koristimo samo jedan deo te baze i izdvojile 10 klasa koje su imale približno jednak broj slika. Nakon toga, dobile smo trening skup od 1693 slika i test skup od 764 slike. Na slici \ref{fig:trening_skup} je prikazan po jedan znak iz svake klase trening skupa, zajedno sa brojem elemenata te klase. Slično, ti podaci o test skupu, mogu se videti na slici \ref{fig:test_skup}.
+Neuronsku mrežu smo implementirale u programskom jeziku Python korišćenjem Keras biblioteke. Kao podatke za trening i testiranje, koristile smo slike iz baze podataka kineskih saobraćajnih znakova \cite{CTSD}. Baza sadrži 6164 slika saobraćajnih znakova podeljenih u 58 klasa, pri čemu trening skup sadrži 4170, a test skup 1994 slike. Međutim, nisu sve klase imale podjednak broj slika. Za neke je postojalo 5 slika na kojima bi mreža mogla da trenira, a za neke oko 400. Takođe, zbog prevelike količine podataka, izvršavanje programa je bilo mnogo sporo. Zbog svega toga, odlučile smo da koristimo samo jedan deo te baze i izdvojile 10 klasa koje su imale približno jednak broj slika. Nakon toga, dobile smo trening skup od 1693 slika i test skup od 764 slika. Na slici \ref{fig:trening_skup} je prikazan po jedan znak iz svake klase trening skupa, zajedno sa brojem elemenata te klase. Slično, isti podaci o test skupu, mogu se videti na slici \ref{fig:test_skup}. U narednim poglavljima će biti predstavljeni neki od modela konvolutivnih neuronskih mreža koje smo pravile, a koje su davale najbolje rezultate.
 
 \begin{figure}[h!]
 \begin{center}
@@ -376,14 +376,13 @@ Neuronsku mrežu smo implementirale u programskom jeziku Python korišćenjem Ke
 \label{fig:test_skup}
 \end{figure}
 
-U narednim poglavljima će biti predstavljeni neki od modela konvolutivnih neuronskih mreža koje smo pravile, a koje su davale najbolje rezultate.
 
 \subsection{Model 1}
 \label{sec:model_1}
 
-Jedan od prvih modela koji je imao veći uspeh na test podacima prikazan je u kodu \ref{code:model1}. Sastoji se iz četiri konvolutivna, dva agregativna i dva potpuno povezana sloja. Detaljna arhitektura mreže se može videti na slici \ref{fig:model1_arh}. U svim konvolutivnim slojevima veličina jezgra je 3x3, a broj filtera na izlazu iz konvolucije je 32. Takođe, u svakom se koristi ReLU aktivaciona funkcija. U sloju agregacije, sažimanje se vrši biranjem maksimalne vrednosti dela mape karakteristika koji je prekriven filterom. Kako ne bi došlo do preprilagodjavanja modela trening podacima, povremeno je, pomoću funkcije Dropout(), isključivan određen broj nasumično odabranih neurona. Nakon agregacija je isključeno 20\% neurona, a pre poslednjeg, potpuno povezanog, sloja 50\%. Poslednji potpuno povezani sloj ima onoliko neurona koliko ima klasa i koristi softmax aktivacionu funkciju.
+Jedan od prvih modela koji je imao veći uspeh na test podacima prikazan je u kodu \ref{code:model1}. Sastoji se iz četiri konvolutivna sloja, dva sloja agregacije i dva potpuno povezana sloja. Detaljna arhitektura mreže se može videti na slici \ref{fig:model1_arh}. U svim konvolutivnim slojevima veličina jezgra je 3$\times$3, a broj filtera na izlazu iz konvolutivnog sloja je 32. Takođe, u svakom se koristi ReLU aktivaciona funkcija. U sloju agregacije, sažimanje se vrši biranjem maksimalne vrednosti dela mape karakteristika koji je prekriven filterom. Kako ne bi došlo do preprilagodjavanja modela trening podacima, povremeno je, pomoću funkcije \textit{Dropout()}, isključivan određen broj nasumično odabranih neurona. Nakon agregacija je isključeno 20\% neurona, a pre poslednjeg, potpuno povezanog, sloja 50\%. Poslednji potpuno povezani sloj ima onoliko neurona koliko ima klasa i koristi softmax aktivacionu funkciju.
 
-Učenje modela je sprovedeno u 30 epoha. Batch size je postavljen na 32, što znači da će u svakoj iteraciji biti uzeta 32 primerka iz trening skupa koja će biti propagirana kroz mrežu. Optimizacija modela je izvršena pomoću gradijentnog spusta. Takođe, pre početka treninga, sve slike su skalirane na istu veličinu, 64x64 piksela.
+Učenje modela je sprovedeno u 30 epoha. \textit{Batch size} je postavljen na 32, što znači da će u svakoj iteraciji biti uzeta 32 primerka iz trening skupa koja će biti propagirana kroz mrežu. Optimizacija modela je izvršena pomoću gradijentnog spusta. Takođe, pre početka treninga, sve slike su skalirane na istu veličinu, 64$\times$64 piksela.
 
 
 \begin{lstlisting}[caption={Model 1},frame=single, label=code:model1]
@@ -447,13 +446,13 @@ model.fit(images, classes,
 \label{fig:model1_arh}
 \end{figure}
 
-Na slici \ref{fig:model1_trening_acc} možemo videti da je preciznost modela na trening skupu tokom poslednje tri epohe varirala oko 0.99 i 1.0. Na slici \ref{fig:model1_test_acc} možemo videti kako se model pokazao na test skupu. Preciznost (\textit{accuracy}, tj. broj tačno klasifikovanih instanci / ukupan broj instanci) je jednaka 0.882. Vidimo da je i preciznost (\textit{precision}) koja se odnosi na svaku od klasa dosta visoka (osim za klase 0 i 5)
+Na slici \ref{fig:model1_trening_acc} se može videti da je preciznost modela na trening skupu tokom poslednje tri epohe varirala oko 0.99 i 1.00. Na slici \ref{fig:model1_test_acc} se može videti kako se model pokazao na test skupu. \textit{Preciznost (eng.} accuracy\textit{)}, tj. broj tačno klasifikovanih instanci / ukupan broj instanci) je jednaka 0.882. Može se videti da je i \textit{preciznost (eng.} precision\textit{)} koja se odnosi na svaku od klasa dosta visoka (osim za klase 0 i 5).
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.35]{model1_trening_acc.png}
 \end{center}
-\caption{Preciznost modela 1 na trening podecima}
+\caption{Preciznost modela 1 na trening podacima}
 \label{fig:model1_trening_acc}
 \end{figure}
 
@@ -461,7 +460,7 @@ Na slici \ref{fig:model1_trening_acc} možemo videti da je preciznost modela na 
 \begin{center}
 \includegraphics[scale=0.40]{model1_test_acc.png}
 \end{center}
-\caption{Preciznost modela 1 na test podecima}
+\caption{Preciznost modela 1 na test podacima}
 \label{fig:model1_test_acc}
 \end{figure}
 
@@ -473,7 +472,7 @@ Na slici \ref{fig:model1_trening_acc} možemo videti da je preciznost modela na 
 \label{sec:model_2}
 
 
-Još bolje rezultate smo dobile pomoću LeNet-5 mreže \cite{leNet}. LeNet-5 mrežu je 1990ih napravio Yann LeCunn. Mreža se sastoji iz 7 slojeva, pri čemu se ne računa ulazni sloj. Sve slike smo skalirale na večičinu 32x32 piksela, jer ova mreža kao ulaz očekuje slike tih dimenzija. Prvi konvolutivni sloj na izlazu daje 6 mapa karakteristika, koristi jezgro veličine 3x3 i kao aktivacionu funkciju koristi ReLU. Nakon njega sledi sloj agregacije u kom se sažimanje vrši biranjem prosečne vrednosti dela mape karakteristika koji je prekriven filterom. 
+Još bolje rezultate smo dobile pomoću LeNet-5 mreže (opisana u poglavlju \ref{struktura_cnn}) \cite{leNet}. Mreža se sastoji iz 7 slojeva, pri čemu se ne računa ulazni sloj. Sve slike smo skalirale na večičinu 32$\times$32 piksela, jer ova mreža kao ulaz očekuje slike tih dimenzija. Prvi konvolutivni sloj na izlazu daje 6 mapa karakteristika, koristi jezgro veličine 3$\times$3 i kao aktivacionu funkciju koristi ReLU. Nakon njega sledi sloj agregacije u kom se sažimanje vrši biranjem prosečne vrednosti dela mape karakteristika koji je prekriven filterom. 
 Još jednom se ponavljaju ova dva sloja, s tim što sada konvolutivni sloj vraća 16 mapa karakteristika. Nakon ispravljanja mape karakteristika u vektor, taj vektor se prosleđuje potpuno povezanom sloju koji se sastoji iz 120 neurona i koristi ReLU aktivacionu funkciju. Nakon toga sledi potpuno povezani sloj od 84 neurona koji, takođe, koristi ReLU aktivacionu funkciju. I, na kraju, ostaje još jedan potpuno povezani sloj koji ima onoliko neurona koliko ima klasa i koji koristi softmax aktivacionu funkciju. U kodu \ref{code:leNet} je data implementacija LeNet-5 mreže, a na slici \ref{fig:leNet_arh} je prikazana njena detaljna arhitektura.
 
 
@@ -537,7 +536,7 @@ Na slici \ref{fig:leNet_trening_acc} možemo videti da je preciznost na trening 
 \begin{center}
 \includegraphics[scale=0.35]{leNet_trening_acc.png}
 \end{center}
-\caption{Preciznost leNet-5 modela na trening podecima}
+\caption{Preciznost leNet-5 modela na trening podacima}
 \label{fig:leNet_trening_acc}
 \end{figure}
 
@@ -545,7 +544,7 @@ Na slici \ref{fig:leNet_trening_acc} možemo videti da je preciznost na trening 
 \begin{center}
 \includegraphics[scale=0.40]{leNet_test_acc.png}
 \end{center}
-\caption{Preciznost leNet-5 modela na test podecima}
+\caption{Preciznost leNet-5 modela na test podacima}
 \label{fig:leNet_test_acc}
 \end{figure}
 

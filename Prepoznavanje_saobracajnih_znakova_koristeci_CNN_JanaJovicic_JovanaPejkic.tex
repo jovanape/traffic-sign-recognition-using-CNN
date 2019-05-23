@@ -682,30 +682,31 @@ Na slici \ref{fig:accuracy_1} prikazan je rast preciznosti na trening i test pod
 \begin{table}[h!]
 \begin{center}
 \caption{Model ...}
-\begin{tabular}{ |p{1.5cm}||p{2cm}|p{1cm}|p{1.5cm}|p{1cm}| }
+\begin{tabular}{ |p{0.5cm}|p{1.5cm}||p{2cm}|p{1cm}|p{1.5cm}|p{1cm}| }
  \hline
- \multicolumn{5}{|c|}{AlexNet} \\
+ \multicolumn{6}{|c|}{AlexNet} \\
  \hline
- Funkcija aktivacije & optimizator & Batch size & preciznost na test skupu & vreme izvrsavanja\\
+ Br. iter. & Funkcija aktivacije & Opt. & Batch size & Preciznost na test skupu & Vreme izvrsavanja (sec)\\
  \hline
- relu    & adam & 32  &   &   \\
- relu    & adam & 64  &   &   \\
- relu    & adam & 128 &   &   \\
- relu    & sgd  & 32  &   &   \\
- relu    & sgd  & 64  &   &   \\
- relu    & sgd  & 128 &   &   \\
- sigmoid & adam & 32  &   &   \\
- sigmoid & adam & 64  &   &   \\
- sigmoid & adam & 128 &   &   \\
- sigmoid & sgd  & 32  &   &   \\
- sigmoid & sgd  & 64  &   &   \\
- sigmoid & sgd  & 128 &   &   \\
- tanh    & adam & 32  &   &   \\
- tanh    & adam & 64  &   &   \\
- tanh    & adam & 128 &   &   \\
- tanh    & sgd  & 32  &   &   \\
- tanh    & sgd  & 64  &   &   \\
- tanh    & sgd  & 128 &   &   \\
+ 10  & relu    & adam & 32  &   &   \\
+ 10  & relu    & adam & 64  &   &   \\
+ 10  & relu    & adam & 256 &   &   \\
+ 10  & sigmoid & adam & 32  &   &   \\
+ 10  & sigmoid & adam & 64  &   &   \\
+ 10  & sigmoid & adam & 256 &   &   \\
+ 10  & tanh    & adam & 32  &   &   \\
+ 10  & tanh    & adam & 64  &   &   \\
+ 10  & tanh    & adam & 256 &   &   \\
+ 
+ 100 & relu    & adam  & 32  & 0.934  & 372.984  \\
+ 100 & relu    & adam  & 64  & 0.934  & 334.667  \\
+ 100 & relu    & adam  & 256 & 0.906 & 295.523  \\ 
+ 100 & sigmoid & adam  & 32  & 0.914 & 372.971  \\
+ 100 & sigmoid & adam  & 64  & 0.914 & 334.225  \\
+ 100 & sigmoid & adam  & 256 & 0.856 & 292.743  \\
+ 100 & tanh    & adam  & 32  & 0.879  & 373.153  \\
+ 100 & tanh    & adam  & 64  & 0.921  &  339.918 \\
+ 100 & tanh    & adam  & 256 & 0.906  & 296.921  \\
 
  \hline
 \end{tabular}

@@ -282,7 +282,7 @@ U konvolutivnim slojevima kao aktivaciona funkcija se najčešće koristi ReLu (
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.38]{relu2.png}
+\includegraphics[scale=0.6]{relu_graph.png}
 \end{center}
 \caption{Grafik ReLU funkcije}
 \label{fig:relu_fja}
@@ -296,6 +296,30 @@ U konvolutivnim slojevima kao aktivaciona funkcija se najčešće koristi ReLu (
 \caption{Primer rada ReLU funkcije nad mapom karakteristika}
 \label{fig:relu_transform}
 \end{figure}
+
+
+Osim ReLu funkcijue, koriste se (u manjoj meri) i sigmoidna funkcija i tangens hiperbolički. Grafici ovih funkcija su prikazani na slici \ref{fig:sigmoid_tanh}. Sigmoidna funkcija je praktično konstantna osim u okolini nule, te dovodi do anuliranja gradijenta, što otežava učenje, pa se u praksi baš i ne koristi. Sigmoidna funkcija se definiše ovako:
+
+\begin{center}
+$\sigma(x) = \dfrac{1}{1 + e^{-x}}$
+\end{center}
+
+Tangens hiperbolički je funkcija vrlo srodna sigmoidnoj (a nešto je duže od nje u upotrebi). Tangens hiperbolički je u okolini nule bliska identitetu, što čini model sličnijim linearnom i u nekoj meri olakšava optimizaciju. Tangens hiperbolički definisan je ovako:
+
+\begin{center}
+$\tanh(x) = \dfrac{e^{2x}-1}{e^{2x}+1}$
+\end{center}
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{sigmoid_tanh_graph.png}
+\end{center}
+\caption{Grafici funkcija sigmoid i tanh}
+\label{fig:sigmoid_tanh}
+\end{figure}
+
+
 
 \newpage
 

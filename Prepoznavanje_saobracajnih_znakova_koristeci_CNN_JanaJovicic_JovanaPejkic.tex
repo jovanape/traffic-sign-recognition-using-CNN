@@ -68,7 +68,7 @@
 \maketitle
 
 \abstract{
-
+Zahvaljujući konvolutivnim neuronskim mrežama, u oblasti mašinskog učenja je unapređen proces klasifikacije slika i prepoznavanja objekata na slikama. U ovom radu će biti opisana opšta arhitektura konvolutivnih neuronskih mreža, način na koji funkcioniše izdvajanje karakteristika objekata sa slika i njeno klasifikovanje na osnovu tih karakteristika. Biće navedeni i načini na koje je moguće optimizovati mrežu. Takođe, biće prikazane implementacije tri vrste mreža, među kojima su LeNet-5 i AlexNet, a zatim će biti analiziran njihov uspeh prilikom prepoznavanja i klasifikacije saobraćajnih znakova.
 }
 
 \newpage
@@ -490,9 +490,9 @@ Na slici \ref{fig:model1_trening_acc} se može videti da je preciznost modela na
 
 
 
-\newpage
+%\newpage
 
-\subsection{Model 2:  LeNet-5}
+\subsection{Model 2: LeNet-5}
 \label{sec:model_2}
 
 
@@ -598,43 +598,220 @@ Na slici \ref{fig:accuracy_1} prikazan je rast preciznosti na trening i test pod
 \label{fig:confussion_matrix_1}
 \end{figure}
 
+%\newpage
+
+\subsection{Model 3: AlexNet}
+\label{sec:model_3}
+Model AlexNet, čija je implementacija prikazana u ovoj sekciji, daje najbolje rezultate (bolje od ostala dva modela). Prilikom testiranja dostiže preciznost čak 0.95. Grafici postignute preciznosti i gubitka tokom treniranja podataka prikazani su redom na slikama \ref{fig:alex_acc_1000} i \ref{fig:alex_loss_1000}. Statistike (između ostalih i matrica konfuzije) testiranja mogu se videti na slici \ref{fig:alex_net_matrix}.
+AlexNet mreža se sastoji iz 5 konvolutivna sloja (sa jezgrom veličine $3\times3$ i aktivacionom funkcijom ReLu), gde nakon svakog izlaz normalizuje pre nego što se prosledi narednom sloju. Takođe, pre nego što usledi normalizacija nakon prvog, drugog i petog konvolutivnog sloja, odvija se sažimanje (odnosno agregacija) sa parametrom \textit{padding = 'valid'}, što znači da nema proširenja. Nakon ponavaljanja ova 2 (odnosno 3) sloja, sledi poravnavajući sloj (koji ‚‚ispravlja" mapu karakteristika u vektor), a zatim 3 \textit{Dense} sloja. Nakon svakog \textit{Dense} sloja je izvršena funkcija \textit{Dropout()} koja sprečava preprilagođavanje modela, a onda su podaci normalizovani. Na samom kraju mreže nalazi se izlazni sloj koji preslikava ulaz u dati broj klasa, a kao funkciju aktivacije koristi \textit{Softmax}. U kodu \ref{code:alexNet} je data implementacija AlexNet mreže, a na slici \ref{fig:alex_net_layers} je prikazana njena detaljna arhitektura.
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.27]{acc_1000_epoh_alexNet.png}
+\end{center}
+\caption{Preciznost AlexNet modela pri treniranju za 1000 epoha}
+\label{fig:alex_acc_1000}
+\end{figure}
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.27]{loss_1000_epoh_alexNet.png}
+\end{center}
+\caption{Gubitak AlexNet modela pri treniranju za 1000 epoha}
+\label{fig:alex_loss_1000}
+\end{figure}
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.65]{confussion_matrix_alexNet_1000epoh.png}
+\end{center}
+\caption{Matrica konfuzije i ostale statistike AlexNet modela za 1000 epoha}
+\label{fig:alex_net_matrix}
+\end{figure}
+
+
+\begin{lstlisting}[caption={AlexNet},frame=single, label=code:alexNet]
+def alexNet():
+    
+    model = Sequential()
+
+    # 1. kovolucioni sloj
+    model.add(Conv2D(filters=3,
+                     input_shape=(IMG_SIZE, IMG_SIZE, 3),
+                     kernel_size=(3,3),
+                     padding='valid',
+                     data_format="channels_last"))
+    model.add(Activation('relu'))
+    # Pooling - agregacija
+    model.add(MaxPooling2D(pool_size=(2,2),
+              strides=(1,1),
+              padding='valid'))
+    # Batch Normalisation - normalizacija
+    # (pre nego sto se prosledi narednom sloju)
+    model.add(BatchNormalization())
+
+    # 2. kovolucioni sloj
+    model.add(Conv2D(filters=16,
+                     kernel_size=(3,3),
+                     strides=(1,1),
+                     padding='valid'))
+    model.add(Activation('relu'))
+    # Pooling - agregacija
+    model.add(MaxPooling2D(pool_size=(2,2),
+                           strides=(2,2),
+                           padding='valid'))
+    # Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+    # 3. kovolucioni sloj
+    model.add(Conv2D(filters=16,
+                     kernel_size=(3,3),
+                     strides=(1,1),
+                     padding='valid'))
+    model.add(Activation('relu'))
+    # Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+    # 4. kovolucioni sloj
+    model.add(Conv2D(filters=3,
+                     kernel_size=(3,3),
+                     strides=(1,1),
+                     padding='valid'))
+    model.add(Activation('relu'))
+    # Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+    # 5. kovolucioni sloj
+    model.add(Conv2D(filters=3,
+                     kernel_size=(3,3),
+                     strides=(1,1),
+                     padding='valid'))
+    model.add(Activation('relu'))
+    # Pooling - agregacija
+    model.add(MaxPooling2D(pool_size=(2,2),
+                           strides=(2,2),
+                           padding='valid'))
+    # Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+
+    # Sloj za poravnanje
+    model.add(Flatten())
+    # 1. Dense sloj
+    model.add(Dense(units = 120))
+    model.add(Activation('relu'))
+    # Dodajemo Dropout da sprecimo overfitting
+    model.add(Dropout(0.4))
+    # Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+    # 2. Dense sloj
+    model.add(Dense(84))
+    model.add(Activation('relu'))
+    # Dodajemo Dropout
+    model.add(Dropout(0.4))
+    # Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+    # 3. Dense sloj
+    model.add(Dense(64))
+    model.add(Activation('relu'))
+    # Dodajemo Dropout
+    model.add(Dropout(0.4))
+    # Batch Normalisation - normalizacija
+    model.add(BatchNormalization())
+
+    # Izlazni sloj
+    model.add(Dense(NUM_OF_CLASSES))
+    model.add(Activation('softmax'))
+
+    model.summary()
+    return model
+\end{lstlisting}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.8]{alexNet_layers.png}
+\end{center}
+\caption{Slojevi AlexNet modela}
+\label{fig:alex_net_layers}
+\end{figure}
+
+\newpage
 
 
 \subsection{Analiza modela}
 \label{sec:analiza_modela}
 
+U ovom poglvlju će biti upoređeni rezultati rada tri modela koje smo implementirale. U narednim tabelama je prikazana preciznost modela na test skupu, kao i vreme njegovog treniranja, u zavisnosti od toga kako su podešeni različiti parametri pri treniranju. U tabeli \ref{tabela_model1} su prikazani rezultati rada modela\_1 u 10 epoha, u tabeli \ref{tabela_model2_1} modela LeNet5 u 10 epoha, u tabeli \ref{tabela_model2_2} modela LeNet5 u 100 epoha i u tabeli \ref{tabela_alexnet} modela AlexNet u 10 i 100 epoha.
 
 
 \begin{table}[h!]
 \begin{center}
-\caption{Model ...}
-\begin{tabular}{ |p{1.5cm}||p{2cm}|p{1cm}|p{1.5cm}|p{1cm}| }
+\caption{Model 1}
+\begin{tabular}{ |p{1.5cm}||p{2cm}|p{1cm}|p{1.5cm}|p{1.5cm}| }
  \hline
- \multicolumn{5}{|c|}{LeNet5} \\
+ \multicolumn{5}{|c|}{Model 1,  10 epoha} \\
  \hline
  Funkcija aktivacije & optimizator & Batch size & preciznost na test skupu & vreme izvrsavanja\\
  \hline
- relu    & adam & 32  &   &   \\
- relu    & adam & 64  &   &   \\
- relu    & adam & 128 &   &   \\
- relu    & sgd  & 32  &   &   \\
- relu    & sgd  & 64  &   &   \\
- relu    & sgd  & 128 &   &   \\
- sigmoid & adam & 32  &   &   \\
- sigmoid & adam & 64  &   &   \\
- sigmoid & adam & 128 &   &   \\
- sigmoid & sgd  & 32  &   &   \\
- sigmoid & sgd  & 64  &   &   \\
- sigmoid & sgd  & 128 &   &   \\
- tanh    & adam & 32  &   &   \\
- tanh    & adam & 64  &   &   \\
- tanh    & adam & 128 &   &   \\
- tanh    & sgd  & 32  &   &   \\
- tanh    & sgd  & 64  &   &   \\
- tanh    & sgd  & 128 &   &   \\
+ relu    & adam & 32  & 0.848  & 233.333 \\
+ relu    & adam & 64  & 0.767  & 218.867 \\
+ relu    & sgd  & 32  & 0.879  & 213.162  \\
+ relu    & sgd  & 64  & 0.845  & 257.118  \\
+ sigmoid & adam & 32  & 0.230  & 255.351  \\
+ sigmoid & adam & 64  & 0.230  & 243.452  \\
+ sigmoid & sgd  & 32  & 0.230  & 252.360  \\
+ sigmoid & sgd  & 64  & 0.230  & 265.278  \\
+ tanh    & adam & 32  & 0.230  & 231.808  \\
+ tanh    & adam & 64  & 0.110  & 228.060  \\
+ tanh    & sgd  & 32  & 0.908  & 223.549  \\
+ tanh    & sgd  & 64  & 0.879  & 228.474  \\
 
  \hline
 \end{tabular}
+\label{tabela_model1}
+\end{center}
+\end{table}
+
+
+
+
+
+\begin{table}[h!]
+\begin{center}
+\caption{Model 2}
+\begin{tabular}{ |p{1.5cm}||p{2cm}|p{1cm}|p{1.5cm}|p{1.5cm}| }
+ \hline
+ \multicolumn{5}{|c|}{LeNet5, 10 epoha} \\
+ \hline
+ Funkcija aktivacije & optimizator & Batch size & preciznost na test skupu & vreme izvrsavanja\\
+ \hline
+ relu    & adam & 32  & 0.825  & 29.112  \\
+ relu    & adam & 64  & 0.827  & 31.737  \\
+ relu    & adam & 128 & 0.835  & 23.660  \\
+ relu    & sgd  & 32  & 0.830  & 27.591  \\
+ relu    & sgd  & 64  & 0.796  & 25.008  \\
+ relu    & sgd  & 128 & 0.487  & 22.703  \\
+ sigmoid & adam & 32  & 0.230  & 29.442  \\
+ sigmoid & adam & 64  & 0.230  & 25.430  \\
+ sigmoid & adam & 128 & 0.230  & 24.470  \\
+ sigmoid & sgd  & 32  & 0.230  & 29.697  \\
+ sigmoid & sgd  & 64  & 0.230  & 28.206  \\
+ sigmoid & sgd  & 128 & 0.230  & 23.382  \\
+ tanh    & adam & 32  & 0.866  & 29.580 \\
+ tanh    & adam & 64  & 0.845  & 25.425  \\
+ tanh    & adam & 128 & 0.872  & 24.269  \\
+ tanh    & sgd  & 32  & 0.843  & 29.354  \\
+ tanh    & sgd  & 64  & 0.817  & 26.013  \\
+ tanh    & sgd  & 128 & 0.772  & 23.323  \\
+
+ \hline
+\end{tabular}
+\label{tabela_model2_1}
 \end{center}
 \end{table}
 
@@ -643,60 +820,59 @@ Na slici \ref{fig:accuracy_1} prikazan je rast preciznosti na trening i test pod
 
 \begin{table}[h!]
 \begin{center}
-\caption{Model ...}
-\begin{tabular}{ |p{1.5cm}||p{2cm}|p{1cm}|p{1.5cm}|p{1cm}| }
+\caption{Model 2}
+\begin{tabular}{ |p{1.5cm}||p{2cm}|p{1cm}|p{1.5cm}|p{1.5cm}| }
  \hline
- \multicolumn{5}{|c|}{Model} \\
+ \multicolumn{5}{|c|}{LeNet5, 100 epoha} \\
  \hline
  Funkcija aktivacije & optimizator & Batch size & preciznost na test skupu & vreme izvrsavanja\\
  \hline
- relu    & adam & 32  &   &   \\
- relu    & adam & 64  &   &   \\
- relu    & adam & 128 &   &   \\
- relu    & sgd  & 32  &   &   \\
- relu    & sgd  & 64  &   &   \\
- relu    & sgd  & 128 &   &   \\
- sigmoid & adam & 32  &   &   \\
- sigmoid & adam & 64  &   &   \\
- sigmoid & adam & 128 &   &   \\
- sigmoid & sgd  & 32  &   &   \\
- sigmoid & sgd  & 64  &   &   \\
- sigmoid & sgd  & 128 &   &   \\
- tanh    & adam & 32  &   &   \\
- tanh    & adam & 64  &   &   \\
- tanh    & adam & 128 &   &   \\
- tanh    & sgd  & 32  &   &   \\
- tanh    & sgd  & 64  &   &   \\
- tanh    & sgd  & 128 &   &   \\
+ relu    & adam & 32  & 0.869  & 285.869  \\
+ relu    & adam & 64  & 0.822  & 229.086  \\
+ relu    & adam & 128 & 0.843  & 215.497  \\
+ relu    & sgd  & 32  & 0.796  & 255.521  \\
+ relu    & sgd  & 64  & 0.811  & 252.399  \\
+ relu    & sgd  & 128 & 0.730  & 221.506  \\
+ sigmoid & adam & 32  & 0.230  & 286.774  \\
+ sigmoid & adam & 64  & 0.230  & 249.128  \\
+ sigmoid & adam & 128 & 0.230  & 242.137  \\
+ sigmoid & sgd  & 32  & 0.230  & 240.445  \\
+ sigmoid & sgd  & 64  & 0.230  & 238.546  \\
+ sigmoid & sgd  & 128 & 0.230  & 235.574  \\
+ tanh    & adam & 32  & 0.887  & 274.488  \\
+ tanh    & adam & 64  & 0.853  & 240.747  \\
+ tanh    & adam & 128 & 0.866  & 212.645  \\
+ tanh    & sgd  & 32  & 0.816  & 274.816  \\
+ tanh    & sgd  & 64  & 0.780  & 235.054  \\
+ tanh    & sgd  & 128 & 0.780  & 219.117  \\
 
  \hline
 \end{tabular}
+\label{tabela_model2_2}
 \end{center}
 \end{table}
 
 
 
-
-
-
 \begin{table}[h!]
 \begin{center}
-\caption{Model ...}
-\begin{tabular}{ |p{0.5cm}|p{1.5cm}||p{2cm}|p{1cm}|p{1.5cm}|p{1cm}| }
+\caption{Rezultati za AlexNet model za različite vrednosti parametara: broj epoha (10 i 100), funkciju aktivacije (relu, tanh i sigmoid) i \textit{Batch size} (32, 64 i 256).}
+
+\begin{tabular}{ |p{1cm}||p{1.5cm}|p{1.5cm}|p{1cm}|p{1.5cm}|p{1.5cm}| }
  \hline
  \multicolumn{6}{|c|}{AlexNet} \\
  \hline
- Br. iter. & Funkcija aktivacije & Opt. & Batch size & Preciznost na test skupu & Vreme izvrsavanja (sec)\\
+ Br. epoha & Funkcija aktivacije & Optimi-zator & \textit{Batch size} & Preciznost na test skupu & Vreme izvrsavanja (sekunde)\\
  \hline
- 10  & relu    & adam & 32  &   &   \\
- 10  & relu    & adam & 64  &   &   \\
- 10  & relu    & adam & 256 &   &   \\
- 10  & sigmoid & adam & 32  &   &   \\
- 10  & sigmoid & adam & 64  &   &   \\
- 10  & sigmoid & adam & 256 &   &   \\
- 10  & tanh    & adam & 32  &   &   \\
- 10  & tanh    & adam & 64  &   &   \\
- 10  & tanh    & adam & 256 &   &   \\
+ 10  & relu    & adam & 32  & 0.838  &  44.356 \\
+ 10  & relu    & adam & 64  & 0.848  & 37.813  \\
+ 10  & relu    & adam & 256 & 0.715  & 33.786  \\
+ 10  & sigmoid & adam & 32  & 0.919 &  43.755 \\
+ 10  & sigmoid & adam & 64  & 0.845  & 38.291  \\
+ 10  & sigmoid & adam & 256 & 0.696 & 36.811  \\
+ 10  & tanh    & adam & 32  & 0.801  & 43.664  \\
+ 10  & tanh    & adam & 64  & 0.906  & 39.264  \\
+ 10  & tanh    & adam & 256 & 0.851  & 34.403  \\
  
  100 & relu    & adam  & 32  & 0.934  & 372.984  \\
  100 & relu    & adam  & 64  & 0.934  & 334.667  \\
@@ -710,16 +886,42 @@ Na slici \ref{fig:accuracy_1} prikazan je rast preciznosti na trening i test pod
 
  \hline
 \end{tabular}
+\label{tabela_alexnet}
 \end{center}
 \end{table}
 
+\newpage
+Zaključi:
+\begin{itemize}
+ \item Sigmoidnu funkciju ne treba koristiti ni u modelu\_1 ni u LeNet modelu, jer sve slike klasifikuje u istu klasu (8. klasu)
+ \item LeNet model je mnogo brži od modela\_1: za približno isto vreme u modelu\_1 se izvrsi 10 epoha, a u LeNet modelu 100 epoha
+ \item Ali, kada se posmatra izvrsavanje u 10 epoha, model\_1 daje malo bolje rezultate od LeNet (ako se izuzme kombinacija tangentne aktivacione funkcije i optimizacije pomocu Adama)
+ \item Model\_1 daje najveću preciznost (0.908) na test skupu kada se kao aktivaciona funkcija koristi tangenta funkcija, kada se optimizuje pomocu stohastickog gradijentnog spusta i kada je batch size = 32
+ \item Model\_1 ima nesto veću preciznost kada je batch size = 32, u odnosu na to kada je batch size = 64
+ \item Kada poredimo izvršavanje LeNet modela u 10 i 100 epoha, vidimo da je preciznost tek malo bolja u 100 epoha, nego u 10 - za 0.01 ili 0.02. A izvrsavanje traje oko 10 puta duže. Zato se više isplati uzeti manji broj epoha.
+ \item Kod AlexNet modela, vreme izvšavanja je mnogo veće (skoro 10 puta veće) za 100 nego za 10 epoha, što je i očekivano.
+ \item Najmanja preciznost za AlexNet model se postiže za funkciju sigmoid, 10 epoha i \textit{Batch size} 256, a iznosi 0.696. Takođe, to je jedini slučaj da je preciznost ispod 0.71, a uglavnom su preciznosti u intervalu [0.801, 0.934], iz čega zaključujemo da AlexNet model ima dobru preciznost, kao i to da ona ne osciluje mnogo izvan pomenutog intervala.
+ \item Prosečna preciznost za 10 epoha iznosi 0.824 (približno 82\%), a prosečna preciznost za 100 epoha iznosi 0.907 (približno 90\%), iz čega se može zaključiti da je za AlexNet model i dati skup podataka bolje trenirati model u što više epoha. Ovo potvrđuje i činjenica (poglavlje \ref{sec:model_3} da je u 1000 epoha ovaj model dostigao najveću preciznost (veću od sva tri modela) koja iznosi 0.95 (odnosno 95\%).
+  \item Može se uočiti da AlexNet model sporije trenira podatke u odnosu na LeNet5 mrežu, ali mnogo brže u odnosu na Model 1. Naime, najmanje vreme izvršavanja AlexNet mreže je postignuto za 10 epoha (funkciju ReLu i \textit{Batch size} 256), a iznosi 33.786 sekunde, dok je maksimalno vreme koje LeNet5 model dostiže za 10 epoha (funkciju ReLu i \textit{Batch size} 64) 31.737 sekundi.
+\end{itemize}
 
 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{graphs_alexnet_lenet.png}
+\end{center}
+\caption{Grafici na kojima je prikazana preciznost za funkcije sigmoid, tanh i relu, kod AlexNet i LeNet-5 modela redom}
+\label{fig:accuracy_1}
+\end{figure}
 
 \newpage
-
+\newpage
 \section{Zaključak}
 \label{sec:zakljucak}
+U ovom radu obrađene su konvolutivne neuronske mreže kroz implementaciju tri modela za klasifikaciju slika saobraćajnih znakova. Kako je korišćeni skup podataka relativno mali, ne može se postići pun potencijal konvolutivnih mreža, ali smo kroz isprobavanje različitih vrednosti parametara uspele da postignemo dobru preciznost kojom modeli vrše klasifikaciju. Dva prikazana modela predstavljaju poznate arhitekture konvolutivnih mreža - to su LeNet-5 i AlexNet, dok smo arhitekturu jednog modela same osmislile.
+
+Kako CNNs rade sa sve većim skupovima podataka, to mreža mora biti kompleksnija, a samim tim ona zahteva sve veće količine resursa - posebno memorijske resurse (zbog svih parametara koje je potrebno podesiti prilikom učenja modela). Ipak, CNN predstavljaju odlično rešenje za problem klasifikacije slika, i sve više se koriste.
 
 \newpage
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.28)  23 MAY 2019 23:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.28)  24 MAY 2019 04:14
 entering extended mode
 **./Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.t
 ex
@@ -339,7 +339,11 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 sty"
 File: lstlang1.sty 2019/02/27 1.8b listings language file
 )
-(Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.aux)
+(Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.aux
+
+LaTeX Warning: Label `fig:accuracy_1' multiply defined.
+
+)
 \openout1 = `Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_Jovan
 aPejkic.aux'.
 
@@ -436,7 +440,7 @@ ju slika (npr. SVM[][][][][]),
  []
 
 [3]
-<neural_network_layers.jpeg, id=140, 189.20688pt x 193.72375pt>
+<neural_network_layers.jpeg, id=145, 189.20688pt x 193.72375pt>
 File: neural_network_layers.jpeg Graphic file (type jpg)
 <use neural_network_layers.jpeg>
 Package pdftex.def Info: neural_network_layers.jpeg  used on input line 115.
@@ -458,23 +462,23 @@ Overfull \hbox (24.86894pt too wide) in paragraph at lines 143--173
  []
 
 [6]
-<filter_movement01.jpg, id=173, 426.393pt x 488.5452pt>
+<filter_movement01.jpg, id=178, 426.393pt x 488.5452pt>
 File: filter_movement01.jpg Graphic file (type jpg)
 <use filter_movement01.jpg>
 Package pdftex.def Info: filter_movement01.jpg  used on input line 187.
 (pdftex.def)             Requested size: 170.55417pt x 195.41461pt.
-<edges.png, id=174, 279.54437pt x 167.12437pt>
+<edges.png, id=179, 279.54437pt x 167.12437pt>
 File: edges.png Graphic file (type png)
 <use edges.png>
 Package pdftex.def Info: edges.png  used on input line 196.
 (pdftex.def)             Requested size: 279.54367pt x 167.12395pt.
  [7 <./filter_movement01.jpg> <./edges.png>]
-<learning.jpg, id=185, 294.60063pt x 122.95938pt>
+<learning.jpg, id=190, 294.60063pt x 122.95938pt>
 File: learning.jpg Graphic file (type jpg)
 <use learning.jpg>
 Package pdftex.def Info: learning.jpg  used on input line 206.
 (pdftex.def)             Requested size: 265.1381pt x 110.6624pt.
-<cnn_layers.jpg, id=192, 513.92pt x 140.02313pt>
+<cnn_layers.jpg, id=197, 513.92pt x 140.02313pt>
 File: cnn_layers.jpg Graphic file (type jpg)
 <use cnn_layers.jpg>
 Package pdftex.def Info: cnn_layers.jpg  used on input line 220.
@@ -490,12 +494,12 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 230.
 
 [9]
-<convolution.png, id=214, 340.27126pt x 231.86626pt>
+<convolution.png, id=219, 340.27126pt x 231.86626pt>
 File: convolution.png Graphic file (type png)
 <use convolution.png>
 Package pdftex.def Info: convolution.png  used on input line 260.
 (pdftex.def)             Requested size: 306.24129pt x 208.67769pt.
-<padding.png, id=218, 722.7pt x 286.57062pt>
+<padding.png, id=223, 722.7pt x 286.57062pt>
 File: padding.png Graphic file (type png)
 <use padding.png>
 Package pdftex.def Info: padding.png  used on input line 271.
@@ -505,12 +509,12 @@ Package pdftex.def Info: padding.png  used on input line 271.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [10 <./convolution.png>]
-<relu_graph.png, id=230, 270.00874pt x 217.31187pt>
+<relu_graph.png, id=235, 270.00874pt x 217.31187pt>
 File: relu_graph.png Graphic file (type png)
 <use relu_graph.png>
 Package pdftex.def Info: relu_graph.png  used on input line 285.
 (pdftex.def)             Requested size: 162.00648pt x 130.3881pt.
-<relu1.jpg, id=231, 1195.46625pt x 489.83pt>
+<relu1.jpg, id=236, 1195.46625pt x 489.83pt>
 File: relu1.jpg Graphic file (type jpg)
 <use relu1.jpg>
 Package pdftex.def Info: relu1.jpg  used on input line 294.
@@ -520,19 +524,19 @@ Package pdftex.def Info: relu1.jpg  used on input line 294.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [11 <./padding.png> <./relu_graph.png>]
-<sigmoid_tanh_graph.png, id=241, 594.72188pt x 218.31563pt>
+<sigmoid_tanh_graph.png, id=246, 594.72188pt x 218.31563pt>
 File: sigmoid_tanh_graph.png Graphic file (type png)
 <use sigmoid_tanh_graph.png>
 Package pdftex.def Info: sigmoid_tanh_graph.png  used on input line 316.
 (pdftex.def)             Requested size: 297.36021pt x 109.15753pt.
  [12 <./relu1.jpg> <./sigmoid_tanh_graph.png>]
-<pool.jpeg, id=248, 386.94562pt x 305.64188pt>
+<pool.jpeg, id=253, 386.94562pt x 305.64188pt>
 File: pool.jpeg Graphic file (type jpg)
 <use pool.jpeg>
 Package pdftex.def Info: pool.jpeg  used on input line 340.
 (pdftex.def)             Requested size: 154.7755pt x 122.25458pt.
  [13 <./pool.jpeg>]
-<maxpool.jpeg, id=256, 592.46344pt x 277.035pt>
+<maxpool.jpeg, id=261, 592.46344pt x 277.035pt>
 File: maxpool.jpeg Graphic file (type jpg)
 <use maxpool.jpeg>
 Package pdftex.def Info: maxpool.jpeg  used on input line 350.
@@ -549,7 +553,7 @@ Overfull \hbox (7.62935pt too wide) in paragraph at lines 379--380
 D odrzava
  []
 
-<trening_skup.png, id=266, 1269.74374pt x 743.77875pt>
+<trening_skup.png, id=271, 1269.74374pt x 743.77875pt>
 File: trening_skup.png Graphic file (type png)
 <use trening_skup.png>
 Package pdftex.def Info: trening_skup.png  used on input line 389.
@@ -557,7 +561,7 @@ Package pdftex.def Info: trening_skup.png  used on input line 389.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<test_skup.png, id=267, 1121.18875pt x 745.78625pt>
+<test_skup.png, id=272, 1121.18875pt x 745.78625pt>
 File: test_skup.png Graphic file (type png)
 <use test_skup.png>
 Package pdftex.def Info: test_skup.png  used on input line 397.
@@ -574,7 +578,7 @@ Overfull \hbox (3.99431pt too wide) in paragraph at lines 461--462
 ] 
  []
 
-<model1_arhitektura.png, id=284, 599.23875pt x 515.9275pt>
+<model1_arhitektura.png, id=289, 599.23875pt x 515.9275pt>
 File: model1_arhitektura.png Graphic file (type png)
 <use model1_arhitektura.png>
 Package pdftex.def Info: model1_arhitektura.png  used on input line 467.
@@ -582,7 +586,7 @@ Package pdftex.def Info: model1_arhitektura.png  used on input line 467.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<model1_trening_acc.png, id=287, 1178.4025pt x 107.40125pt>
+<model1_trening_acc.png, id=292, 1178.4025pt x 107.40125pt>
 File: model1_trening_acc.png Graphic file (type png)
 <use model1_trening_acc.png>
 Package pdftex.def Info: model1_trening_acc.png  used on input line 477.
@@ -595,7 +599,7 @@ Overfull \hbox (67.44705pt too wide) in paragraph at lines 477--478
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<model1_test_acc.png, id=288, 495.8525pt x 538.01pt>
+<model1_test_acc.png, id=293, 495.8525pt x 538.01pt>
 File: model1_test_acc.png Graphic file (type png)
 <use model1_test_acc.png>
 Package pdftex.def Info: model1_test_acc.png  used on input line 485.
@@ -614,7 +618,7 @@ Overfull \hbox (3.99431pt too wide) in paragraph at lines 544--545
 ] 
  []
 
-<leNet_arhitektura.png, id=353, 633.36626pt x 496.85625pt>
+<leNet_arhitektura.png, id=359, 633.36626pt x 496.85625pt>
 File: leNet_arhitektura.png Graphic file (type png)
 <use leNet_arhitektura.png>
 Package pdftex.def Info: leNet_arhitektura.png  used on input line 550.
@@ -622,8 +626,7 @@ Package pdftex.def Info: leNet_arhitektura.png  used on input line 550.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19]
-<leNet_trening_acc.png, id=407, 1143.27126pt x 113.42375pt>
+<leNet_trening_acc.png, id=362, 1143.27126pt x 113.42375pt>
 File: leNet_trening_acc.png Graphic file (type png)
 <use leNet_trening_acc.png>
 Package pdftex.def Info: leNet_trening_acc.png  used on input line 561.
@@ -633,23 +636,34 @@ Overfull \hbox (55.15094pt too wide) in paragraph at lines 561--562
  [] 
  []
 
-<leNet_test_acc.png, id=408, 504.88625pt x 537.00626pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<leNet_test_acc.png, id=363, 504.88625pt x 537.00626pt>
 File: leNet_test_acc.png Graphic file (type png)
 <use leNet_test_acc.png>
 Package pdftex.def Info: leNet_test_acc.png  used on input line 569.
 (pdftex.def)             Requested size: 201.95091pt x 214.79869pt.
-[20 <./leNet_arhitektura.png> <./leNet_trening_acc.png> <./leNet_test_acc.png>]
-<accuracy_1.png, id=416, 642.4pt x 481.8pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<accuracy_1.png, id=367, 642.4pt x 481.8pt>
 File: accuracy_1.png Graphic file (type png)
 <use accuracy_1.png>
 Package pdftex.def Info: accuracy_1.png  used on input line 579.
 (pdftex.def)             Requested size: 256.95544pt x 192.71658pt.
-<loss_1.png, id=417, 642.4pt x 481.8pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<loss_1.png, id=368, 642.4pt x 481.8pt>
 File: loss_1.png Graphic file (type png)
 <use loss_1.png>
 Package pdftex.def Info: loss_1.png  used on input line 587.
 (pdftex.def)             Requested size: 256.95544pt x 192.71658pt.
-<confussion_matrix_1.png, id=418, 458.46281pt x 327.47343pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<confussion_matrix_1.png, id=369, 458.46281pt x 327.47343pt>
 File: confussion_matrix_1.png Graphic file (type png)
 <use confussion_matrix_1.png>
 Package pdftex.def Info: confussion_matrix_1.png  used on input line 595.
@@ -657,253 +671,199 @@ Package pdftex.def Info: confussion_matrix_1.png  used on input line 595.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[19] [20 <./leNet_arhitektura.png> <./leNet_trening_acc.png> <./leNet_test_acc.
+png>] [21 <./accuracy_1.png> <./loss_1.png>]
+<acc_1000_epoh_alexNet.png, id=442, 1303.87125pt x 679.53876pt>
+File: acc_1000_epoh_alexNet.png Graphic file (type png)
+<use acc_1000_epoh_alexNet.png>
+Package pdftex.def Info: acc_1000_epoh_alexNet.png  used on input line 611.
+(pdftex.def)             Requested size: 352.04994pt x 183.47792pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--615
+Overfull \hbox (7.04994pt too wide) in paragraph at lines 611--612
+ [] 
+ []
+
+<loss_1000_epoh_alexNet.png, id=443, 1303.87125pt x 679.53876pt>
+File: loss_1000_epoh_alexNet.png Graphic file (type png)
+<use loss_1000_epoh_alexNet.png>
+Package pdftex.def Info: loss_1000_epoh_alexNet.png  used on input line 620.
+(pdftex.def)             Requested size: 352.04994pt x 183.47792pt.
+
+Overfull \hbox (7.04994pt too wide) in paragraph at lines 620--621
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<confussion_matrix_alexNet_1000epoh.png, id=444, 444.66125pt x 313.67188pt>
+File: confussion_matrix_alexNet_1000epoh.png Graphic file (type png)
+<use confussion_matrix_alexNet_1000epoh.png>
+Package pdftex.def Info: confussion_matrix_alexNet_1000epoh.png  used on input 
+line 629.
+(pdftex.def)             Requested size: 289.02638pt x 203.8843pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22 <./confussion_matrix_1.png> <./acc_1000_epoh_alexNet.png>] [23 <./loss_1000
+_epoh_alexNet.png> <./confussion_matrix_alexNet_1000epoh.png>] [24]
+<alexNet_layers.png, id=552, 302.12875pt x 651.43375pt>
+File: alexNet_layers.png Graphic file (type png)
+<use alexNet_layers.png>
+Package pdftex.def Info: alexNet_layers.png  used on input line 737.
+(pdftex.def)             Requested size: 241.70332pt x 521.14769pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[25] [26 <./alexNet_layers.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 759--759
 []\OT1/cmr/m/n/10 Funkcija
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--615
+Underfull \hbox (badness 10000) in paragraph at lines 759--759
 []\OT1/cmr/m/n/10 Batch
  []
 
 
-Overfull \hbox (1.29317pt too wide) in paragraph at lines 615--615
+Overfull \hbox (1.29317pt too wide) in paragraph at lines 759--759
 []\OT1/cmr/m/n/10 preciznost
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--615
+Underfull \hbox (badness 10000) in paragraph at lines 759--759
 \OT1/cmr/m/n/10 na test
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
-[]\OT1/cmr/m/n/10 vreme
+Underfull \hbox (badness 10000) in paragraph at lines 791--791
+[]\OT1/cmr/m/n/10 Funkcija
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
-\OT1/cmr/m/n/10 iz-vr-
+Underfull \hbox (badness 10000) in paragraph at lines 791--791
+[]\OT1/cmr/m/n/10 Batch
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
-\OT1/cmr/m/n/10 sa-va-
+Overfull \hbox (1.29317pt too wide) in paragraph at lines 791--791
+[]\OT1/cmr/m/n/10 preciznost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 791--791
+\OT1/cmr/m/n/10 na test
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--651
+Underfull \hbox (badness 10000) in paragraph at lines 828--828
 []\OT1/cmr/m/n/10 Funkcija
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--651
+Underfull \hbox (badness 10000) in paragraph at lines 828--828
 []\OT1/cmr/m/n/10 Batch
  []
 
 
-Overfull \hbox (1.29317pt too wide) in paragraph at lines 651--651
+Overfull \hbox (1.29317pt too wide) in paragraph at lines 828--828
 []\OT1/cmr/m/n/10 preciznost
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--651
+Underfull \hbox (badness 10000) in paragraph at lines 828--828
 \OT1/cmr/m/n/10 na test
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 651--652
-[]\OT1/cmr/m/n/10 vreme
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 651--652
-\OT1/cmr/m/n/10 iz-vr-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 651--652
-\OT1/cmr/m/n/10 sa-va-
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 689--689
+Underfull \hbox (badness 10000) in paragraph at lines 865--865
 []\OT1/cmr/m/n/10 Br.
  []
 
 
-Overfull \hbox (3.57922pt too wide) in paragraph at lines 689--689
-\OT1/cmr/m/n/10 iter.| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 689--689
+Underfull \hbox (badness 10000) in paragraph at lines 865--865
 []\OT1/cmr/m/n/10 Funkcija
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 689--689
-[]\OT1/cmr/m/n/10 Batch
+Underfull \hbox (badness 10000) in paragraph at lines 865--865
+[]\OT1/cmr/m/n/10 Optimi-
  []
 
 
-Overfull \hbox (2.54317pt too wide) in paragraph at lines 689--689
+Underfull \hbox (badness 10000) in paragraph at lines 865--865
+[]\OT1/cmr/m/it/10 Batch
+ []
+
+
+Overfull \hbox (2.54317pt too wide) in paragraph at lines 865--865
 []\OT1/cmr/m/n/10 Preciznost
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 689--689
+Underfull \hbox (badness 10000) in paragraph at lines 865--865
 \OT1/cmr/m/n/10 na test
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 689--690
-[]\OT1/cmr/m/n/10 Vreme
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 689--690
-\OT1/cmr/m/n/10 iz-vr-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 689--690
-\OT1/cmr/m/n/10 sa-va-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 689--690
-\OT1/cmr/m/n/10 nja
- []
-
-
-Overfull \hbox (0.77368pt too wide) in paragraph at lines 701--701
-[]\OT1/cmr/m/n/10 100| 
- []
-
-
-Overfull \hbox (4.32513pt too wide) in paragraph at lines 701--702
-[]\OT1/cmr/m/n/10 372.984| 
- []
-
-
-Overfull \hbox (0.77368pt too wide) in paragraph at lines 702--702
-[]\OT1/cmr/m/n/10 100| 
- []
-
-
-Overfull \hbox (4.32513pt too wide) in paragraph at lines 702--703
-[]\OT1/cmr/m/n/10 334.667| 
- []
-
-
-Overfull \hbox (0.77368pt too wide) in paragraph at lines 703--703
-[]\OT1/cmr/m/n/10 100| 
- []
-
-
-Overfull \hbox (4.32513pt too wide) in paragraph at lines 703--704
-[]\OT1/cmr/m/n/10 295.523| 
- []
-
-
-Overfull \hbox (0.77368pt too wide) in paragraph at lines 704--704
-[]\OT1/cmr/m/n/10 100| 
- []
-
-
-Overfull \hbox (4.32513pt too wide) in paragraph at lines 704--705
-[]\OT1/cmr/m/n/10 372.971| 
- []
-
-
-Overfull \hbox (0.77368pt too wide) in paragraph at lines 705--705
-[]\OT1/cmr/m/n/10 100| 
- []
-
-
-Overfull \hbox (4.32513pt too wide) in paragraph at lines 705--706
-[]\OT1/cmr/m/n/10 334.225| 
- []
-
-
-Overfull \hbox (0.77368pt too wide) in paragraph at lines 706--706
-[]\OT1/cmr/m/n/10 100| 
- []
-
-
-Overfull \hbox (4.32513pt too wide) in paragraph at lines 706--707
-[]\OT1/cmr/m/n/10 292.743| 
- []
-
-
-Overfull \hbox (0.77368pt too wide) in paragraph at lines 707--707
-[]\OT1/cmr/m/n/10 100| 
- []
-
-
-Overfull \hbox (4.32513pt too wide) in paragraph at lines 707--708
-[]\OT1/cmr/m/n/10 373.153| 
- []
-
-
-Overfull \hbox (0.77368pt too wide) in paragraph at lines 708--708
-[]\OT1/cmr/m/n/10 100| 
- []
-
-
-Overfull \hbox (4.32513pt too wide) in paragraph at lines 708--709
-[]\OT1/cmr/m/n/10 339.918| 
- []
-
-
-Overfull \hbox (0.77368pt too wide) in paragraph at lines 709--709
-[]\OT1/cmr/m/n/10 100| 
- []
-
-
-Overfull \hbox (4.32513pt too wide) in paragraph at lines 709--710
-[]\OT1/cmr/m/n/10 296.921| 
+Underfull \hbox (badness 10000) in paragraph at lines 865--866
+\OT1/cmr/m/n/10 vr-sa-va-nja
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21 <./accuracy_1.png> <./loss_1.png>] [22 <./confussion_matrix_1.png>]
+[27] [28]
+<graphs_alexnet_lenet.png, id=587, 719.18687pt x 232.36812pt>
+File: graphs_alexnet_lenet.png Graphic file (type png)
+<use graphs_alexnet_lenet.png>
+Package pdftex.def Info: graphs_alexnet_lenet.png  used on input line 912.
+(pdftex.def)             Requested size: 359.59256pt x 116.18376pt.
+
+Overfull \hbox (14.59256pt too wide) in paragraph at lines 912--913
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29] [30 <./graphs_alexnet_lenet.png>] [31]
 (Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.bbl
 Overfull \hbox (14.05496pt too wide) in paragraph at lines 4--8
 \OT1/cmtt/m/n/9 adam-[]latest-[]trends-[]in-[]deep-[]learning-[]optimization-[]
 6be9a291375c$[][]\OT1/cmr/m/n/9 . 
  []
 
-) [23]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 738.
- [24]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 738.
+) [32]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 940.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 940.
 
 (Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 738.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 738.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 940.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 940.
 Package rerunfilecheck Info: File `Prepoznavanje_saobracajnih_znakova_koristeci
 _CNN_JanaJovicic_JovanaPejkic.out' has not changed.
-(rerunfilecheck)             Checksum: E26ACF12CFC344461FB04FD821F954C4;3157.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 738.
+(rerunfilecheck)             Checksum: FD6427332F9F0A5648E4B1B7345DD196;3302.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 940.
  ) 
 Here is how much of TeX's memory you used:
- 12049 strings out of 492946
- 168526 string characters out of 3126266
- 466777 words of memory out of 3000000
- 15627 multiletter control sequences out of 15000+200000
+ 12203 strings out of 492946
+ 171061 string characters out of 3126266
+ 492777 words of memory out of 3000000
+ 15664 multiletter control sequences out of 15000+200000
  15261 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,13n,40p,1864b,1289s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,13n,40p,1864b,1917s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmbx12.pfb><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/f
@@ -930,9 +890,9 @@ b><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmtt8.pfb><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt9.pfb>
 Output written on Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_
-JovanaPejkic.pdf (24 pages, 2431128 bytes).
+JovanaPejkic.pdf (32 pages, 2713086 bytes).
 PDF statistics:
- 555 PDF objects out of 1000 (max. 8388607)
- 177 named destinations out of 1000 (max. 500000)
- 276 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 742 PDF objects out of 1000 (max. 8388607)
+ 289 named destinations out of 1000 (max. 500000)
+ 309 words of extra memory for PDF output out of 10000 (max. 10000000)
 

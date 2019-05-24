@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.2.19)  20 MAY 2019 23:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.2.19)  24 MAY 2019 10:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -544,45 +544,118 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
-\c@primer=\count107
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen114
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen115
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count107
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count108
+\leftroot@=\count109
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count110
+\DOTSCASE@=\count111
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen116
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+\macc@depth=\count112
+\c@MaxMatrixCols=\count113
+\dotsspace@=\muskip11
+\c@parentequation=\count114
+\dspbrk@lvl=\count115
+\tag@help=\toks19
+\row@=\count116
+\column@=\count117
+\maxfields@=\count118
+\andhelp@=\toks20
+\eqnshift@=\dimen117
+\alignsep@=\dimen118
+\tagshift@=\dimen119
+\tagwidth@=\dimen120
+\totwidth@=\dimen121
+\lineht@=\dimen122
+\@envbody=\toks21
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+\c@primer=\count119
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (./Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.au
-x)
+x
+
+LaTeX Warning: Label `fig:accuracy_1' multiply defined.
+
+)
 \openout1 = `Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_Jovan
 aPejkic.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count108
-\scratchdimen=\dimen114
-\scratchbox=\box28
-\nofMPsegments=\count109
-\nofMParguments=\count110
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count111
-\MPscratchDim=\dimen115
-\MPnumerator=\count112
-\makeMPintoPDFobject=\count113
-\everyMPtoPDFconversion=\toks19
+\scratchcounter=\count120
+\scratchdimen=\dimen123
+\scratchbox=\box30
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen124
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks24
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -598,8 +671,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring ON on input line 59.
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring ON on input line 60.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -607,11 +680,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count114
+\c@section@level=\count126
 )
-LaTeX Info: Redefining \ref on input line 59.
-LaTeX Info: Redefining \pageref on input line 59.
-LaTeX Info: Redefining \nameref on input line 59.
+LaTeX Info: Redefining \ref on input line 60.
+LaTeX Info: Redefining \pageref on input line 60.
+LaTeX Info: Redefining \nameref on input line 60.
 
 (./Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.ou
 t)
@@ -621,14 +694,16 @@ t)
 \openout3 = `Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_Jovan
 aPejkic.out'.
 
-\c@lstlisting=\count115
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 68.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 68.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 68.
- [1
+\c@lstlisting=\count127
+LaTeX Font Info:    Try loading font information for U+msa on input line 69.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 69.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 (./Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.to
@@ -638,209 +713,471 @@ c)
 aPejkic.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 82--119
-
+Overfull \hbox (6.56163pt too wide) in paragraph at lines 87--88
+[]\OT1/cmr/m/n/9 Postoje mnogi al-go-ritmi koji se ko-ri-ste za kla-si-fi-ka-ci
+ju slika (npr. SVM[][][][][]),
  []
 
-[3]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 126.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 126.
- <neural_network_layers.jpeg, id=62, 189.20688pt x 193.72375pt>
+[3] <neural_network_layers.jpeg, id=146, 189.20688pt x 193.72375pt>
 File: neural_network_layers.jpeg Graphic file (type jpg)
 
 <use neural_network_layers.jpeg>
-Package pdftex.def Info: neural_network_layers.jpeg used on input line 140.
+Package pdftex.def Info: neural_network_layers.jpeg used on input line 115.
 (pdftex.def)             Requested size: 189.2064pt x 193.72327pt.
  [4 <./neural_network_layers.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 158--170
-
+Overfull \hbox (4.67438pt too wide) in paragraph at lines 130--131
+[]\OT1/cmr/m/n/9 Konvolutivne ne-u-ron-ske mre^^Tze pred-sta-vljaju pot-klasu n
+e-u-ron-skih mre^^Tza
  []
 
 [5]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 178.
- [6] <filter_movement01.jpg, id=90, 426.393pt x 488.5452pt>
+Underfull \hbox (badness 1389) in paragraph at lines 152--155
+\OT1/cmr/m/n/10 dova nula (ili dru-gih vred-no-sti) da
+ []
+
+
+Overfull \hbox (24.86894pt too wide) in paragraph at lines 143--173
+ [] 
+ []
+
+[6] <filter_movement01.jpg, id=180, 426.393pt x 488.5452pt>
 File: filter_movement01.jpg Graphic file (type jpg)
 
 <use filter_movement01.jpg>
-Package pdftex.def Info: filter_movement01.jpg used on input line 222.
+Package pdftex.def Info: filter_movement01.jpg used on input line 187.
 (pdftex.def)             Requested size: 170.55417pt x 195.41461pt.
- <edges.png, id=91, 279.54437pt x 167.12437pt>
+ <edges.png, id=181, 279.54437pt x 167.12437pt>
 File: edges.png Graphic file (type png)
 
 <use edges.png>
-Package pdftex.def Info: edges.png used on input line 231.
+Package pdftex.def Info: edges.png used on input line 196.
 (pdftex.def)             Requested size: 279.54367pt x 167.12395pt.
  [7 <./filter_movement01.jpg> <./edges.png>]
-<learning.jpg, id=102, 294.60063pt x 122.95938pt>
+<learning.jpg, id=192, 294.60063pt x 122.95938pt>
 File: learning.jpg Graphic file (type jpg)
  <use learning.jpg>
-Package pdftex.def Info: learning.jpg used on input line 241.
+Package pdftex.def Info: learning.jpg used on input line 206.
 (pdftex.def)             Requested size: 265.1381pt x 110.6624pt.
 
-<cnn_layers.jpg, id=104, 513.92pt x 140.02313pt>
+<cnn_layers.jpg, id=199, 513.92pt x 140.02313pt>
 File: cnn_layers.jpg Graphic file (type jpg)
  <use cnn_layers.jpg>
-Package pdftex.def Info: cnn_layers.jpg used on input line 259.
+Package pdftex.def Info: cnn_layers.jpg used on input line 220.
 (pdftex.def)             Requested size: 318.62709pt x 86.81343pt.
  [8 <./learning.jpg> <./cnn_layers.jpg>]
-<convolution.png, id=114, 340.27126pt x 231.86626pt>
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 230.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 230.
+ [9]
+<convolution.png, id=223, 340.27126pt x 231.86626pt>
 File: convolution.png Graphic file (type png)
  <use convolution.png>
-Package pdftex.def Info: convolution.png used on input line 282.
+Package pdftex.def Info: convolution.png used on input line 260.
 (pdftex.def)             Requested size: 306.24129pt x 208.67769pt.
 
-[9 <./convolution.png>] <padding.png, id=130, 722.7pt x 286.57062pt>
+<padding.png, id=228, 722.7pt x 286.57062pt>
 File: padding.png Graphic file (type png)
-
-<use padding.png>
-Package pdftex.def Info: padding.png used on input line 292.
+ <use padding.png>
+Package pdftex.def Info: padding.png used on input line 271.
 (pdftex.def)             Requested size: 274.62885pt x 108.89796pt.
 
-Overfull \hbox (3.32095pt too wide) in paragraph at lines 315--316
-[]\OT1/cmr/m/n/9 Prva slika (pool): In this exam-ple, the in-put vo-lume of siz
-e [224x224x64]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10 <./convolution.png>] <relu_graph.png, id=240, 270.00874pt x 217.31187pt>
+File: relu_graph.png Graphic file (type png)
+
+<use relu_graph.png>
+Package pdftex.def Info: relu_graph.png used on input line 285.
+(pdftex.def)             Requested size: 162.00648pt x 130.3881pt.
+ <relu1.jpg, id=241, 1195.46625pt x 489.83pt>
+File: relu1.jpg Graphic file (type jpg)
+
+<use relu1.jpg>
+Package pdftex.def Info: relu1.jpg used on input line 294.
+(pdftex.def)             Requested size: 239.089pt x 97.96426pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11 <./padding.png> <./relu_graph.png>]
+<sigmoid_tanh_graph.png, id=251, 594.72188pt x 218.31563pt>
+File: sigmoid_tanh_graph.png Graphic file (type png)
+
+<use sigmoid_tanh_graph.png>
+Package pdftex.def Info: sigmoid_tanh_graph.png used on input line 316.
+(pdftex.def)             Requested size: 297.36021pt x 109.15753pt.
+ [12 <./relu1.jpg> <./sigmoid_tanh_graph.png>]
+<pool.jpeg, id=258, 386.94562pt x 305.64188pt>
+File: pool.jpeg Graphic file (type jpg)
+ <use pool.jpeg>
+Package pdftex.def Info: pool.jpeg used on input line 340.
+(pdftex.def)             Requested size: 154.7755pt x 122.25458pt.
+ [13 <./pool.jpeg>] <maxpool.jpeg, id=266, 592.46344pt x 277.035pt>
+File: maxpool.jpeg Graphic file (type jpg)
+ <use maxpool.jpeg>
+Package pdftex.def Info: maxpool.jpeg used on input line 350.
+(pdftex.def)             Requested size: 236.98117pt x 110.81203pt.
+ [14 <./maxpool.jpeg>]
+Overfull \hbox (2.37584pt too wide) in paragraph at lines 377--378
+\OT1/cmr/m/n/9 toga se ^^Tce^^Ts^^Sce ko-ri-sti op-ti-mi-za-cija sto-ha-sti^^Tc
+kim gra-di-jent-nim spu-stom (SGD,
  []
 
-[10 <./padding.png>] <maxpool.jpeg, id=138, 592.46344pt x 277.035pt>
-File: maxpool.jpeg Graphic file (type jpg)
 
-<use maxpool.jpeg>
-Package pdftex.def Info: maxpool.jpeg used on input line 322.
-(pdftex.def)             Requested size: 236.98117pt x 110.81203pt.
- <pool.jpeg, id=139, 386.94562pt x 305.64188pt>
-File: pool.jpeg Graphic file (type jpg)
+Overfull \hbox (7.62935pt too wide) in paragraph at lines 379--380
+[]\OT1/cmr/m/n/9 Optimizator Adam pred-sta-vlja unapre[]denu ver-ziju SGD-a. SG
+D odr^^Tzava
+ []
 
-<use pool.jpeg>
-Package pdftex.def Info: pool.jpeg used on input line 331.
-(pdftex.def)             Requested size: 154.7755pt x 122.25458pt.
- <trening_skup.png, id=143, 1269.74374pt x 743.77875pt>
+<trening_skup.png, id=276, 1269.74374pt x 743.77875pt>
 File: trening_skup.png Graphic file (type png)
-
-<use trening_skup.png>
-Package pdftex.def Info: trening_skup.png used on input line 348.
+ <use trening_skup.png>
+Package pdftex.def Info: trening_skup.png used on input line 389.
 (pdftex.def)             Requested size: 317.43515pt x 185.94423pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<test_skup.png, id=144, 1121.18875pt x 745.78625pt>
+<test_skup.png, id=277, 1121.18875pt x 745.78625pt>
 File: test_skup.png Graphic file (type png)
  <use test_skup.png>
-Package pdftex.def Info: test_skup.png used on input line 356.
+Package pdftex.def Info: test_skup.png used on input line 397.
 (pdftex.def)             Requested size: 280.2965pt x 186.4461pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[11 <./maxpool.jpeg> <./pool.jpeg>] [12 <./trening_skup.png> <./test_skup.png>]
+[15]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 372.
-
-Overfull \hbox (3.99431pt too wide) in paragraph at lines 421--422
+nput line 412.
+ [16 <./trening_skup.png> <./test_skup.png>]
+Overfull \hbox (3.99431pt too wide) in paragraph at lines 461--462
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ] 
  []
 
-<model1_arhitektura.png, id=164, 599.23875pt x 515.9275pt>
+<model1_arhitektura.png, id=295, 599.23875pt x 515.9275pt>
 File: model1_arhitektura.png Graphic file (type png)
 
 <use model1_arhitektura.png>
-Package pdftex.def Info: model1_arhitektura.png used on input line 427.
-(pdftex.def)             Requested size: 269.65494pt x 232.16522pt.
+Package pdftex.def Info: model1_arhitektura.png used on input line 467.
+(pdftex.def)             Requested size: 239.69125pt x 206.36734pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13] <model1_trening_acc.png, id=225, 1178.4025pt x 107.40125pt>
+<model1_trening_acc.png, id=298, 1178.4025pt x 107.40125pt>
 File: model1_trening_acc.png Graphic file (type png)
 
 <use model1_trening_acc.png>
-Package pdftex.def Info: model1_trening_acc.png used on input line 437.
+Package pdftex.def Info: model1_trening_acc.png used on input line 477.
 (pdftex.def)             Requested size: 412.44705pt x 37.59099pt.
 
-Overfull \hbox (67.44705pt too wide) in paragraph at lines 437--438
+Overfull \hbox (67.44705pt too wide) in paragraph at lines 477--478
  [] 
  []
-
-<model1_test_acc.png, id=226, 495.8525pt x 538.01pt>
-File: model1_test_acc.png Graphic file (type png)
- <use model1_test_acc.png>
-Package pdftex.def Info: model1_test_acc.png used on input line 445.
-(pdftex.def)             Requested size: 223.13156pt x 242.10226pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14 <./model1_arhitektura.png> <./model1_trening_acc.png>] [15 <./model1_test_a
-cc.png>]
-Overfull \hbox (3.99431pt too wide) in paragraph at lines 501--502
+<model1_test_acc.png, id=299, 495.8525pt x 538.01pt>
+File: model1_test_acc.png Graphic file (type png)
+ <use model1_test_acc.png>
+Package pdftex.def Info: model1_test_acc.png used on input line 485.
+(pdftex.def)             Requested size: 198.33748pt x 215.20018pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[17]
+
+LaTeX Warning: Text page 18 contains only floats.
+
+[18 <./model1_arhitektura.png> <./model1_trening_acc.png> <./model1_test_acc.pn
+g>]
+Overfull \hbox (3.99431pt too wide) in paragraph at lines 544--545
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ] 
  []
 
-<leNet_arhitektura.png, id=255, 633.36626pt x 496.85625pt>
+<leNet_arhitektura.png, id=365, 633.36626pt x 496.85625pt>
 File: leNet_arhitektura.png Graphic file (type png)
 
 <use leNet_arhitektura.png>
-Package pdftex.def Info: leNet_arhitektura.png used on input line 507.
-(pdftex.def)             Requested size: 285.01218pt x 223.58324pt.
+Package pdftex.def Info: leNet_arhitektura.png used on input line 550.
+(pdftex.def)             Requested size: 221.6815pt x 173.90228pt.
 
-<leNet_trening_acc.png, id=258, 1143.27126pt x 113.42375pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<leNet_trening_acc.png, id=368, 1143.27126pt x 113.42375pt>
 File: leNet_trening_acc.png Graphic file (type png)
 
 <use leNet_trening_acc.png>
-Package pdftex.def Info: leNet_trening_acc.png used on input line 518.
+Package pdftex.def Info: leNet_trening_acc.png used on input line 561.
 (pdftex.def)             Requested size: 400.15094pt x 39.6989pt.
 
-Overfull \hbox (55.15094pt too wide) in paragraph at lines 518--519
+Overfull \hbox (55.15094pt too wide) in paragraph at lines 561--562
  [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<leNet_test_acc.png, id=259, 504.88625pt x 537.00626pt>
+<leNet_test_acc.png, id=369, 504.88625pt x 537.00626pt>
 File: leNet_test_acc.png Graphic file (type png)
 
 <use leNet_test_acc.png>
-Package pdftex.def Info: leNet_test_acc.png used on input line 526.
-(pdftex.def)             Requested size: 227.1967pt x 241.65057pt.
+Package pdftex.def Info: leNet_test_acc.png used on input line 569.
+(pdftex.def)             Requested size: 201.95091pt x 214.79869pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16 <./leNet_arhitektura.png>] [17 <./leNet_trening_acc.png> <./leNet_test_acc.
+<accuracy_1.png, id=373, 642.4pt x 481.8pt>
+File: accuracy_1.png Graphic file (type png)
+ <use accuracy_1.png>
+Package pdftex.def Info: accuracy_1.png used on input line 579.
+(pdftex.def)             Requested size: 218.4131pt x 163.80983pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<loss_1.png, id=374, 642.4pt x 481.8pt>
+File: loss_1.png Graphic file (type png)
+ <use loss_1.png>
+Package pdftex.def Info: loss_1.png used on input line 587.
+(pdftex.def)             Requested size: 218.4131pt x 163.80983pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<confussion_matrix_1.png, id=375, 458.46281pt x 327.47343pt>
+File: confussion_matrix_1.png Graphic file (type png)
+
+<use confussion_matrix_1.png>
+Package pdftex.def Info: confussion_matrix_1.png used on input line 595.
+(pdftex.def)             Requested size: 183.38187pt x 130.98705pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[19] [20 <./leNet_arhitektura.png> <./leNet_trening_acc.png> <./leNet_test_acc.
 png>]
+
+LaTeX Warning: Text page 21 contains only floats.
+
+[21 <./accuracy_1.png> <./loss_1.png> <./confussion_matrix_1.png>]
+<acc_1000_epoh_alexNet.png, id=447, 1303.87125pt x 679.53876pt>
+File: acc_1000_epoh_alexNet.png Graphic file (type png)
+
+<use acc_1000_epoh_alexNet.png>
+Package pdftex.def Info: acc_1000_epoh_alexNet.png used on input line 611.
+(pdftex.def)             Requested size: 352.04994pt x 183.47792pt.
+
+Overfull \hbox (7.04994pt too wide) in paragraph at lines 611--612
+ [] 
+ []
+
+<loss_1000_epoh_alexNet.png, id=448, 1303.87125pt x 679.53876pt>
+File: loss_1000_epoh_alexNet.png Graphic file (type png)
+
+<use loss_1000_epoh_alexNet.png>
+Package pdftex.def Info: loss_1000_epoh_alexNet.png used on input line 620.
+(pdftex.def)             Requested size: 352.04994pt x 183.47792pt.
+
+Overfull \hbox (7.04994pt too wide) in paragraph at lines 620--621
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<confussion_matrix_alexNet_1000epoh.png, id=449, 444.66125pt x 313.67188pt>
+File: confussion_matrix_alexNet_1000epoh.png Graphic file (type png)
+
+<use confussion_matrix_alexNet_1000epoh.png>
+Package pdftex.def Info: confussion_matrix_alexNet_1000epoh.png used on input l
+ine 629.
+(pdftex.def)             Requested size: 289.02638pt x 203.8843pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22 <./acc_1000_epoh_alexNet.png>] [23 <./loss_1000_epoh_alexNet.png> <./confus
+sion_matrix_alexNet_1000epoh.png>] [24]
+<alexNet_layers.png, id=558, 302.12875pt x 651.43375pt>
+File: alexNet_layers.png Graphic file (type png)
+
+<use alexNet_layers.png>
+Package pdftex.def Info: alexNet_layers.png used on input line 738.
+(pdftex.def)             Requested size: 241.70332pt x 521.14769pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[25] [26 <./alexNet_layers.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 760--760
+[]\OT1/cmr/m/n/10 Funkcija
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 760--760
+[]\OT1/cmr/m/n/10 Batch
+ []
+
+
+Overfull \hbox (1.29317pt too wide) in paragraph at lines 760--760
+[]\OT1/cmr/m/n/10 preciznost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 760--760
+\OT1/cmr/m/n/10 na test
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--792
+[]\OT1/cmr/m/n/10 Funkcija
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--792
+[]\OT1/cmr/m/n/10 Batch
+ []
+
+
+Overfull \hbox (1.29317pt too wide) in paragraph at lines 792--792
+[]\OT1/cmr/m/n/10 preciznost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--792
+\OT1/cmr/m/n/10 na test
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 829--829
+[]\OT1/cmr/m/n/10 Funkcija
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 829--829
+[]\OT1/cmr/m/n/10 Batch
+ []
+
+
+Overfull \hbox (1.29317pt too wide) in paragraph at lines 829--829
+[]\OT1/cmr/m/n/10 preciznost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 829--829
+\OT1/cmr/m/n/10 na test
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--866
+[]\OT1/cmr/m/n/10 Br.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--866
+[]\OT1/cmr/m/n/10 Funkcija
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--866
+[]\OT1/cmr/m/n/10 Optimi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--866
+[]\OT1/cmr/m/it/10 Batch
+ []
+
+
+Overfull \hbox (2.54317pt too wide) in paragraph at lines 866--866
+[]\OT1/cmr/m/n/10 Preciznost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--866
+\OT1/cmr/m/n/10 na test
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--867
+\OT1/cmr/m/n/10 vr-sa-va-nja
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[27] [28] <graphs_alexnet_lenet.png, id=595, 719.18687pt x 232.36812pt>
+File: graphs_alexnet_lenet.png Graphic file (type png)
+
+<use graphs_alexnet_lenet.png>
+Package pdftex.def Info: graphs_alexnet_lenet.png used on input line 913.
+(pdftex.def)             Requested size: 359.59256pt x 116.18376pt.
+
+Overfull \hbox (14.59256pt too wide) in paragraph at lines 913--914
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29] [30 <./graphs_alexnet_lenet.png>] [31]
 (./Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.bb
-l) [18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 576.
- [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 576.
+l
+Overfull \hbox (14.05496pt too wide) in paragraph at lines 4--8
+\OT1/cmtt/m/n/9 adam-[]latest-[]trends-[]in-[]deep-[]learning-[]optimization-[]
+6be9a291375c$[][]\OT1/cmr/m/n/9 . 
+ []
+
+) [32]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 941.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 941.
 
 (./Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.au
 x)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 576.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 576.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 941.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 941.
 Package rerunfilecheck Info: File `Prepoznavanje_saobracajnih_znakova_koristeci
 _CNN_JanaJovicic_JovanaPejkic.out' has not changed.
-(rerunfilecheck)             Checksum: 0C9B678E675FC031111616824E1F2A13;904.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 576.
+(rerunfilecheck)             Checksum: 75E1D2837A70A61CFA847731BC9ED83D;3281.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 941.
  ) 
 Here is how much of TeX's memory you used:
- 11305 strings out of 493029
- 155229 string characters out of 6136234
- 283092 words of memory out of 5000000
- 14585 multiletter control sequences out of 15000+600000
- 9963 words of font info for 36 fonts, out of 8000000 for 9000
+ 12448 strings out of 493029
+ 169367 string characters out of 6136234
+ 320947 words of memory out of 5000000
+ 15537 multiletter control sequences out of 15000+600000
+ 15261 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,11n,40p,1651b,1894s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,13n,40p,1862b,1912s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
@@ -848,16 +1185,19 @@ ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmtt9.pfb>
 Output written on Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_
-JovanaPejkic.pdf (19 pages, 2063206 bytes).
+JovanaPejkic.pdf (32 pages, 2664450 bytes).
 PDF statistics:
- 402 PDF objects out of 1000 (max. 8388607)
- 340 compressed objects within 4 object streams
- 154 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 753 PDF objects out of 1000 (max. 8388607)
+ 652 compressed objects within 7 object streams
+ 290 named destinations out of 1000 (max. 500000)
+ 309 words of extra memory for PDF output out of 10000 (max. 10000000)
 

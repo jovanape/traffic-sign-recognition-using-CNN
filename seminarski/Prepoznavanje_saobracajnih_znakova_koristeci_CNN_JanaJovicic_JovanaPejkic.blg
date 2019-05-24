@@ -3,46 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Prepoznavanje_saobracajnih_znakova_koristeci_CNN_JanaJovicic_JovanaPejkic.aux
 The style file: plain.bst
 Database file #1: seminarski.bib
+Warning--empty publisher in MLskripta
 Warning--empty journal in leNet
-You've used 2 entries,
+You've used 5 entries,
             2118 wiz_defined-function locations,
-            507 strings with 4346 characters,
-and the built_in function-call counts, 425 in all, are:
-= -- 37
-> -- 14
+            523 strings with 4828 characters,
+and the built_in function-call counts, 1056 in all, are:
+= -- 95
+> -- 35
 < -- 0
-+ -- 6
-- -- 4
-* -- 15
-:= -- 80
-add.period$ -- 6
-call.type$ -- 2
-change.case$ -- 8
++ -- 15
+- -- 10
+* -- 38
+:= -- 191
+add.period$ -- 16
+call.type$ -- 5
+change.case$ -- 19
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 17
-empty$ -- 40
-format.name$ -- 4
-if$ -- 85
+cite$ -- 7
+duplicate$ -- 46
+empty$ -- 101
+format.name$ -- 10
+if$ -- 217
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 1
-newline$ -- 13
-num.names$ -- 4
-pop$ -- 17
+int.to.str$ -- 5
+missing$ -- 4
+newline$ -- 29
+num.names$ -- 10
+pop$ -- 40
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 15
 quote$ -- 0
-skip$ -- 13
+skip$ -- 32
 stack$ -- 0
-substring$ -- 10
-swap$ -- 1
+substring$ -- 25
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
-warning$ -- 1
-while$ -- 4
-width$ -- 3
-write$ -- 20
-(There was 1 warning)
+type$ -- 18
+warning$ -- 2
+while$ -- 10
+width$ -- 6
+write$ -- 50
+(There were 2 warnings)

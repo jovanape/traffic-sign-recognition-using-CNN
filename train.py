@@ -17,6 +17,7 @@ from keras import optimizers
 from keras.callbacks import LearningRateScheduler, ModelCheckpoint
 from keras import backend as K
 from timeit import default_timer as timer
+from keras.layers.normalization import BatchNormalization
 
 from utility import *
 

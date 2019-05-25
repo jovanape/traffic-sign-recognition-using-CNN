@@ -1,0 +1,27 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {serbian}
+\beamer@sectionintoc {1}{Cilj rada}{3}{0}{1}
+\beamer@sectionintoc {2}{Informacije o kori\IeC {\v s}\IeC {\'c}enom skupu podataka}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Unutra\IeC {\v s}nja struktura CNN}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Filtriranje i pro\IeC {\v s}irivanje}{6}{0}{2}
+\beamer@subsectionintoc {2}{3}{Aktivaciona funkcija}{7}{0}{2}
+\beamer@subsectionintoc {2}{4}{Agregacija metodom Maxpool}{8}{0}{2}
+\beamer@subsectionintoc {2}{5}{Potpuno povezani sloj}{9}{0}{2}
+\beamer@subsectionintoc {2}{6}{Optimizacija mre\IeC {\v z}e}{11}{0}{2}
+\beamer@sectionintoc {3}{Modeli}{12}{0}{3}
+\beamer@subsectionintoc {3}{1}{Model 1}{12}{0}{3}
+\beamer@subsectionintoc {3}{2}{Model 1 nastavak}{13}{0}{3}
+\beamer@subsectionintoc {3}{3}{Model 2: LeNet5}{14}{0}{3}
+\beamer@subsectionintoc {3}{4}{Model 2 - nastavak}{15}{0}{3}
+\beamer@subsectionintoc {3}{5}{Modeli 1 - statistike}{16}{0}{3}
+\beamer@subsectionintoc {3}{6}{Modeli 2 - statistike}{17}{0}{3}
+\beamer@subsectionintoc {3}{7}{Modeli 2 - statistike (nastavak)}{18}{0}{3}
+\beamer@subsectionintoc {3}{8}{Modeli 1 i 2 - pore\IeC {\dj }enje}{19}{0}{3}
+\beamer@subsectionintoc {3}{9}{Modeli 1 i 2 - pore\IeC {\dj }enje (nastavak)}{20}{0}{3}
+\beamer@subsectionintoc {3}{10}{Model 3: AlexNet}{21}{0}{3}
+\beamer@subsectionintoc {3}{11}{Model 3: AlexNet - nastavak}{22}{0}{3}
+\beamer@subsectionintoc {3}{12}{Model 3: AlexNet - statistike}{23}{0}{3}
+\beamer@subsectionintoc {3}{13}{Model 3: AlexNet - statistike - nastavak}{24}{0}{3}
+\beamer@subsectionintoc {3}{14}{AlexNet i LeNet-5}{25}{0}{3}
+\beamer@sectionintoc {4}{Zaklju\IeC {\v c}ak}{26}{0}{4}
+\beamer@sectionintoc {5}{Literatura}{27}{0}{5}

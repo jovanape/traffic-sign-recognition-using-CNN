@@ -1,0 +1,95 @@
+\beamer@endinputifotherversion {3.36pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\sectionentry {1}{Cilj rada}{3}{Cilj rada}{0}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\sectionentry {2}{Informacije o kori\IeC {\v s}\IeC {\'c}enom skupu podataka}{4}{Informacije o kori\IeC {\v s}\IeC {\'c}enom skupu podataka}{0}}
+\headcommand {\beamer@sectionpages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\slideentry {2}{0}{1}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{5}{Unutra\IeC {\v s}nja struktura CNN}}\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\slideentry {2}{1}{1}{5/5}{Unutra\IeC {\v s}nja struktura CNN}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{6}{Filtriranje i pro\IeC {\v s}irivanje}}\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\slideentry {2}{2}{1}{6/6}{Filtriranje i pro\IeC {\v s}irivanje}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{7}{Aktivaciona funkcija}}\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\slideentry {2}{3}{1}{7/7}{Aktivaciona funkcija}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{8}{Agregacija metodom Maxpool}}\headcommand {\beamer@subsectionpages {7}{7}}
+\headcommand {\slideentry {2}{4}{1}{8/8}{Agregacija metodom Maxpool}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{9}{Potpuno povezani sloj}}\headcommand {\beamer@subsectionpages {8}{8}}
+\headcommand {\slideentry {2}{5}{1}{9/9}{Potpuno povezani sloj}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {2}{5}{2}{10/10}{Potpuno povezani sloj}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@subsectionentry {0}{2}{6}{11}{Optimizacija mre\IeC {\v z}e}}\headcommand {\beamer@subsectionpages {9}{10}}
+\headcommand {\slideentry {2}{6}{1}{11/11}{Optimizacija mre\IeC {\v z}e}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\sectionentry {3}{Modeli}{12}{Modeli}{0}}
+\headcommand {\beamer@sectionpages {4}{11}}
+\headcommand {\beamer@subsectionpages {11}{11}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{12}{Model 1}}\headcommand {\beamer@subsectionpages {12}{11}}
+\headcommand {\slideentry {3}{1}{1}{12/12}{Model 1}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{13}{Model 1 nastavak}}\headcommand {\beamer@subsectionpages {12}{12}}
+\headcommand {\slideentry {3}{2}{1}{13/13}{Model 1 nastavak}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{14}{Model 2: LeNet5}}\headcommand {\beamer@subsectionpages {13}{13}}
+\headcommand {\slideentry {3}{3}{1}{14/14}{Model 2: LeNet5}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{15}{Model 2 - nastavak}}\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\slideentry {3}{4}{1}{15/15}{Model 2 - nastavak}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionentry {0}{3}{5}{16}{Modeli 1 - statistike}}\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\slideentry {3}{5}{1}{16/16}{Modeli 1 - statistike}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@subsectionentry {0}{3}{6}{17}{Modeli 2 - statistike}}\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\slideentry {3}{6}{1}{17/17}{Modeli 2 - statistike}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@subsectionentry {0}{3}{7}{18}{Modeli 2 - statistike (nastavak)}}\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\slideentry {3}{7}{1}{18/18}{Modeli 2 - statistike (nastavak)}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@subsectionentry {0}{3}{8}{19}{Modeli 1 i 2 - pore\IeC {\dj }enje}}\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\slideentry {3}{8}{1}{19/19}{Modeli 1 i 2 - pore\IeC {\dj }enje}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@subsectionentry {0}{3}{9}{20}{Modeli 1 i 2 - pore\IeC {\dj }enje (nastavak)}}\headcommand {\beamer@subsectionpages {19}{19}}
+\headcommand {\slideentry {3}{9}{1}{20/20}{Modeli 1 i 2 - pore\IeC {\dj }enje (nastavak)}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@subsectionentry {0}{3}{10}{21}{Model 3: AlexNet}}\headcommand {\beamer@subsectionpages {20}{20}}
+\headcommand {\slideentry {3}{10}{1}{21/21}{Model 3: AlexNet}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\beamer@subsectionentry {0}{3}{11}{22}{Model 3: AlexNet - nastavak}}\headcommand {\beamer@subsectionpages {21}{21}}
+\headcommand {\slideentry {3}{11}{1}{22/22}{Model 3: AlexNet - nastavak}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\beamer@subsectionentry {0}{3}{12}{23}{Model 3: AlexNet - statistike}}\headcommand {\beamer@subsectionpages {22}{22}}
+\headcommand {\slideentry {3}{12}{1}{23/23}{Model 3: AlexNet - statistike}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\beamer@subsectionentry {0}{3}{13}{24}{Model 3: AlexNet - statistike - nastavak}}\headcommand {\beamer@subsectionpages {23}{23}}
+\headcommand {\slideentry {3}{13}{1}{24/24}{Model 3: AlexNet - statistike - nastavak}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@subsectionentry {0}{3}{14}{25}{AlexNet i LeNet-5}}\headcommand {\beamer@subsectionpages {24}{24}}
+\headcommand {\slideentry {3}{14}{1}{25/25}{AlexNet i LeNet-5}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\sectionentry {4}{Zaklju\IeC {\v c}ak}{26}{Zaklju\IeC {\v c}ak}{0}}
+\headcommand {\beamer@sectionpages {12}{25}}
+\headcommand {\beamer@subsectionpages {25}{25}}
+\headcommand {\slideentry {4}{0}{1}{26/26}{}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\sectionentry {5}{Literatura}{27}{Literatura}{0}}
+\headcommand {\beamer@sectionpages {26}{26}}
+\headcommand {\beamer@subsectionpages {26}{26}}
+\headcommand {\slideentry {5}{0}{1}{27/27}{}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\beamer@partpages {1}{27}}
+\headcommand {\beamer@subsectionpages {27}{27}}
+\headcommand {\beamer@sectionpages {27}{27}}
+\headcommand {\beamer@documentpages {27}}
+\headcommand {\def \inserttotalframenumber {27}}

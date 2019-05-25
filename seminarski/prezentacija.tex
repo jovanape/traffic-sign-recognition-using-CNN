@@ -1,4 +1,7 @@
 \documentclass{beamer}
+
+\setcounter{tocdepth}{1}
+
 \mode<presentation> {
 \usetheme{Antibes}
 \definecolor{zelena}{rgb}{.9,.74,.00}
@@ -94,6 +97,185 @@
 
 \end{frame}
 
+
+%------------------------------------------------
+
+%------------------------------------------------
+
+
+\subsection{Unutrašnja struktura CNN}
+\begin{frame}
+\frametitle{Unutrašnja struktura CNN}
+
+\begin{itemize}
+\item \textbf{Konvolutivni sloj}
+\begin{itemize}
+\item Operacija konvolucije: $$(f * g)_{ij} = \sum_{k=0}^{p-1} \sum_{l=0}^{q-1} f_{i-k, i-l}*g_{k, l}$$
+\end{itemize}
+\item \textbf{Sloj agregacije}
+\begin{itemize}
+\item Maxpooling / Averagepooling
+\end{itemize}
+\item \textbf{Potpuno povezani sloj}
+\begin{itemize}
+\item Softmax funkcija
+\item Categorical crossentropy
+\end{itemize}
+\end{itemize}
+
+\begin{figure}
+\includegraphics[scale=0.5]{cnn_layers.jpg}
+\caption{Struktura konvolutivne neuronske mreže}
+\end{figure}
+
+\end{frame}
+
+
+
+\subsection{Filtriranje i proširivanje}
+\begin{frame}
+\frametitle{Filtriranje, proširivanje i korak}
+
+\begin{itemize}
+\item Vrše se na konvolutivnom sloju
+\item \textbf{Filtriranje} je ,,ekstraktovanje" karakteristika ulaza (slike)
+\begin{itemize}
+\item tako što se izvršava operacija konvolucije
+\end{itemize}
+\item Dimenzija mape nakon filtriranja je manja od dimenzije ulaza
+\item Vrši se \textbf{proširivanje} ulazne matrice
+\begin{itemize}
+\item nulama / vrednostima koje su već na obodu
+\end{itemize}
+\item \textbf{Korak} - za koliko piksela se filter pomera duž slike
+\end{itemize}
+
+\begin{figure}
+\includegraphics[scale=0.5]{filtriranje_mape.png}
+\caption{Filtriranje}
+\end{figure}
+
+
+%\begin{Primer proširivanja ulazne matrice nulama}
+%\includegraphics[scale=0.3]{padding.png}
+%\caption{Primer proširivanja ulazne matrice nulama}
+%\end{figure}
+
+\end{frame}
+
+
+
+\subsection{Aktivaciona funkcija}
+\begin{frame}
+\frametitle{Aktivaciona funkcija}
+
+\begin{itemize}
+\item Funkcija kojom se ograničavaju vrednosti izlaza neurona
+\begin{itemize}
+\item opseg izlaza neurona obično je u intervalu [0,1] ili [-1,1] \\
+(osim za ReLU)
+\end{itemize}
+\item Više vrsta aktivacionih funkcija:
+\begin{itemize}
+\item \textbf{ReLU} (Rectified Linear Unit): $f(z)=max(0, z)$
+\item \textbf{tanh}: $\tanh(x) = \dfrac{e^{2x}-1}{e^{2x}+1}$
+\item \textbf{sigmoid}: $\sigma(x) = \dfrac{1}{1 + e^{-x}}$
+\end{itemize}
+\end{itemize}
+
+%\begin{figure}
+%\includegraphics[scale=0]{relu_graph.png}
+%\caption{Izgled ReLU funkcije}
+%\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.38]{graphs_prez.png}
+\caption{Grafici funkcija: ReLU, tanh i sigmoid}
+\end{figure}
+
+\end{frame}
+
+
+\subsection{Agregacija metodom Maxpool}
+\begin{frame}
+\frametitle{Agregacija metodom Maxpool}
+
+\begin{itemize}
+\item Jedan od metoda koji se koristi na sloju za agregaciju, najzastupljeniji
+\item Vraća \textbf{maksimum} dela slike prekrivene filterom 
+\item Ideja je da se informacije o slici što više ,,ukrupne"
+\end{itemize}
+
+\begin{figure}
+\includegraphics[scale=0.5]{maxpool.jpeg}
+\caption{Metod Maxpool sa filterom [2x2] i korakom veličine 2}
+\end{figure}
+
+\end{frame}
+
+
+
+\subsection{Potpuno povezani sloj}
+\begin{frame}
+\frametitle{Potpuno povezani sloj}
+
+\begin{itemize}
+\item Svaki neuron je povezan sa svakim neuronom iz prethodnog sloja
+\item Kao ulaz očekuje vektor, što znači da je prvo potrebno ispraviti mapu karakteristika u vektor
+\item Poslednji potpuno povezani sloj treba da ima onoliko neurona koliko ima i klasa
+\item Poslednji sloj određuje koju klasu da pridruži slici pomoću softmax aktivacione funkcije
+\item Softmax funkcija odreduje verovatnoću pripadnosti slike svakoj od klasa
+\item Slika se klasifikuje u onu klasu kojoj odgovara najveća verovatnoća pripadnosti
+\end{itemize}
+
+\end{frame}
+
+
+% -------------------
+\begin{frame}
+\frametitle{Potpuno povezani sloj - Funkcija gubitka}
+
+\begin{itemize}
+\item Funkcija gubitka: categorical crossentropy
+\item Uporeduje raspodelu verovatnoća predvidenih klasa sa raspodelom koja odgovara pravim klasama
+\item $$ H(y, \hat{y}) = -\sum_{i} y_i\cdot log(\hat{y})) $$
+\item Služi da kvantifikuje kvalitet klasifikacije, tj. da oceni koliko je dobar skup težina koji služi za učenje mreže
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Optimizacija mreže}
+\begin{frame}
+\frametitle{Optimizacija mreže}
+
+\begin{itemize}
+\item Cilj optimizacije: pronaći skup težina tako da se funkcija gubitka minimizuje
+\item SGD (Stohastički Gradijentni Spust)
+\begin{itemize}
+	\item Težine se traže u pravcu koji je suprotan pravcu gradijenta funkcije gubitka - tako se može stići do lokalnog minimuma 
+	\item Potrebno odrediti pogodnu dužinu koraka, tj. pronaći najbolji parametar učenja (learning rate)
+	\item Ažuriranje težina moguće na osnovu samo dela podataka iz trening skupa
+	\item Stohastički - nasumično bira trening uzorke na osnovu kojih će ažurirati parametre
+	\item Održava jednu vrednost parametra učenja za sva ažuriranja težina i ta vrednost se
+ne menja tokom treninga
+\end{itemize}
+\item Adam
+\begin{itemize}
+	\item Unapređena verzija SGD-a
+	\item Može da održava različite parametre učenja za različite težine i da ih menja tokom procesa učenja
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+%------------------------------------------------
+%------------------------------------------------
+%------------------------------------------------
+%------------------------------------------------
+
 \section{Modeli}
 
 \subsection{Model 1}
@@ -113,7 +295,7 @@
 \item U svim konvolutivnim slojevima:
 \begin{itemize}
 \item velicina jezgra je 3x3
-\item broj ltera na izlazu iz konvolucije je 32
+\item broj filtera u konvolutivnom sloju je 32
 \end{itemize}
 
 % TODO TODO TODO TODO TODO Proveriti da li u svakom sloju?
@@ -134,7 +316,7 @@
 
 \begin{itemize}
 
-\item Funkcijom \textbf{Dropoup()} je iskljucivan odreden broj nasumicno odabranih neurona (da bi se sprecilo preprilagodjavanje)
+\item Funkcijom \textbf{Dropout()} je isključivan određen broj nasumično odabranih neurona (da bi se sprečilo preprilagodjavanje)
 \item Nakon agregacija je iskljuceno 20\% neurona, pre FC sloja 50\%
 
 \item Poslednji potpuno povezani (FC) sloj
@@ -149,82 +331,244 @@
 \item sto znaci da u svakoj iteraciji uzima 32 primerka iz trening skupa koja ce biti propagirana kroz mrezu
 \end{itemize}
 
-\item Optimizacija modela je izvrsena pomocu \textbf{gradijentnog spusta}
+\item Optimizacija modela je izvrsena pomocu \textbf{SGD}
+\item Sa tako podesenim parametrima preciznost je 0.88
 
 \end{itemize}
 
 \end{frame}
 
-%------------------------------------------------
+% --------------------
 
-\subsection{Model 2}
+\subsection{Model 2: LeNet5}
 \begin{frame}
-\frametitle{Model 2}
-
-
-\end{frame}
-
-%------------------------------------------------
-
-
-\subsection{Model 2 nastavak}
-\begin{frame}
-\frametitle{Model 2 nastavak}
+\frametitle{Model 2: LeNet5}
 
 \begin{itemize}
-\item
-\item
-\item
+\item 7 slojeva: 2 konvolutivna, 2 average pooling, 3 potpuno povezana
+\item Prvi konvolutivni sloj: 6 filtera veličine 3x3
+\item Drugi konvolutivni sloj: 16 filtera veličine 3x3
+\item ReLU aktivaciona funkcija
+\item Potpuno povezani slojevi - broj neurona redom: 120, 84, koliko ima i klasa 
+\item Pre treninga su slike skalirane na 32x32
+\item Optimizacija pomoću Adam optimizatora
+\item Prilikom učenja u 30 epoha sa batch size 32, preciznost je bila 0.91
+\end{itemize}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+
+\subsection{Model 2 - nastavak}
+\begin{frame}
+\frametitle{Model 2 - nastavak}
+
+\begin{figure}
+\includegraphics[scale=0.30]{lenet5_prez.png}
+\caption{LeNet5 arhitektura}
+\end{figure}
+
+\end{frame}
+
+
+% -------------------------------------
+
+\subsection{Modeli 1 - statistike}
+\begin{frame}
+\frametitle{Modeli 1 - statistike}
+
+\begin{figure}
+\includegraphics[scale=0.40]{stat_model1_10.png}
+\caption{Rezultati Modela 1 za 10 epoha, različite vrednosti funkcije aktivacije (relu, tanh i sigmoid), optimizatora (SGD, Adam) i Batch size (32, 64)}
+\end{figure}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Modeli 2 - statistike}
+\begin{frame}
+\frametitle{Modeli 2 - statistike}
+
+\begin{figure}
+\includegraphics[scale=0.30]{stat_model2_10.png}
+\caption{Rezultati LeNet5 modela za 10 epoha, različite vrednosti funkcije aktivacije (relu, tanh i sigmoid), optimizatora (SGD, Adam) i Batch size (32, 64 i 128)}
+\end{figure}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Modeli 2 - statistike (nastavak)}
+\begin{frame}
+\frametitle{Modeli 2 - statistike (nastavak)}
+
+\begin{figure}
+\includegraphics[scale=0.30]{stat_model2_100.png}
+\caption{Rezultati LeNet5 modela za 100 epoha, različite vrednosti funkcije aktivacije (relu, tanh i sigmoid), optimizatora (SGD, Adam) i Batch size (32, 64 i 128)}
+\end{figure}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Modeli 1 i 2 - poređenje}
+\begin{frame}
+\frametitle{Modeli 1 i 2 - poređenje}
+
+\begin{itemize}
+\item Sigmoidnu funkciju ne treba koristiti ni u modelu 1 ni u LeNet modelu, jer sve slike klasifikuje u istu klasu (8. klasu)
+\item LeNet model je mnogo brži od modela 1: za približno isto vreme u modelu 1 se izvrsi 10 epoha, a u LeNet modelu 100 epoha
+\item Kada se posmatra izvrsavanje u 10 epoha, model 1 daje malo bolje rezultate od LeNet (ako se izuzme kombinacija tangentne aktivacione funkcije i optimizacije pomocu Adama)
+\item Model 1 daje najveću preciznost (0.908) na test skupu u 10 epoha kada se kao aktivaciona funkcija koristi tangenta funkcija, kada se optimizuje pomoću SGD i kada je batch size = 32
 \end{itemize}
 
 \end{frame}
 
 %------------------------------------------------
 
-\subsection{Model 3}
+\subsection{Modeli 1 i 2 - poređenje (nastavak)}
 \begin{frame}
-\frametitle{Model 3}
+\frametitle{Modeli 1 i 2 - poređenje (nastavak)}
+
+\begin{itemize}
+\item Model 1 ima nesto veću preciznost kada je batch size = 32, u odnosu na to kada je batch size = 64
+\item Kada poredimo izvršavanje LeNet modela u 10 i 100 epoha, vidimo da je preciznost tek malo bolja u 100 epoha, nego u 10 - za 0.01 ili 0.02. A izvrsavanje traje oko 10 puta duže. Zato se više isplati uzeti manji broj epoha.
+\end{itemize}
 
 \end{frame}
 
 %------------------------------------------------
+%------------------------------------------------
+%------------------------------------------------
+%------------------------------------------------
 
 
-\section{Uporedjivanje modela}
+
+\subsection{Model 3: AlexNet}
 \begin{frame}
-\frametitle{Uporedjivanje modela}
+\frametitle{Model 3: AlexNet}
+
+\begin{itemize}
+\item AlexNet arhitektura je jedna od prvih dubokih mreža
+\item Sastoji se iz:
+\begin{itemize}
+\item 5 konvolutivna sloja
+\item 3 potpuno povezana sloja
+\end{itemize}
+\item Kao aktivaciona funkcija koristi se ReLu
+\end{itemize}
 
 
-\begin{block}{Primer koda}
+\begin{figure}
+\includegraphics[scale=0.55]{alexnet_arh.png}
+\caption{AlexNet arhitektura}
+\end{figure}
 
-\begin{semiverbatim}
--- neki kod
--- ...
--- ...
--- ...
-\end{semiverbatim}
-\end{block}
 
 \end{frame}
+
+
+
+\subsection{Model 3: AlexNet - nastavak}
+\begin{frame}
+\frametitle{Model 3: AlexNet - nastavak}
+
+\begin{itemize}
+\item Mreža koju smo implementirale svaki izlaz iz konvolutivnog sloja normalizuje pre nego što ga prosledi narednom sloju
+\item Pre normalizacije (nakon 1., 2. i 5. konv. sloja) - agregacija
+\begin{itemize}
+\item sa parametrom padding = 'valid' (nema proširenja)
+\end{itemize}
+\item Poravnavajući sloj ("ispravlja" mapu karakteristika u vektor)
+\item 3 Dense sloja + Dropout()
+\begin{itemize}
+\item Dropout() sprečava preprilagodavanje modela
+\end{itemize}
+\item Na kraju je izlazni sloj koji preslikava ulaz u zadati broj klasa
+\begin{itemize}
+\item kao funkciju aktivacije koristi Softmax.
+\end{itemize}
+\end{itemize}
+
+%\begin{figure}
+%\includegraphics[scale=0.5]{confussion_matrix_alexNet_1000epoh.png}
+%\caption{Matrica konfuzije i ostale statistike AlexNet modela za 1000 epoha}
+%\end{figure}
+
+\end{frame}
+
+
+\subsection{Model 3: AlexNet - statistike}
+\begin{frame}
+\frametitle{Model 3: AlexNet - statistike}
+
+\begin{itemize}
+\item Kod AlexNet modela, vreme izvršavanja je oko 10 puta veće za 100 nego za 10 epoha
+
+\item Najmanja preciznost za AlexNet model se postiže za funkciju sigmoid, 10 epoha i Batch size 256, a iznosi 0.696
+
+\begin{itemize}
+\item to je jedini slučaj da je preciznost ispod 0.71
+\item uglavnom su preciznosti u intervalu [0.801, 0.934]
+\item ne osciluje mnogo izvan pomenutog intervala
+\end{itemize}
+
+\item Prosečna preciznost za 10 epoha je 82\%, a za 100 epoha 90\%
+
+\item Iz ovoga se može zaključiti da je za AlexNet model i dati skup podataka
+bolje trenirati model u što više epoha
+\item Ovo potvrduje i činjenica da je u 1000 epoha ovaj model dostigao najveću preciznost od 95\% (veću od sva tri modela)
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Model 3: AlexNet - statistike - nastavak}
+\begin{frame}
+\frametitle{Model 3: AlexNet - statistike - nastavak}
+
+\begin{figure}
+\includegraphics[scale=0.42]{alexNet_tabela.png}
+\caption{Rezultati za AlexNet model za različite vrednosti broja epoha (10 i 100), funkcije aktivacije (relu, tanh i sigmoid) i Batch size (32, 64 i 256)}
+\end{figure}
+
+\end{frame}
+
+
+
+\subsection{AlexNet i LeNet-5}
+\begin{frame}
+\frametitle{AlexNet i LeNet-5}
+
+\begin{itemize}
+\item Primetiti da se vrednosti na y-osi ova dva grafika razlikuju
+\item To je zato što LeNet-5 daje malu preciznost za f-ju sigmoid
+\item Maksimalna preciznost AlexNet mreže je 0.94, a LeNet-5 0.91
+
+\end{itemize}
+
+\begin{figure}
+\includegraphics[scale=0.45]{graphs_alexnet_lenet.png}
+\caption{Grački prikaz preciznosti za mreže AlexNet i LeNet-5 za 100 epoha, za funkcije sigmoid, tanh i ReLu}
+\end{figure}
+
+\end{frame}
+
 
 %------------------------------------------------
 
-\subsection{Statistike}
-\begin{frame}
-\frametitle{Statistike}
-
-
-\end{frame}
-
 %------------------------------------------------
 
-\subsection{Grafik}
-\begin{frame}
-\frametitle{Grafik}
 
-\end{frame}
 
-%--------------------------------------------------
+
 
 \section{Zaključak}
 
@@ -232,9 +576,8 @@
 \frametitle{Zaključak}
 
 \begin{itemize}
-\item
-\item
-\item
+\item Za sva tri isprobana modela mreža moguće je naći parametre tako da dobro klasifikuju test podatke 
+\item Od svega što smo probale, najbolje rezultate (preciznost od 0.95) je dala AlexNet mreža u 1000 epoha
 \end{itemize}
 
 \end{frame}
@@ -248,11 +591,14 @@
 \footnotesize{
 \begin{thebibliography}{99}
 
-\bibitem[]{p1} Ime Prezime pisca (godina)
-\newblock \small{\textbf{Ime knjige} Mesto, tekst, godina.}
+\bibitem[]{p1} Mladen Nikolić, Andelka Zečević
+\newblock \small{\textbf{Mašinsko učenje}, 2019.}
 
-\bibitem[]{p1} Ime Prezime pisca (od-do)
-\newblock \small{\textbf{Naziv dela}, on-line at: http://adresa.org/.}
+\bibitem[]{p1} Saad Albawi
+\newblock \small{\textbf{Understanding of a Convolutional Neural Network}, 2017.}
+
+\bibitem[]{p1} Leon Bottou, Yann LeCun, Patric Haffner
+\newblock \small{\textbf{Object recognition with Gradient-Based learning}, 1998. }
 
 \end{thebibliography}
 }
@@ -260,9 +606,9 @@
 \end{frame}
 %------------------------------------------------
 
-\begin{frame}
-\Huge{\centerline{Hvala na pažnji!}}
-\end{frame}
+%\begin{frame}
+%\Huge{\centerline{Hvala na pažnji!}}
+%\end{frame}
 
 
 \end{document} 

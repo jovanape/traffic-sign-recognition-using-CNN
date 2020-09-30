@@ -1,4 +1,4 @@
-# traffic-sign-recognition-using-CNN
+# traffic-signs-recognition-using-CNN
 
 ### :mortar_board: Seminarski rad u okviru kursa Računarska inteligencija na 4. godini I smera.
 
